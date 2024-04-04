@@ -1,0 +1,12 @@
+[
+	{
+		"home": {
+			"name": "Inicio",
+			"link": "/"
+		},
+		"articles": {
+			"name": "Articulos",
+			"link": "/articulos"
+		}
+	}
+]
