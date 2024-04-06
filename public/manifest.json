@@ -12,7 +12,7 @@
 		{
 			"src": "/assets/favicon/favicon.ico",
 			"sizes": "48x48",
-			"type": "img/favicon/x-icon"
+			"type": "img/favicon/ico"
 		},
 		{
 			"src": "/assets/favicon/favicon-32x32.png",
@@ -27,7 +27,7 @@
 		{
 			"src": "/assets/favicon/favicon-512x512.png",
 			"sizes": "512x512",
-			"type": "image/png"
+			"type": "image/png/x-icon"
 		},
 		{
 			"src": "/assets/favicon/favicon-apple.png",
