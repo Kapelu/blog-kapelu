@@ -1,0 +1,86 @@
+/***********  POSTs  ***********/
+.posts {
+  width: 100%;
+  min-height: 100vh;
+}
+
+.post-title {
+  border: thin solid var(--first-color);
+  border-radius: 1rem;
+  margin: 0.5rem auto;
+  width: 300px;
+  text-align: center;
+  font-size: 2.5rem;
+  text-align: center;
+}
+
+.post-card {
+  border-radius: 0.5rem;
+  margin: 1rem auto;
+  font-size: 1rem;
+  padding: 1rem;
+  text-align: center;
+  background-color: var(--black-alpha-color);
+  border-radius: 0.6rem;
+  border: 1.5px solid var(--first-alpha-color);
+}
+
+.post-card-header {
+  color: var(--gray-color);
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.post-card-header-item {
+  padding: 0.5rem 1rem;
+  background-color: var(--second-alpha-color);
+  text-transform: uppercase;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: 0.25rem;
+}
+.post-card h3 {
+  color: var(--first-alpha-color);
+  padding: 0.5rem;
+  resize: none;
+  overflow-x: hidden;
+}
+
+.post-card p {
+  color: rgb(160, 174, 192);
+  opacity: 1;
+  padding: 0.5rem;
+  resize: none;
+  max-height: 90px;
+  overflow-x: hidden;
+  mask-image: linear-gradient(black 50%, transparent);
+}
+
+.post-card-link {
+  color: var(--link-color);
+  padding: 0.25rem;
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 1rem;
+  display: flex;
+  justify-content: end;
+}
+
+@media screen and (min-width: 1200px) {
+  .post-card {
+    width: 560px;
+    min-height: 230px;
+  }
+  .posts > .container {
+    display: grid;
+    grid-template-columns: repeat(2, 50%);
+    justify-content: space-between;
+    align-content: center;
+  }
+
+  .posts .post-title {
+    grid-column: span 2;
+  }
+}
