@@ -14,7 +14,7 @@ const Pagination = (props: IPaginationProps) => (
     {props.previous && (
       <div>
         <Link href={convertUrlToLinkHref(props.previous)} as={props.previous}>
-          <a>⬅ Siguientes Posts</a>
+          <a>⬅ Nuevos Posts</a>
         </Link>
       </div>
     )}
