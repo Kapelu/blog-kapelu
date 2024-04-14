@@ -18,7 +18,7 @@ ssh-keygen -t rsa -b 4096 -C “tu_email@gmail.com”
 
 Nos pide la ruta en la que se va a guardar las credenciales, en este caso damos enter, para que las guarde en home:
 
-![configurar clave SSH](../public/assets/images/posts/configurar-claves-ssh/Configurar%20clave%20SSH-01.png)
+![configurar clave SSH](https://raw.githubusercontent.com/Kapelu/blog-kapelu/main/public/assets/images/posts/configurar-claves-ssh/Configurar%20clave%20SSH-01.png?token=GHSAT0AAAAAACQXCBN4P5PZI35IY4AWJ7BIZQ3OIVA)
 
 Después nos pide una contraseña con espacios (es recomendable ponerla)
 
