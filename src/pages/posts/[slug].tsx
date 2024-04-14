@@ -88,7 +88,7 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
       description: post.description,
       date: post.date,
       modified_date: post.modified_date,
-      tag: post.tag,
+      tag: post.tag || null,
       image: post.image,
       content,
     },
