@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import { format } from "date-fns";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { format } from 'date-fns';
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { Meta } from "../../Components/Meta";
-import { Content } from "../../templates/Content";
-import { Main } from "../Main";
-import { getAllPosts, getPostBySlug } from "../../utils/Content";
-import { markdownToHtml } from "../../utils/Markdown";
+import { Content } from '../../content/Content';
+import { Meta } from '../../layout/Meta';
+import { Main } from '../../templates/Main';
+import { getAllPosts, getPostBySlug } from '../../utils/Content';
+import { markdownToHtml } from '../../utils/Markdown';
 
 type IPostUrl = {
   slug: string;
@@ -42,20 +42,17 @@ const DisplayPost = (props: IPostProps) => (
       {props.title}
     </h1>
     <div className="text-center text-sm mb-8">
-      {format(new Date(props.date), "dd LLL yyyy")}
+      {format(new Date(props.date), 'dd LLL yyyy')}
     </div>
 
     <Content>
-      <div
-        // eslint-disable-next-line react/no-danger
-        dangerouslySetInnerHTML={{ __html: props.content }}
-      />
+      <div dangerouslySetInnerHTML={{ __html: props.content }} />
     </Content>
   </Main>
 );
 
 export const getStaticPaths: GetStaticPaths<IPostUrl> = async () => {
-  const posts = getAllPosts(["slug"]);
+  const posts = getAllPosts(['slug']);
 
   return {
     paths: posts.map((post) => ({
@@ -71,16 +68,16 @@ export const getStaticProps: GetStaticProps<IPostProps, IPostUrl> = async ({
   params,
 }) => {
   const post = getPostBySlug(params!.slug, [
-    "title",
-    "description",
-    "date",
-    "modified_date",
-    "tag",
-    "image",
-    "content",
-    "slug",
+    'title',
+    'description',
+    'date',
+    'modified_date',
+    'tag',
+    'image',
+    'content',
+    'slug',
   ]);
-  const content = await markdownToHtml(post.content || "");
+  const content = await markdownToHtml(post.content || '');
 
   return {
     props: {

@@ -2,7 +2,7 @@ import React from 'react';
 
 import Link from 'next/link';
 
-const convertUrlToLinkHref = (url: string) => (url === '/' ? '/' : '/[page]');
+import { convertUrlToLinkHref } from '../utils/Pagination';
 
 export type IPaginationProps = {
   previous?: string;
@@ -10,23 +10,23 @@ export type IPaginationProps = {
 };
 
 const Pagination = (props: IPaginationProps) => (
-  <article className="pagination-previous">
+  <div className="pagination-previous">
     {props.previous && (
-      <aside>
+      <div>
         <Link href={convertUrlToLinkHref(props.previous)} as={props.previous}>
-          <a>← Nuevos Posts</a>
+          <a>← Siguientes Posts</a>
         </Link>
-      </aside>
+      </div>
     )}
 
     {props.next && (
-      <aside className="pagination-next">
+      <div className="pagination-next">
         <Link href={convertUrlToLinkHref(props.next)} as={props.next}>
           <a>Anteriores Posts →</a>
         </Link>
-      </aside>
+      </div>
     )}
-  </article>
+  </div>
 );
 
 export { Pagination };

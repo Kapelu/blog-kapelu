@@ -3,7 +3,7 @@ import React from 'react';
 import { format } from 'date-fns';
 import Link from 'next/link';
 
-import { Pagination, IPaginationProps } from './Pagination';
+import { Pagination, IPaginationProps } from '../pagination/Pagination';
 import { PostItems } from '../utils/Content';
 
 export type IBlogGalleryProps = {
@@ -37,12 +37,11 @@ const Articles = (props: IBlogGalleryProps) => (
             </div>
           </article>
         ))}
-
-        <Pagination
-          previous={props.pagination.previous}
-          next={props.pagination.next}
-        />
       </div>
+      <Pagination
+        previous={props.pagination.previous}
+        next={props.pagination.next}
+      />
     </section>
   </>
 );

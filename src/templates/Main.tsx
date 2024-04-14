@@ -5,14 +5,10 @@ type IMainProps = {
   children: ReactNode;
 };
 
-type IContentProps = {
-  children: ReactNode;
-};
-
-const Main = (props: IMainProps & IContentProps) => (
+const Main = (props: IMainProps) => (
   <>
     {props.meta}
-    <article className="">{props.children}</article>
+    {props.children}
   </>
 );
 

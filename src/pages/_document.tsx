@@ -8,10 +8,7 @@ export default function Blog() {
   return (
     <Html lang={AppConfig.locale}>
       <Head />
-
-      <body
-        className="background container" /* style={{ paddingTop: '1.5rem' }} */
-      >
+      <body className="background container">
         <Header />
         <Main />
         <Footer />

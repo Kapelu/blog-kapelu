@@ -1,10 +1,9 @@
-import React from "react";
+import React from 'react';
 
-import Card3 from "../../_assets/Card";
-import { Meta } from "../Components/Meta";
-import { Content } from "../templates/Content";
-import { Main } from "./Main";
-import { AppConfig } from "../utils/AppConfig";
+import { Content } from '../content/Content';
+import { Meta } from '../layout/Meta';
+import { Main } from '../templates/Main';
+import { AppConfig } from '../utils/AppConfig';
 
 const About = () => (
   <Main
@@ -93,7 +92,6 @@ const About = () => (
       <br />
       <br />
       <br />
-      <Card3 />
     </Content>
   </Main>
 );

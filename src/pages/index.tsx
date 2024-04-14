@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import { GetStaticProps } from "next";
+import { GetStaticProps } from 'next';
 
-import { Articles, IBlogGalleryProps } from "../Components/Articles";
-import { Meta } from "../Components/Meta";
-import { IPaginationProps } from "../Components/Pagination";
-import { Main } from "./Main";
-import { AppConfig } from "../utils/AppConfig";
-import { getAllPosts } from "../utils/Content";
+import { Articles, IBlogGalleryProps } from '../Components/Articles';
+import { Meta } from '../layout/Meta';
+import { IPaginationProps } from '../pagination/Pagination';
+import { Main } from '../templates/Main';
+import { AppConfig } from '../utils/AppConfig';
+import { getAllPosts } from '../utils/Content';
 
 const Index = (props: IBlogGalleryProps) => (
   <Main
@@ -18,11 +18,11 @@ const Index = (props: IBlogGalleryProps) => (
 );
 
 export const getStaticProps: GetStaticProps<IBlogGalleryProps> = async () => {
-  const posts = getAllPosts(["title", "date", "tag", "description", "slug"]);
+  const posts = getAllPosts(['title', 'date', 'tag', 'description', 'slug']);
   const pagination: IPaginationProps = {};
 
   if (posts.length > AppConfig.pagination_size) {
-    pagination.next = "/page2";
+    pagination.next = '/page2';
   }
 
   return {

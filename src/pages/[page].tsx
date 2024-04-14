@@ -1,13 +1,13 @@
-import React from "react";
+import React from 'react';
 
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from 'next';
 
-import { BlogGallery, IBlogGalleryProps } from "../Components/Articles";
-import { Meta } from "../Components/Meta";
-import { IPaginationProps } from "../Components/Pagination";
-import { Main } from "./Main";
-import { AppConfig } from "../utils/AppConfig";
-import { getAllPosts } from "../utils/Content";
+import { Articles, IBlogGalleryProps } from '../Components/Articles';
+import { Meta } from '../layout/Meta';
+import { IPaginationProps } from '../pagination/Pagination';
+import { Main } from '../templates/Main';
+import { AppConfig } from '../utils/AppConfig';
+import { getAllPosts } from '../utils/Content';
 // import { convertTo2D } from '../../_assets/pagination/Pagination';
 
 const convertTo2D = function convertTo2D<T>(arr: T[], size: number) {
@@ -30,12 +30,12 @@ type IPageUrl = {
 
 const PaginatePosts = (props: IBlogGalleryProps) => (
   <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
-    <BlogGallery posts={props.posts} pagination={props.pagination} />
+    <Articles posts={props.posts} pagination={props.pagination} />
   </Main>
 );
 
 export const getStaticPaths: GetStaticPaths<IPageUrl> = async () => {
-  const posts = getAllPosts(["slug"]);
+  const posts = getAllPosts(['slug']);
 
   const pages = convertTo2D(posts, AppConfig.pagination_size);
 
@@ -56,10 +56,10 @@ export const getStaticProps: GetStaticProps<
   IBlogGalleryProps,
   IPageUrl
 > = async ({ params }) => {
-  const posts = getAllPosts(["title", "date", "slug"]);
+  const posts = getAllPosts(['title', 'date', 'slug']);
 
   const pages = convertTo2D(posts, AppConfig.pagination_size);
-  const currentPage = Number(params!.page.replace("page", ""));
+  const currentPage = Number(params!.page.replace('page', ''));
   const currentIndex = currentPage - 1;
 
   const pagination: IPaginationProps = {};
@@ -69,7 +69,7 @@ export const getStaticProps: GetStaticProps<
   }
 
   if (currentPage === 2) {
-    pagination.previous = "/";
+    pagination.previous = '/';
   } else {
     pagination.previous = `page${currentPage - 1}`;
   }
