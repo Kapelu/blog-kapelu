@@ -46,7 +46,10 @@ const DisplayPost = (props: IPostProps) => (
     </div>
 
     <Content>
-      <div dangerouslySetInnerHTML={{ __html: props.content }} />
+      <div
+        // eslint-disable-next-line react/no-danger
+        dangerouslySetInnerHTML={{ __html: props.content }}
+      />
     </Content>
   </Main>
 );
