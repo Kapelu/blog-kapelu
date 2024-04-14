@@ -1,0 +1,97 @@
+.about {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.about-description{
+    color: var(--text-color);
+  }
+
+.about-image{
+  display: inherit;
+  flex-direction: inherit;
+  align-items: inherit;
+}
+
+.about-image h1{
+  margin: .5rem;
+  padding: .5rem;
+  color: aqua;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.about-image h4{
+  margin: .5rem;
+  padding: .5rem;
+  color: aqua;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+}
+
+.about-social-media {
+  background: var(--background);
+  display: grid;
+  place-items: center;
+  height: 100vh;
+}
+
+.social-media-buttons {
+  padding: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: nowrap;
+  gap: 1.5rem;
+}
+
+.social-media-button {
+  width: 3rem;
+  height: 3rem;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  outline: 1.5px solid white; 
+  cursor: pointer;
+  transition: all 0.3s;
+  display: grid;
+  place-items: center;
+}
+
+.social-media-button:hover {
+  outline-offset: 3px;
+  transition: all 0.3s;
+}
+
+.social-media-button img {
+  transition: all 0.3s;
+}
+
+.social-media-button:hover img {
+  transform: scale(1.15);
+}
+
+.social-media-button:hover:nth-child(1) {
+  background: var(--cv);
+}
+
+.social-media-button:hover:nth-child(2) {
+  background-color: var(--linkedin);
+}
+
+.social-media-button:hover:nth-child(3) {
+  background-color: var(--github);
+}
+
+.social-media-button:hover:nth-child(4) {
+  background-color: var(--whatsapp);
+}
+
+@media screen and (min-width: 1024px) {
+  .about-description{
+    margin: 0 6rem;
+  }
+}

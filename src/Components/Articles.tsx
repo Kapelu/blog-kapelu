@@ -17,7 +17,7 @@ const Articles = (props: IBlogGalleryProps) => (
       <div className="container">
         <h2 className="post-title background-blur">Articulos</h2>
         {props.posts.map((postMd) => (
-          <article key={postMd.slug} className="post-card">
+          <article key={postMd.slug} className="post-card box-shadow">
             <div className="flex items-center text-gray-500 justify-between mb-4">
               <time className="post-card-header-item">
                 {format(new Date(postMd.date), `dd LLL yyyy`)}

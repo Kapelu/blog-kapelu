@@ -8,7 +8,6 @@ import { IPaginationProps } from '../pagination/Pagination';
 import { Main } from '../templates/Main';
 import { AppConfig } from '../utils/AppConfig';
 import { getAllPosts } from '../utils/Content';
-// import { convertTo2D } from '../../_assets/pagination/Pagination';
 
 const convertTo2D = function convertTo2D<T>(arr: T[], size: number) {
   const res: T[][] = [];
@@ -29,7 +28,9 @@ type IPageUrl = {
 };
 
 const PaginatePosts = (props: IBlogGalleryProps) => (
-  <Main meta={<Meta title="Lorem ipsum" description="Lorem ipsum" />}>
+  <Main
+    meta={<Meta title={AppConfig.title} description={AppConfig.site_name} />}
+  >
     <Articles posts={props.posts} pagination={props.pagination} />
   </Main>
 );

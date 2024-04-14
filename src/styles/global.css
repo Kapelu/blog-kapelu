@@ -27,9 +27,16 @@
   --text-color: #f8d6a8;
   --text-card-title-color: #ecb465d0;
   --text-card-description-color: #00a89675;
-
   --color-post-header: #a0aec0;
 
+  /*# Social-Media*/
+  --background: #060d23;
+  --cv: #247c46ad;
+  --linkedin: #0a66c2;
+  --github: #8734FE;
+  --whatsapp: #25D366;
+
+  
   /*#  Assets */
   --max-width: 1200px;
   --header-height: 3.5rem;
@@ -136,7 +143,7 @@ p {
 }
 
 .box-shadow {
-  box-shadow: 0.25rem 0.25rem 1rem #77777780;
+  box-shadow: 0.4rem 0.4rem .5rem #99999980;
 }
 
 .background-blur {
