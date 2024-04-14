@@ -13,7 +13,7 @@ image: /assets/images/posts/random-img.jpg
   ```bash
   cd $HOME && echo 'Hola Mundo!' > hello.sh 
   ```
-  
+  ![crear-script-bash](https://raw.githubusercontent.com/Kapelu/blog-kapelu/main/public/assets/images/posts/configurar-claves-ssh/Configurar%20clave%20SSH-01.png?token=GHSAT0AAAAAACQXCBN4P5PZI35IY4AWJ7BIZQ3OIVA)
     Esto creara un archivo en el Home llamado hello.sh
 
 * Abrir el archivo y agregar la linea shebang `#!/bin/bash` en la linea 1. Cuando incluyes la línea  `#!/bin/bash` en la parte superior de tu script, el sistema sabe que quieres usar bash como intérprete para tu script. Por lo tanto, ahora puedes ejecutar el script hello.sh directamente 
