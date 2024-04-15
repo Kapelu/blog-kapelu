@@ -3,7 +3,7 @@ title: 'Configurar llaves SSH en github'
 description: Como crear llaves ssh configurarlas en nuestro sistema y agregarlas a github
 date: '2021-05-09'
 modified_date: '2021-02-02'
-tag: 'github'
+tag: 'Github'
 image: '../public/assets/images/posts/configurar-claves-ssh/'
 ---
 
