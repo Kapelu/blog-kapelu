@@ -1,0 +1,23 @@
+.article-container {
+  color: var(--white-alpha-color);
+  margin: 0.5rem 1rem;
+  margin-top: 0;
+  padding: 0.8rem;
+  border: 1px solid var(--background-color-opacity);
+  background-color: var(--background-color-opacity);
+  border-radius: 0 0 10px 10px;
+  line-height: 3;
+}
+
+.article-title {
+  margin: 0rem 1rem;
+  margin-top: 1rem;
+  padding: 0.5rem;
+  text-align: center;
+  font-size: 1.875rem;
+  font-weight: 700;
+  color: var(--first-alpha-color);
+  background-color: var(--second-color);
+  border: 1px solid var(--background-color-opacity);
+  border-radius: 10px 10px 0 0;
+}

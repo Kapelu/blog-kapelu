@@ -1,19 +1,18 @@
 ---
-title: 'My first post'
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-date: '2010-07-02'
-modified_date: '2020-02-02'
-image: /assets/images/posts/random-img.jpg
+title: 'Pasos para crear un script bash'
+description: Pasos para crear y configurar script ejecutables desde cualquier parte del sistema
+date: '2021-04-27'
+modified_date: '2023-04-14'
+tag: 'Linux'
+image: '/assets/images/posts/crear-script-bash/'
 ---
-
-# Pasos para crear un script bash
 
 * Crear el archivo con extension .sh
   
   ```bash
   cd $HOME && echo 'Hola Mundo!' > hello.sh 
   ```
-  ![crear-script-bash](https://raw.githubusercontent.com/Kapelu/blog-kapelu/main/public/assets/images/posts/configurar-claves-ssh/Configurar%20clave%20SSH-01.png?token=GHSAT0AAAAAACQXCBN4P5PZI35IY4AWJ7BIZQ3OIVA)
+  ![crear-script-bash](../public/assets/images/posts/crear-script-bash/crear-script-bash01.png)
     Esto creara un archivo en el Home llamado hello.sh
 
 * Abrir el archivo y agregar la linea shebang `#!/bin/bash` en la linea 1. Cuando incluyes la línea  `#!/bin/bash` en la parte superior de tu script, el sistema sabe que quieres usar bash como intérprete para tu script. Por lo tanto, ahora puedes ejecutar el script hello.sh directamente 
@@ -25,6 +24,7 @@ image: /assets/images/posts/random-img.jpg
   ```bash
   chmod 711 hello.sh
   ```
+  ![crear-script-bash](../public/assets/images/posts/crear-script-bash/crear-script-bash02.png)
   
      o usar esta pagina para calcular permisos chmod https://linuxhandbook.com/chmod-calculator/
 
@@ -33,6 +33,7 @@ image: /assets/images/posts/random-img.jpg
   ```bash
   pwd
   ```
+  ![crear-script-bash](../public/assets/images/posts/crear-script-bash/crear-script-bash03.png)
   
     una vez sabiendo esto añade la ubicación de tu script de shell a la variable PATH. 
   
@@ -45,3 +46,4 @@ image: /assets/images/posts/random-img.jpg
   ```bash
   export PATH=$PATH:/home/user/Script
   ```
+  ![crear-script-bash](../public/assets/images/posts/crear-script-bash/crear-script-bash04.png)

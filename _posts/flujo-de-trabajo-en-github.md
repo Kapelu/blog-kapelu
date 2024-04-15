@@ -1,13 +1,11 @@
 ---
 title: 'Flujo de trabajo en github'
 description: Flujo de trabajo en un repositorio en github
-date: '2010-12-29'
-modified_date: '2020-07-07'
+date: '2021-07-20'
+modified_date: '2024-04-16'
 tag: 'Github'
 image: /assets/images/posts/
 ---
-
-# Trabajar en Github
 
 La decisión de si tu equipo debe trabajar en la rama "developer" o en la rama "main" depende de tu estrategia de desarrollo y tus necesidades específicas. Ambas opciones tienen ventajas y desventajas, y la elección puede variar según el flujo de trabajo de tu equipo y la política de desarrollo que desees seguir. Aquí hay algunas consideraciones:
 
@@ -25,8 +23,6 @@ La decisión de si tu equipo debe trabajar en la rama "developer" o en la rama "
 
 La elección entre trabajar en "main" o "developer" dependerá de tus necesidades y preferencias. Algunos equipos también combinan ambos enfoques para gestionar diferentes tipos de cambios. Es importante establecer una política de desarrollo clara y comunicarla a todo el equipo para garantizar una colaboración efectiva y mantener la estabilidad de la rama "main".
 
-
-********************************************************************************************************************
 Para integrar los cambios realizados en la rama "developer" en la rama "main" en Git, puedes seguir estos pasos:
 
 1. Asegúrate de estar en la rama "main". Puedes cambiar a la rama "main" usando el comando:

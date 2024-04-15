@@ -5,7 +5,7 @@ type IContentProps = {
 };
 
 const Content = (props: IContentProps) => (
-  <div style={{ color: '#ecb465c5' }}>{props.children}</div>
+  <div className="article-container">{props.children}</div>
 );
 
 export { Content };

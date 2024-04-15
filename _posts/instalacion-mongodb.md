@@ -1,13 +1,11 @@
 ---
-title: 'Instalación de MongoDB'
+title: 'Instalación de MongoDB y compass'
 description: Guía para la instalación de mongodb en ubuntu
-date: '2010-06-01'
+date: '2021-07-05'
 modified_date: '2020-07-07'
 tag: 'Developer'
 image: /assets/images/posts/
 ---
-
-# Guía de Instalación de la base de datos mongodb y compass
 
 * IMPORTAMOS LA CLAVE PUBLICA PARA MONGODB
     ```

@@ -1,7 +1,7 @@
 ---
 title: 'Configurar llaves SSH en github'
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-date: '2023-05-09'
+description: Como crear llaves ssh configurarlas en nuestro sistema y agregarlas a github
+date: '2021-05-09'
 modified_date: '2021-02-02'
 tag: 'github'
 image: '../public/assets/images/posts/configurar-claves-ssh/'
@@ -9,6 +9,7 @@ image: '../public/assets/images/posts/configurar-claves-ssh/'
 
 
 En nuestra consola de git bash(Windows) o nuestra consola (Linux) nos movemos a home, por que las llaves pueden ser para todos los proyectos en los que trabajemos.
+
 Luego generamos las llaves con ssh-keygen seguidos de los parámetros: -t aquí ponemos el algoritmo de encriptación que queremos en este caso ocuparemos la más común que es RSA, -b aquí vamos a especificar que tan compleja es la llave, seguido de -C aquí vamos a poner el email al que se va a configurar la llave.
 
 ```js

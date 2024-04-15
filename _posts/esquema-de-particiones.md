@@ -1,12 +1,10 @@
 ---
-title: 'My first post'
-description: Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-date: '2010-06-02'
-modified_date: '2020-02-02'
-image: /assets/images/posts/random-img.jpg
+title: 'Particionado de disco duro'
+description: Configuración básica de un disco duro para instalar Ubuntu
+date: '2021-06-07'
+modified_date: '2020-04-2015'
+image: /assets/images/posts/
 ---
-
-# **Esquema de particionamiento recomendado**
 
 ### ***`/swap` (Área de intercambio)***
 
