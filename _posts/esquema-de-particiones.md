@@ -2,7 +2,7 @@
 title: 'Particionado de disco duro'
 description: Configuración básica de un disco duro para instalar Ubuntu
 date: '2021-06-07'
-modified_date: '2020-04-2015'
+modified_date: '2020-04-15'
 image: /assets/images/posts/
 ---
 
