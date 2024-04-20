@@ -53,7 +53,7 @@ export default function RootLayout({
       <body>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
-          <main>
+          <main className='mb-8'>
             <Container>{children}</Container>
           </main>
           <Footer />

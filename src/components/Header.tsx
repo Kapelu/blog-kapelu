@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import "@/style/Header.css";
 import Link from "next/link";
 import Image from "next/image";
-import LogoKapelu from "../../public/logo.svg";
+import LogoKapelu from "../../public/logo.png";
 import ThemeSwitch from "./ThemeSwitch";
 
 interface MenuItem {
@@ -17,14 +17,14 @@ interface MenuItems {
 
 const item: MenuItems = {
   inicio: {
-    name: "Inicio",
-    link: "/",
+    name: 'Inicio',
+    link: '/',
   },
   acerca: {
-    name: "Acerca",
-    link: "/acerca",
-  },
-};
+    name: 'Acerca',
+    link: '/acerca',
+  }
+}
 
 const Header: React.FC = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
