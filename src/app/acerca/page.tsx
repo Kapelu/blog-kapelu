@@ -35,7 +35,7 @@ export default function About() {
             className="foto-perfil flex justify-center"
             width="320"
             height="320"
-            src="/kapelu.webp"
+            src="/images/kapelu.webp"
             alt="Daniel Calderon"
           />
           <h1>Daniel Calderón</h1>
@@ -74,7 +74,7 @@ export default function About() {
             className="foto-perfil flex justify-center"
             width="650"
             height="650"
-            src="/frasePele.jpg"
+            src="/images/frasePele.jpg"
             alt="Frase-de-Pelé"
           />
           <br />
