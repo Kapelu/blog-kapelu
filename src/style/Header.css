@@ -1,0 +1,98 @@
+/**********  HEADER  **********/
+.header {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 999;
+  padding: 1rem;
+  width: 100%;
+  height: 4rem;
+  background-color: #0979b0;
+}
+
+.header > .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo a {
+  color: #004173;
+  font-weight: bold;
+  font-size: 2rem;
+  text-decoration: none;
+}
+
+/**********  Menú  **********/
+.menu-btn {
+  outline: thin solid #004173;
+  border: 0;
+  cursor: pointer;
+  background-color: #0979b0;
+  border-radius: 10px;
+}
+
+.menu-btn svg {
+  fill: #004173;
+}
+
+.menu {
+  position: fixed;
+  left: 0;
+  bottom: 4rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  background-color: #0979b0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.menu.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu a {
+  padding: 1rem;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: none;
+  color: #004173;
+}
+
+.menu a:hover {
+  color: var(--white-color);
+  background-color: #004173;
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    position: sticky;
+    top: 0;
+    padding: 0.5rem;
+    height: calc(4rem - 0.5rem);
+  }
+
+  .menu-btn {
+    display: none;
+  }
+
+  .menu {
+    position: static;
+    width: auto;
+    flex-direction: row;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .menu a {
+    padding: 0 0.5rem;
+  }
+
+  .menu a:hover {
+    background-color: transparent;
+  }
+}
