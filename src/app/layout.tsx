@@ -10,7 +10,7 @@ const meta = {
   title: 'Blog | Daniel Calderon',
   description:
     'Blog de articulos que fui creando en mi camino a full Stack developer',
-  image: `${WEBSITE_HOST_URL}/kapelu.webp`,
+  image: `${WEBSITE_HOST_URL}/logo.png`,
 }
 
 export const metadata: Metadata = {
