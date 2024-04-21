@@ -33,8 +33,8 @@ export default function About() {
         <article className="about-image">
           <Image
             className="foto-perfil flex justify-center"
-            width="320"
-            height="320"
+            width={320}
+            height={320}
             src="/images/kapelu.webp"
             alt="Daniel Calderon"
           />
@@ -72,8 +72,8 @@ export default function About() {
         <article className="about-image">
           <Image
             className="foto-perfil flex justify-center"
-            width="650"
-            height="650"
+            width={750}
+            height= {650}
             src="/images/frasePele.jpg"
             alt="Frase-de-Pelé"
           />

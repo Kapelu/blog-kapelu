@@ -115,10 +115,10 @@ h6 {
   font-size: 0.7rem;
 }
 
-img {
+/* img {
   max-width: 100%;
-  /* height: auto; */
-}
+  /* height: auto; 
+} */
 
 p {
   line-height: 1.6;

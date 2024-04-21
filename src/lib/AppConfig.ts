@@ -6,5 +6,5 @@ export const AppConfig = {
   url: "https://kapelu.vercel.app/",
   locale: "es",
   author: "ddaniel_calderon@hotmail.com",
-  pagination_size: 10,
+  pagination_size: 9,
 };
