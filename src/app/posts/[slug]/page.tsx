@@ -65,7 +65,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   return (
     <div className='mt-8'>
       <h1>{post.title}</h1>
-      <time className="my-4 block text-sm text-zinc-400 " dateTime={post.date}>
+      <time className="my-4 block text-right text-sm text-zinc-500 " dateTime={post.date}>
         {format(parseISO(post.date), 'LLLL d, yyyy')}
       </time>
       <article className="max-w-5xl prose dark:prose-invert">
