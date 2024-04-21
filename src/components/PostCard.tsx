@@ -4,7 +4,7 @@ import Link from 'next/link'
 
 export function PostCard(post: Post) {
   return (
-      <div className="bg-background-secondary mx-auto max-w-2xl rounded-lg border-4 border-solid px-6 py-4 text-center shadow-2xl">
+      <div className="bg-background-secondary mx-auto max-w-5xl rounded-lg border-4 border-solid px-6 py-4 text-center shadow-2xl">
         <div className="mb-4 flex items-center justify-between">
           <time dateTime={post.date} className="text-sm text-muted-foreground">
             {format(parseISO(post.date), 'LLLL d, yyyy')}

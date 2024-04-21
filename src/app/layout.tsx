@@ -3,6 +3,7 @@ import { Container } from '@/components/Container'
 import { WEBSITE_HOST_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
 import '@/style/global.css'
+import '@/style/site.css'
 import Footer from '@/components/Footer'
 import Header from '@/components/Header'
 
