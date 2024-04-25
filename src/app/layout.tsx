@@ -51,10 +51,10 @@ export default function RootLayout({
 }) {
   return (
     <html lang="es">
-      <body>
+      <body suppressHydrationWarning={true}>
         <ThemeProvider attribute="class" defaultTheme="dark">
           <Header />
-          <main className='mb-8'>
+          <main className="mb-8">
             <Container>{children}</Container>
           </main>
           <Footer />
