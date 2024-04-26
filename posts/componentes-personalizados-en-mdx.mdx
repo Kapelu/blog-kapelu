@@ -67,6 +67,7 @@ Ahora podemos modificar los elementos HTML de la siguiente manera:
 const CustomH1 = (props) => {
     return (
         <h1 style={{
+            textAlign:'center'
             fontSize: "30px",
             fontWeight: "600",
             marginTop: "96px",
@@ -75,7 +76,7 @@ const CustomH1 = (props) => {
         {...props}
         />
     );
-;
+};
 ```
 Este componente, que devuelve un elemento h1, recibe un spread con las props para que funcione correctamente.
 
@@ -92,7 +93,7 @@ const CustomH1 = (props) => {
         {...props}
         />
     );
-;
+};
 
 const MDXComponents = {
  h1: CustomH1,

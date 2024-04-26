@@ -47,10 +47,25 @@ export async function generateMetadata({
   }
 }
 
+/* const CustomH1 = (props) => {
+  return (
+    <h1
+      style={{
+        textAlign: 'center',
+        fontSize: '30px',
+        fontWeight: '600',
+        marginBottom: '32px',
+      }}
+      {...props}
+    />
+  )
+} */
+
 // Define your custom MDX components.
 const mdxComponents: MDXComponents = {
   a: ({ href, children }) => <Link href={href as string}>{children}</Link>,
   Image: (props) => <NextImage className="rounded-lg" {...props} />,
+  //h2: CustomH1,
 }
 
 const PostLayout = ({ params }: { params: { slug: string } }) => {
@@ -63,12 +78,15 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
   const MDXContent = useMDXComponent(post.body.code)
 
   return (
-    <div className='mt-8'>
-      <h1 className='text-center'>{post.title}</h1>
-      <time className="my-4 block text-right text-sm text-zinc-500 " dateTime={post.date}>
+    <div className="mt-8">
+      <h1 className="text-center">{post.title}</h1>
+      <time
+        className="my-4 block text-right text-sm text-zinc-500 "
+        dateTime={post.date}
+      >
         {format(parseISO(post.date), 'dd LLLL yyyy')}
       </time>
-      <article className="max-w-5xl prose dark:prose-invert">
+      <article className="prose max-w-5xl dark:prose-invert">
         <MDXContent components={mdxComponents} />
       </article>
     </div>
