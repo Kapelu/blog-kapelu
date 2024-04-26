@@ -1,0 +1,174 @@
+---
+title: 'Javascript - ¿Qué es?'
+description: 'Qué es JavaScript y que podemos hacer con él.'
+date: '2023-12-16'
+tag: 'Kapelu'
+---
+<article>
+
+<h1>Crear componentes personalizados con MDXComponents</h1>
+
+Cuando me decidí por crear mi blog con NextJS, me topé con muchas maneras de llevarlo a cabo de manera rápida y sencilla. Me informé acerca de Gastby, Ghost, Sanity, HUGO… habían muchas opciones.
+
+Para mí, lo más importante era tener el control total del contenido de mi web y normalmente, este tipo de herramientas que te facilitan la puesta en marcha de tu blog también te limita a la hora de personalizar ciertas partes.
+
+Entonces fué cuando descubrí el potencial que tenía un blog escrito en Markdown con NextJS. Concretamente, la extensión de Markdown, MDX, es la que te permite importar y utilizar componentes de React personalizados.
+
+Créeme, si te gusta diseñar y personalizar hasta el último píxel de tu web, estoy seguro que querrás editar el diseño de tus artículos. Al fin y al cabo, son la razón de ser de tu Blog. Pero…
+
+<h2>¿Por qué el diseño de nuestros artículos es importante?</h2>
+
+En mi opinión y, teniendo en cuenta que la parte más importante de nuestros artículos es la información o valor que aportemos a nuestros lectores, el diseño nos ayuda a comprender mejor esa información.
+
+De la misma manera en la que diseñamos cada elemento de nuestra web, los elementos de nuestros artículos deben tener una cohesión en el diseño. Por ejemplo, un elemento h1 debe tener un tamaño de fuente mayor a un h2 y un h2 de un h3, o los espacios entre los títulos y el texto, etc.
+
+Ahora bien.
+
+## ¿Cómo crear componentes personalizados para nuestros archivos mdx?
+
+Existen varias formas de crear un blog con NextJS y MDX. En mi caso me he decantado por utilizar next-mdx-remote por las utilidades que nos ofrece. Para seguir con este tutorial asegurate de estar usando la misma librería.
+
+Si es tu caso, debes tener un componente parecido a este:
+```js
+import { MDXRemote } from "next-mdx-remote";
+import { getPosts, getFileBySlug } from "../lib/mdx";
+import MDXComponents from "../components/ui/MDXComponents";
+import PostLayout from "../components/posts/post-layout";
+
+function SinglePostPage({ source, frontmatter }) {
+  return (
+    <PostLayout>
+      <MDXRemote {...source} components={MDXComponents} />
+    </PostLayout>
+  );
+}
+
+export async function getStaticPaths() {
+  ...
+}
+
+export async function getStaticProps({ params }) {
+  ...
+}
+
+export default SinglePostPage;
+```
+El componente `<MDXRemote />` recibe el contenido de nuestros posts mediante el spread de source y los estilos para nuestros componentes mediante las props `components={MDXComponents}`.
+
+El archivo MDXComponents, el cual puedes ubicar en la carpeta "/components/ui/", contiene todas las modificaciones de los elementos HTML de tus artículos. La estructura básica del archivo sería:
+```js
+const MDXComponents = {};
+export default MDXComponents;
+```
+Ahora podemos modificar los elementos HTML de la siguiente manera:
+
+1. En la parte superior del archivo, creamos un componente personalizado que devuelve el elemento que queremos estilar. Por ejemplo, un h1:
+```js
+const CustomH1 = (props) => {
+    return (
+        <h1 style={{
+            fontSize: "30px",
+            fontWeight: "600",
+            marginTop: "96px",
+            marginBottom: "32px"
+        }}
+        {...props}
+        />
+    );
+;
+```
+Este componente, que devuelve un elemento h1, recibe un spread con las props para que funcione correctamente.
+
+2. Una vez creado nuestro elemento personalizado, lo añadimos dentro del componente MDXComponents:
+```js
+const CustomH1 = (props) => {
+    return (
+         <h1 style={{
+            fontSize: "30px",
+            fontWeight: "600",
+            marginTop: "96px",
+            marginBottom: "32px"
+        }}
+        {...props}
+        />
+    );
+;
+
+const MDXComponents = {
+ h1: CustomH1,
+};
+
+export default MDXComponents;
+```
+
+Ahora, cada vez que utilices un h1 en tus posts, se imprimirá en pantalla con tus estilos definidos dentro del componente CustomH1. No necesitas utilizar el componente en tus archivos markdown.
+
+<h2>¿Cómo utilizar tus propios componentes dentro de tus archivos MDX?</h2>
+
+Si lo que quieres es utilizar componentes creados por ti dentro de tus archivos MDX es tan simple como crear el componente en el archivo MDXComponents.js y añadirlo a tu objeto de la siguiente manera:
+
+```js
+const CustomInlineCode = (props) => {
+    return (
+         <code
+           style={{
+             backgroundColor: "#e7e9ec",
+             fontFamily: "Roboto",
+             color: "red",
+             fontSize: "17px",
+             borderRadius: "3px",
+             padding: "4.5px 6px",
+             margin: "1px -1px",
+             fontFamily: "Source Code",
+           }}
+           {...props}
+         />
+       );
+;
+
+const MDXComponents = {
+  h1: CustomH1,
+  CustomInlineCode
+};
+
+export default MDXComponents;
+```
+
+Además, este ejemplo me viene genial para explicar un problema con el que tuve que lidiar a la hora de personalizar el los fragmentos de texto destacados como código con la etiqueta code.
+
+<h2>Personalizar el tag code dentro de un texto con MDX</h2>
+
+Con next-mdx-remote podemos personalizar la etiqueta code para modificar los estilos de nuestros fragmentos de código, un elemento que se va a repetir muchas veces en nuestros artículos como programadores.
+
+El problema es que al editar esta etiqueta en nuestro archivo MDXComponents estarás editando todas las etiquetas, tanto las que escribimos dentro de un texto como los fragmentos de código separados:
+
+```js
+Código dentro de texto o inline code:
+
+Esto es un texto con `código` dentro.
+
+Fragmento de código en markdown:
+
+
+var fragmentoDeCódigoJS = 1;
+```
+
+
+Para resolver este problema, he creado un componente llamado `<CustomInlineCode />` o `<CC />` para abreviar nuestra escritura.
+
+Ahora, cada vez que quiero destacar un fragmento de código dentro de un párrafo de texto con la etiqueta code lo hago así:
+
+```js
+Lorem Ipsum is simply dummy <CC>`text of the printing`</CC> and typesetting industry.
+```
+De esta manera, mis estilos solo se aplican al texto escrito dentro de mi componente.
+
+Puede parecer tedioso tener que escribir el componente cada vez que quieras resaltar este inline code pero es la única forma con la que he conseguido modificar los estilos sin entrar en conflicto con los fragmentos de código que tienen sus propios estilos.
+
+Te animo a escribirme un email si conoces una manera más sencilla o mejor de modificar los estilos del código dentro de un párrafo de texto.
+
+Ahora ya sabes cómo modificar todas las etiquetas HTML de tus artículos y cómo crear componentes personalizados para utilizarlos en tus archivos MDX.
+
+Gracias [Guillermo Frasquet](https://guillermofrasquet.com/como-crear-componentes-personalizados-con-mdxcomponents)!!!
+
+</article>
