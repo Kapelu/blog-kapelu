@@ -66,7 +66,7 @@ const PostLayout = ({ params }: { params: { slug: string } }) => {
     <div className='mt-8'>
       <h1 className='text-center'>{post.title}</h1>
       <time className="my-4 block text-right text-sm text-zinc-500 " dateTime={post.date}>
-        {format(parseISO(post.date), 'LLLL d, yyyy')}
+        {format(parseISO(post.date), 'dd LLLL yyyy')}
       </time>
       <article className="max-w-5xl prose dark:prose-invert">
         <MDXContent components={mdxComponents} />
