@@ -69,15 +69,16 @@ const P = (props) => {
         textAlign: 'justify',
       }}
       {...props}
-    />
-  )
-}
-
-const H2 = (props) => {
-  return (
-    <h2
+      />
+    )
+  }
+  
+  const H2 = (props) => {
+    return (
+      <h2
       style={{
         textAlign: 'center',
+        color: 'hsl(var(--title-h2))',
       }}
       {...props}
     />
