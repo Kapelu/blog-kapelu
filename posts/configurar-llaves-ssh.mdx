@@ -1,10 +1,70 @@
 ---
-title: 'Configurar llaves SSH en github'
-description: Como crear llaves ssh configurarlas en nuestro sistema y agregarlas a github
-date: '2021-05-09'
+title: 'Configurar claves SSH en github'
+description: Como crear claves ssh configurarlas en nuestro sistema y agregarlas a github
+date: '2024-05-30'
 tag: 'Github'
 ---
 <article style={{borderRadius: '.5rem', padding: '.5rem 1rem', backgroundColor: '#cccccc90'}}>
+
+`Git` y `GitHub` son herramientas esenciales para todo desarrollador. Se utilizan ampliamente en casi todo tipo de proyectos de desarrollo de software.
+
+Existen otros servicios de alojamiento de `Git` como `Gitlab` y `Bitbucket`, pero GitHub es la opción más popular para los desarrolladores. Puedes utilizar `Git` y `GitHub` para organizar tus proyectos y colaborar con otros desarrolladores. Incluso puedes editar tu perfil para parecer más atractivo a los reclutadores.
+
+
+Pero como `Git` y `GitHub` son herramientas relacionadas pero diferentes, tienes que actualizar tu flujo de trabajo con cada una de ellas constantemente.
+
+Te recomendamos que utilices `claves SSH` para cada una de tus máquinas. Así que, en este tutorial, aprenderás qué son, algunas de sus ventajas, y cómo generar y configurar las claves SSH de GitHub.
+
+## ¿Qué son las claves SSH?
+
+En pocas palabras, las claves SSH son credenciales que se utilizan para que el protocolo SSH (Secure Shell) permite el acceso seguro a ordenadores remotos a través de Internet. Normalmente, esa autenticación se produce en un entorno de línea de comandos.
+
+Este protocolo se basa en una arquitectura cliente-servidor, lo que significa que tú, como usuario (o «cliente»), tienes que utilizar un software especial, llamado cliente SSH, para entrar en un servidor remoto y ejecutar comandos. Esto es básicamente lo que haces cuando te autentificas a través de un terminal en GitHub.
+
+Ahora, entrando en cómo funcionan realmente las claves SSH, tienes que entender las diferencias entre las claves públicas y las privadas.
+
+## Claves públicas y privadas
+
+Empecemos por lo básico.
+
+El protocolo SSH utiliza una técnica de criptografía llamada encriptación asimétrica. Este término puede parecer complicado y extraño, pero nada más lejos de la realidad.
+
+> Básicamente, el cifrado asimétrico es un sistema que utiliza un par de claves, a saber, las claves pública y privada.
+
+Como puedes adivinar, la clave pública se puede compartir con cualquiera. Su objetivo principal es cifrar los datos, convirtiendo el mensaje en un código secreto o texto cifrado. Esta clave suele enviarse a otros sistemas -por ejemplo, servidores- para cifrar los datos antes de enviarlos por Internet.
+
+Por otro lado, la clave privada es la que debes guardar para ti. Se utiliza para descifrar los datos cifrados con tu clave pública. Sin ella, es imposible descifrar tu información encriptada.
+
+Este método permite que tú y el servidor mantengáis un canal de comunicación seguro para transmitir la información.
+
+Esto es lo que ocurre en segundo plano cuando te conectas a un servidor mediante SSH:
+
+El cliente envía la clave pública al servidor.
+El servidor pide al cliente que firme un mensaje aleatorio cifrado con la clave pública utilizando la clave privada.
+El cliente firma el mensaje y envía el resultado al servidor.
+Se establece una conexión segura entre el cliente y el servidor.
+Es importante mantener tus claves privadas a salvo y no compartirlas con nadie bajo ninguna circunstancia. Son literalmente la clave de toda la información que se te envía.
+
+Uso de claves SSH con GitHub
+Desde el 13 de agosto de 2021, Github ya no acepta la autenticación por contraseña para el acceso a la línea de comandos. Esto significa que ahora tienes que autenticarte a través de un token de acceso personal o utilizar una clave SSH (un poco más conveniente).
+
+Esto es lo que ocurre cuando intentas autenticarte con tu contraseña de GitHub a través de HTTP en un terminal:
+```sh
+
+Username for 'https://github.com': yourusername
+
+Password for 'https://yourusername@github.com':
+
+remote: Support for password authentication was removed on August 13, 2021. Please use a personal access token instead.
+
+remote: Please see https://github.blog/2020-12-15-token-authentication-requirements-for-git-operations/ for more information.
+
+fatal: Authentication failed for 'https://github.com/yourusername/repository.git/'
+```
+
+GitHub necesita tu clave pública para autorizarte a editar cualquiera de tus repos vía SSH.
+
+## Veamos cómo puedes generar claves SSH localmente.
 
 En nuestra consola de git bash(Windows) o nuestra consola (Linux) nos movemos a home, por que las llaves pueden ser para todos los proyectos en los que trabajemos.
 
@@ -104,6 +164,61 @@ git remote -v
 
 ![configurar clave SSH](/images/configurar-claves-ssh/configurar-claves-ssh15.png)
 
-Y listo, podemos comprobarlo haciendo un push al repositorio y no nos pedirá el usuario ni la contraseña (La primera vez nos pregunta que si estamos seguros de continuar la coneccion con una llave RSA, le damos yes).
+Y listo, podemos comprobarlo haciendo un push al repositorio y no nos pedirá el usuario ni la contraseña (La primera vez nos pregunta que si estamos seguros de continuar la coneccion con una llave RSA, le damos yes 😜.
+
+## Gestionar varias claves SSH para diferentes cuentas de GitHub
+
+Si tienes varias cuentas de GitHub – digamos una para tus proyectos personales y otra para tu trabajo – es difícil utilizar SSH para ambas. Normalmente necesitarías máquinas separadas para autenticarte en diferentes cuentas de GitHub.
+
+Pero esto puede resolverse fácilmente configurando el archivo de configuración de SSH.
+
+Vamos a ello.
+
+1. Crea otro par de claves SSH y añádelas a tu otra cuenta de GitHub. Ten en cuenta el nombre del archivo al que vas a asignar la nueva clave.
+
+    ```sh
+    ssh-keygen -t ed25519 -C "work@email.com"
+    ```
+2. Crea el archivo de configuración SSH. El archivo de configuración indica al programa ssh cómo debe comportarse. Por defecto, el archivo config puede no existir, así que créalo dentro de la carpeta .ssh/ ejecutando el siguiente comando en la raiz de tú sistema
+
+    ```sh
+    touch ~/.ssh/config
+    ```
+
+3. Modifica el archivo config de SSH. Abre el archivo de configuración y pega el siguiente código:
+    ```sh
+    # Tu cuenta de Github Personal
+    Host github.com
+      HostName github.com
+      IdentityFile ~/.ssh/id_ed25519
+      IdentitiesOnly yes
+
+    # Tu cuenta de Github de Trabajo
+    Host github-work
+      HostName github.com
+      IdentityFile ~/.ssh/work_key_file
+      IdentitiesOnly yes
+    ```
+Ahora, cada vez que necesites autenticarte por SSH utilizando tu cuenta de trabajo o secundaria, retocas un poco la dirección SSH del repo, de:
+
+```sh
+git@github.com:workaccount/project.git
+```
+…a:
+
+```sh
+git@github-work:workaccount/project.git
+```
+
+Resumen
+
+Enhorabuena: ¡has aprendido la mayor parte de los conocimientos prácticos que necesitas para conectarte a GitHub mediante SSH!
+
+Este tutorial ha tratado la necesidad del protocolo SSH, las diferencias entre las claves públicas y privadas, cómo generar claves, añadirlas a GitHub e incluso gestionar múltiples claves SSH para diferentes cuentas de GitHub. Ten en cuenta que, a menos que quieras perder el acceso a todo, tu clave privada tiene que seguir siendo eso: privada.
+
+Con estos conocimientos, ahora estás preparado para desarrollar un flujo de trabajo impecable con Git y GitHub. 
+
+¡Sigue codificando! 🚀
+
 
 </article>
