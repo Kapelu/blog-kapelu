@@ -125,6 +125,8 @@ vi ~/.ssh/id_rsa.pub
 ```
 Copiamos el contenido. (Salimos con esc+shift+zz)
 
+![configurar clave SSH](/images/configurar-claves-ssh/configurar-claves-ssh08-2.png)
+
 ## Agregando las llaves a github
 
 Debemos de ir a nuestro GitHub → settings → SSH and GPG Keys → New SSH Key
@@ -138,31 +140,6 @@ En title ponemos algo que identifique la Lap o el computador que estemos usando,
 Damos click a Add SSH Key, podemos ver que nos agregó una nueva llave con el nombre que le dimos, pero aún no se ha usado.
 
 ![configurar clave SSH](/images/configurar-claves-ssh/configurar-claves-ssh11.png)
-
-Copiamos la llave pública de cualquiera de nuestros repositorio de GitHub (Clone with SSH)
-
-![configurar clave SSH](/images/configurar-claves-ssh/configurar-claves-ssh12.png)
-
-Tenemos que posicionarnos en el proyecto que copiamos la llave SSH pública de GitHub y con el siguiente comando podemos ver a qué repositorio apunta nuestro proyecto:
-```js
-git remote -v
-```
-
-![configurar clave SSH](/images/configurar-claves-ssh/configurar-claves-ssh13.png)
-
-Seteamos la ruta
-```js
-git remote set-url origin git@github.com:krisleon99/calculator_utm.git
-```
-
-![configurar clave SSH](/images/configurar-claves-ssh/configurar-claves-ssh14.png)
-
-En este caso no nos dice nada la consola, pero podemos verificarlo ingresando de nuevo el comando (podemos notar que cambió el origin):
-```js
-git remote -v
-```
-
-![configurar clave SSH](/images/configurar-claves-ssh/configurar-claves-ssh15.png)
 
 Y listo, podemos comprobarlo haciendo un push al repositorio y no nos pedirá el usuario ni la contraseña (La primera vez nos pregunta que si estamos seguros de continuar la coneccion con una llave RSA, le damos yes 😜.
 
