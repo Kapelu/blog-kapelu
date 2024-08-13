@@ -52,7 +52,7 @@ const Header: React.FC = () => {
       <section className="container">
         <div className="logo">
           <Link
-            href="/"
+            href="https://github.com/Kapelu"
             target="_blank"
             rel="noopener noreferrer preload"
             passHref
@@ -70,13 +70,13 @@ const Header: React.FC = () => {
         <button
           className={`menu-btn`}
           onClick={() => {
-            const btnMenu = document.querySelector<HTMLElement>(".menu-btn");
+            const btnMenu = document.querySelector<HTMLElement>('.menu-btn')
 
-            setIsMenuOpen(!isMenuOpen);
+            setIsMenuOpen(!isMenuOpen)
 
             if (btnMenu) {
-              btnMenu.firstElementChild!.classList.toggle("none");
-              btnMenu.lastElementChild!.classList.toggle("none");
+              btnMenu.firstElementChild!.classList.toggle('none')
+              btnMenu.lastElementChild!.classList.toggle('none')
             }
           }}
         >
@@ -99,7 +99,7 @@ const Header: React.FC = () => {
             <path d="M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z" />
           </svg>
         </button>
-        <nav className={`menu ${isMenuOpen ? "is-active" : ""}`}>
+        <nav className={`menu ${isMenuOpen ? 'is-active' : ''}`}>
           {Object.keys(item).map((key) => (
             <Link href={item[key].link} key={key} passHref>
               <span className="menu-item">{item[key].name}</span>
@@ -109,7 +109,7 @@ const Header: React.FC = () => {
         <ThemeSwitch />
       </section>
     </header>
-  );
+  )
 };
 
 export default Header;
