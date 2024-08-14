@@ -4,12 +4,16 @@ import Link from 'next/link'
 import styled from 'styled-components'
 
 const StyledFooter = styled.footer`
-  margin-bottom: var(--header-height);
-  padding: 0.5rem;
-  text-align: center;
-  color: #0979b0;
-  background-color: #66666641;
-  font-style: italic;
+  margin-bottom: 
+    var(--header-height);
+    padding: 0.5rem;
+    text-align: center;    
+    background-color: #66666641;
+    font-style: italic;
+
+  .link {
+    color:#0979b0;
+  }
 
   @media screen and (min-width: 1024px) {
     margin-bottom: 0;
