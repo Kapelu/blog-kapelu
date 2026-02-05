@@ -1465,9 +1465,6 @@ video {
 .h-6 {
   height: 1.5rem;
 }
-.h-full {
-  height: 100%;
-}
 .w-6 {
   width: 1.5rem;
 }
@@ -1479,12 +1476,6 @@ video {
 }
 .shrink {
   flex-shrink: 1;
-}
-.auto-rows-fr {
-  grid-auto-rows: minmax(0, 1fr);
-}
-.grid-cols-1 {
-  grid-template-columns: repeat(1, minmax(0, 1fr));
 }
 .flex-col {
   flex-direction: column;
@@ -1503,9 +1494,6 @@ video {
 }
 .gap-2 {
   gap: 0.5rem;
-}
-.gap-8 {
-  gap: 2rem;
 }
 .space-y-7 > :not([hidden]) ~ :not([hidden]) {
   --tw-space-y-reverse: 0;
@@ -1945,16 +1933,8 @@ input[type='email'] {
 
 @media (min-width: 768px) {
 
-  .md\:grid-cols-2 {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
-
   .md\:flex-row {
     flex-direction: row;
-  }
-
-  .md\:gap-4 {
-    gap: 1rem;
   }
 }
 

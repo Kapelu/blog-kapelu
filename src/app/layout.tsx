@@ -15,6 +15,7 @@ const meta = {
 }
 
 export const metadata: Metadata = {
+  metadataBase: new URL(WEBSITE_HOST_URL),
   title: {
     default: meta.title,
     template: '%s | Daniel Calderon',
