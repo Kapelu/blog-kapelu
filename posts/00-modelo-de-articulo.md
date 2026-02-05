@@ -2,7 +2,7 @@
 title: 'Modelo de articlulo'
 description: 'Descripcion'
 date: '1979-02-18'
-tag: 'KAPELU'
+tag: 'KAPELU'  
 ---
 
 <article style={{marginTop:'2rem', borderRadius: '.5rem', padding: '0 1rem', backgroundColor: '#cccccc90'}}>
