@@ -49,17 +49,15 @@ export default makeSource({
         rehypePrettyCode,
         {
           theme: 'one-dark-pro',
-          onVisitLine(node) {
-            // Prevent lines from collapsing in `display: grid` mode, and allow empty
-            // lines to be copy/pasted
+          onVisitLine(node: { children: string | any[] }) {
             if (node.children.length === 0) {
               node.children = [{ type: 'text', value: ' ' }]
             }
           },
-          onVisitHighlightedLine(node) {
+          onVisitHighlightedLine(node: { properties: { className: string[] } }) {
             node.properties.className.push('line--highlighted')
           },
-          onVisitHighlightedWord(node) {
+          onVisitHighlightedWord(node: { properties: { className: string[] } }) {
             node.properties.className = ['word--highlighted']
           },
         },
