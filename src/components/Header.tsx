@@ -82,7 +82,7 @@ export default function Header() {
             </div>
 
             {/* Mobile */}
-            <div className='flex flex-1 items-center justify-center lg:hidden'>
+            <div className='flex flex-1 items-center justify-evenly lg:hidden'>
               <button
                 onClick={() => setIsMenuOpen(!isMenuOpen)}
                 className='rounded-lg border border-sky-900 p-1'
@@ -138,7 +138,7 @@ export default function Header() {
                 onClick={() => setIsMenuOpen(false)}
                 className={`block p-4 text-center text-xl font-bold transition ${
                   pathname === link.href
-                    ? 'bg-sky-600 text-sky-950'
+                    ? 'text-sky-950'
                     : 'text-sky-950 hover:bg-sky-950 hover:text-white'
                 }`}>
                 {link.label}

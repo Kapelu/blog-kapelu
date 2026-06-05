@@ -9,9 +9,9 @@ const year = new Date().getFullYear()
 
 export default function Footer() {
   return (
-    <footer className='border-t py-4'>
+    <footer className='border-t pt-4 pb-12 lg:pb-0'>
       <Container>
-        <div className='flex flex-col gap-4 md:grid md:grid-cols-3 md:items-center'>
+        <div className='flex flex-col gap-2 md:grid md:grid-cols-3 md:items-center'>
           {/* Logo */}
           <div className='flex justify-center md:justify-start'>
             <Link href='/' className='flex items-center gap-2'>
