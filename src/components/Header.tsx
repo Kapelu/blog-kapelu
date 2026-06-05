@@ -1,4 +1,6 @@
 'use client'
+import { Logo } from './Logo'
+import { ThemeToggle } from './ThemeToggle'
 import { useState } from 'react'
 import { useTheme } from 'next-themes'
 import { usePathname } from 'next/navigation'
@@ -33,21 +35,11 @@ export default function Header() {
 
   return (
     <>
-      <header className='fixed bottom-0 left-0 z-50 w-full border-t bg-sky-600 lg:sticky lg:top-0 lg:border-t-0 lg:border-b'>
+      <header className='fixed bottom-0 left-0 z-50 w-full border-t bg-primary lg:sticky lg:top-0 lg:border-t-0 lg:border-b'>
         <Container>
           <div className='flex h-16 items-center justify-between'>
             {/* Logo */}
-            <Link href='/' className='flex items-center gap-2'>
-              <Image
-                src='/logo.png'
-                width={36}
-                height={36}
-                alt='logo'
-                priority
-              />
-
-              <span className='text-2xl font-bold'>Kapelu</span>
-            </Link>
+            <Logo className='hover:opacity-50 transition-opacity' />
 
             {/* Desktop */}
             <div className='hidden items-center gap-10 lg:flex'>
@@ -56,10 +48,10 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`font-semibold transition ${
+                    className={`rounded-full px-4 py-0.5 font-semibold transition-all duration-300 ${
                       pathname === link.href
-                        ? 'bg-sky-600 text-sky-950'
-                        : 'text-sky-950 hover:bg-sky-950 hover:text-white'
+                        ? 'bg-primary text-white'
+                        : 'bg-transparent text-sky-950 hover:bg-sky-950/50 hover:text-white'
                     }`}>
                     {link.label}
                   </Link>
@@ -75,7 +67,7 @@ export default function Header() {
                   }
                   alt='Theme Toggle'
                   width={38}
-                  height={28}
+                  height={38}
                   priority
                 />
               </button>
@@ -107,26 +99,13 @@ export default function Header() {
                   </svg>
                 )}
               </button>
-
-              <button
-                onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
-                aria-label='Cambiar tema'>
-                <Image
-                  src={
-                    theme === 'light' ? '/toggle-light.svg' : '/toggle-dark.svg'
-                  }
-                  alt='Theme Toggle'
-                  width={38}
-                  height={28}
-                  priority
-                />
-              </button>
+              <ThemeToggle />
             </div>
           </div>
 
           {/* Mobile Menu */}
           <nav
-            className={`fixed bottom-16 left-0 z-40 w-full bg-sky-600 transition-all duration-300 lg:hidden ${
+            className={`fixed bottom-16 left-0 z-40 w-full bg-primary transition-all duration-300 lg:hidden ${
               isMenuOpen
                 ? 'pointer-events-auto opacity-100'
                 : 'pointer-events-none opacity-0'

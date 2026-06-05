@@ -1,5 +1,5 @@
 'use client'
-
+import { Logo } from './Logo'
 import Image from 'next/image'
 import Link from 'next/link'
 
@@ -14,17 +14,7 @@ export default function Footer() {
         <div className='flex flex-col gap-2 md:grid md:grid-cols-3 md:items-center'>
           {/* Logo */}
           <div className='flex justify-center md:justify-start'>
-            <Link href='/' className='flex items-center gap-2'>
-              <Image
-                src='/logo.png'
-                width={36}
-                height={36}
-                alt='logo'
-                priority
-              />
-
-              <span className='text-2xl font-bold'>Kapelu</span>
-            </Link>
+            <Logo className='hover:opacity-50 transition-opacity' />
           </div>
 
           {/* Centro */}
