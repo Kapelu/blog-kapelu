@@ -19,11 +19,11 @@ const links = [
   },
   {
     label: 'Acerca',
-    href: '/acerca',
+    href: '/about',
   },
   {
     label: 'Contacto',
-    href: '/contacto',
+    href: '/contact',
   },
 ]
 
