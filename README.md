@@ -301,3 +301,85 @@ Con esta arquitectura podrás:
 dependencias instaladas
 pnpm add next-themes => providers de layout
 pnpm add clsx tailwind-merge =>Es un helper para concatenar clases CSS sin problemas
+
+
+```
+├── 📁public
+|   ├── 📁images
+|   |   ├── 📁Favicon
+|   |   |   ├── apple-touch-icon.png
+|   |   |   ├── favicon-192x192.png
+|   |   |   ├── favicon-512x512.png
+|   |   |   ├── favicon.ico
+|   |   ├── frasePele.jpg
+|   |   ├── kapelu.webp
+|   |   ├── post01.webp
+|   |   ├── post02.webp
+|   |   ├── post03.webp
+|   |   ├── post04.webp
+|   |   ├── post05.webp
+|   |   ├── post06.webp
+|   |   ├── post07.webp
+|   |   ├── post08.webp
+|   |   ├── post09.webp
+|   |   ├── post10.webp
+|   |   ├── post11.webp
+|   |   ├── post12.webp
+|   ├── logo.png
+|   └── manifest.json
+├── 📁src
+|   ├── 📁app
+|   |   ├── 📁about
+|   |   |   └── page.tsx
+|   |   ├── 📁blog
+|   |   |    └── 📁[slug]
+|   |   |    |   └── page.tsx
+|   |   |    └── page.tsx
+|   |   └── 📁contact
+|   |       └── page.tsx
+|   |   ├── favicon.ico
+|   |   ├── globals.css
+|   |   ├── layout.tsx
+|   |   ├── page.tsx
+|   |   └── providers.tsx
+|   ├── 📁components
+|   |   ├── Button.tsx
+|   |   ├── Container.tsx
+|   |   ├── Footer.tsx
+|   |   ├── Header.tsx
+|   |   ├── Logo.tsx
+|   |   ├── Pagination.tsx
+|   |   ├── PostCard.tsx
+|   |   ├── TagFilter.tsx
+|   |   └── ThemeToggle.tsx
+|   ├── 📁lib
+|   |   ├── AppConfig.ts
+|   |   ├── constants.ts
+|   |   ├── posts.ts
+|   |   └── utils.ts
+|   ├── 📁mdx
+|   |   └── components.tsx
+|   └── 📁posts
+|       ├── post-01.mdx
+|       ├── post-02.mdx
+|       ├── post-03.mdx
+|       ├── post-04.mdx
+|       ├── post-05.mdx
+|       ├── post-06.mdx
+|       ├── post-07.mdx
+|       ├── post-08.mdx
+|       ├── post-09.mdx
+|       ├── post-10.mdx
+|       ├── post-11.mdx
+|       └── post-12.mdx
+├── .gitignore
+├── eslint.config.mjs
+├── next-env.d.ts
+├── next.config.ts
+├── package.json
+├── pnpm-lock.yaml
+├── pnpm-workspace.yaml
+├── postcss.config.mjs
+├── README.md
+└── tsconfig.json
+```
