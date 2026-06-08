@@ -1,5 +1,3 @@
-import { Button } from '@/components/Button'
-
 export default function Contact() {
   return (
     <section className='text-gray-600 body-font relative'>

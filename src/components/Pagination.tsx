@@ -11,7 +11,7 @@ export function Pagination({ currentPage, totalPages }: Props) {
       {Array.from({ length: totalPages }, (_, i) => (
         <Link
           key={i}
-          href={`/blog?page=${i + 1}`}
+          href={`/?page=${i + 1}`}
           className={`rounded border px-4 py-2 ${
             currentPage === i + 1 ? 'font-bold' : ''
           }`}>

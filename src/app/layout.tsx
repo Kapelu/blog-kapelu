@@ -1,11 +1,11 @@
-import { Providers } from "./providers";
-import type { Metadata } from "next";
 import { Container } from '@/components/Container'
+import Footer from '@/components/ui/Footer'
+import Header from '@/components/ui/Header'
 import { WEBSITE_HOST_URL } from '@/lib/constants'
-import Header from '@/components/Header'
-import Footer from "@/components/Footer";
+import type { Metadata } from 'next'
+import { Providers } from './providers'
 
-import "./globals.css";
+import './globals.css'
 
 const meta = {
   title: 'Blog | Daniel Calderon',
@@ -48,7 +48,7 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: React.ReactNode
 }>) {
   return (
     <html lang='es' suppressHydrationWarning>

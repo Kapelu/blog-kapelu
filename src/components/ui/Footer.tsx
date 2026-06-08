@@ -1,9 +1,8 @@
 'use client'
-import { Logo } from './Logo'
-import Image from 'next/image'
 import Link from 'next/link'
+import { Logo } from './Logo'
 
-import { Container } from './Container'
+import { Container } from '../Container'
 
 const year = new Date().getFullYear()
 

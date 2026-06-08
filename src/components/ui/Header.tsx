@@ -1,20 +1,16 @@
 'use client'
 
+import Link from 'next/link'
+import { usePathname } from 'next/navigation'
+import { useState } from 'react'
+import { Container } from '../Container'
 import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
-import { useState } from 'react'
-import { usePathname } from 'next/navigation'
-import Link from 'next/link'
-import { Container } from './Container'
 
 const links = [
   {
     label: 'Inicio',
     href: '/',
-  },
-  {
-    label: 'Blog',
-    href: '/blog',
   },
   {
     label: 'Acerca',

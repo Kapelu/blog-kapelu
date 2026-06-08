@@ -1,5 +1,5 @@
+import { Button } from '@/components/ui/Button'
 import { getPostBySlug } from '@/lib/posts'
-import { Button } from '@/components/Button'
 import { mdxComponents } from '@/mdx/components'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 
@@ -15,13 +15,14 @@ export default async function PostPage({ params }: Props) {
   const post = getPostBySlug(slug)
 
   return (
-    <article className='prose mx-auto py-10 dark:prose-invert'>
-      <h1>{post.data.title}</h1>
+    <article className='mx-auto max-w-4xl py-10'>
+      <h1 className='mb-8 text-4xl font-bold'>{post.data.title}</h1>
 
       <MDXRemote source={post.content} components={mdxComponents} />
 
-      <br />
-      <Button href='/blog'>Atras</Button>
+      <div className='mt-10'>
+        <Button href='/'>Atrás</Button>
+      </div>
     </article>
   )
 }
