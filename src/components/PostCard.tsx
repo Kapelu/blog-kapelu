@@ -19,18 +19,20 @@ export function PostCard({ post }: Props) {
             alt={`${post.title} - thumbnail`}
             fill
             className='object-cover'
-            sizes='100vw'
+            sizes='(max-width: 768px) 100vw,
+                  (max-width: 1024px) 50vw,
+                  33vw'
           />
         </div>
 
         {/* CONTENT */}
-        <h2 className='mt-3 pl-3 pr-3 text-xl font-bold'>{post.title}</h2>
+        <h2 className='mt-3 px-3 text-xl font-bold'>{post.title}</h2>
 
-        <p className='mt-2 pl-3 pr-3 text-sm opacity-80 line-clamp-2'>
+        <p className='mt-2 px-3 text-sm opacity-80 line-clamp-2'>
           {post.description}
         </p>
 
-        <div className='mt-auto  pl-3 pr-3 pb-4 flex flex-wrap gap-2 pt-3'>
+        <div className='mt-auto px-3 pb-4 flex flex-wrap gap-2 pt-3'>
           {post.tags.map((tag) => (
             <span key={tag} className='rounded-full border px-2 py-1 text-xs'>
               {tag}
