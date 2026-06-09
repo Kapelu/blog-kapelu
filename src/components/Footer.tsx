@@ -2,7 +2,7 @@
 import Link from 'next/link'
 import { Logo } from './Logo'
 
-import { Container } from '../Container'
+import { Container } from './Container'
 
 const year = new Date().getFullYear()
 

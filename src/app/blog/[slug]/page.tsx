@@ -1,4 +1,4 @@
-import { Button } from '@/components/ui/Button'
+import { Button } from '@/components/Button'
 import { getPostBySlug } from '@/lib/posts'
 import { mdxComponents } from '@/mdx/components'
 import { MDXRemote } from 'next-mdx-remote/rsc'

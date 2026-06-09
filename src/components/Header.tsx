@@ -3,7 +3,7 @@
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import { useState } from 'react'
-import { Container } from '../Container'
+import { Container } from './Container'
 import { Logo } from './Logo'
 import { ThemeToggle } from './ThemeToggle'
 

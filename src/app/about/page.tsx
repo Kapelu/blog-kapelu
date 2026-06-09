@@ -35,20 +35,32 @@ export default function About() {
             <Image
               width={300}
               height={300}
-              src='/images/kapelu.webp'
+              src='/images/kapelu.png'
               alt='Daniel Calderón'
               className='h-auto w-auto object-cover'
               priority
             />
           </div>
 
-          <h1 className='mt-6 bg-linear-to-r from-[#d9c86c] via-[#c084fc] to-[#a34ce6] bg-clip-text text-4xl font-bold text-transparent md:text-6xl'>
+          <h1 className='mt-6 bg-clip-text text-4xl font-bold text-secundary md:text-6xl'>
             Daniel Calderón
           </h1>
 
           <p className='mt-3 text-lg font-medium text-muted-foreground md:text-xl'>
             Desarrollador Full Stack
           </p>
+
+          <div className='mt-4 flex flex-wrap justify-center gap-2'>
+            {['Next.js', 'React', 'TypeScript', 'Node.js', 'MongoDB','Bash',].map(
+              (tech) => (
+                <span
+                  key={tech}
+                  className='rounded-full border px-3 py-1 text-sm'>
+                  {tech}
+                </span>
+              ),
+            )}
+          </div>
         </section>
 
         {/* DESCRIPCIÓN */}
@@ -87,7 +99,7 @@ export default function About() {
 
         {/* FRASE */}
         <section className='mx-auto w-full max-w-5xl'>
-          <div className='overflow-hidden rounded-2xl border-4 shadow-lg'>
+          <div className='overflow-hidden rounded-2xl shadow-lg'>
             <Image
               src='/images/frasePele.jpg'
               alt='Frase de Pelé'

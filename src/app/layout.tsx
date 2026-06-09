@@ -1,9 +1,9 @@
+import { ComeBack } from '@/components/ComeBack'
 import { Container } from '@/components/Container'
-import Footer from '@/components/ui/Footer'
-import Header from '@/components/ui/Header'
+import Footer from '@/components/Footer'
+import Header from '@/components/Header'
 import { WEBSITE_HOST_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
-import Image from 'next/image'
 import { Providers } from './providers'
 
 import './globals.css'
@@ -66,6 +66,7 @@ export default function RootLayout({
             />
             <div className='absolute inset-0 bg-black/50' />
           </div>*/}
+          <ComeBack />
 
           <main className='mb-8'>
             <Header />

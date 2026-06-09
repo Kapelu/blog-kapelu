@@ -37,7 +37,22 @@ export function Pagination({ currentPage, totalPages }: Props) {
       <Link
         href={`/?page=${prevPage}`}
         className='mr-4 flex items-center gap-1 transition hover:opacity-70'>
-        ← <span>anterior</span>
+        <svg
+          className='mt-px'
+          width='23'
+          height='23'
+          viewBox='0 0 23 23'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'>
+          <path
+            d='M5.75 12.5h11.5m-11.5 0 4.792-4.791M5.75 12.5l4.792 4.792'
+            stroke='#6B7280'
+            strokeWidth='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          />
+        </svg>
+        <span>anterior</span>
       </Link>
 
       {/* PAGES */}
@@ -68,7 +83,22 @@ export function Pagination({ currentPage, totalPages }: Props) {
       <Link
         href={`/?page=${nextPage}`}
         className='ml-4 flex items-center gap-1 transition hover:opacity-70'>
-        <span>siguiente</span> →
+        <span>siguiente</span>
+        <svg
+          className='mt-px'
+          width='23'
+          height='23'
+          viewBox='0 0 23 23'
+          fill='none'
+          xmlns='http://www.w3.org/2000/svg'>
+          <path
+            d='M17.25 11.5H5.75m11.5 0-4.792-4.79m4.792 4.79-4.792 4.792'
+            stroke='#6B7280'
+            strokeWidth='2'
+            strokeLinecap='round'
+            strokeLinejoin='round'
+          />
+        </svg>
       </Link>
     </div>
   )

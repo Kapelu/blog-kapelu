@@ -1,5 +1,4 @@
-import { Alert } from '@/components/ui/Alert'
-import { Button } from '@/components/ui/Button'
+import { Alert, Button, SearchIcon, EyeIcon, EyeOffIcon, Input, Logo } from '@/components'
 import Link from 'next/link'
 
 type Props = React.HTMLAttributes<HTMLElement>
@@ -7,6 +6,12 @@ type Props = React.HTMLAttributes<HTMLElement>
 export const mdxComponents = {
   Alert,
   Button,
+  SearchIcon,
+  EyeIcon,
+  EyeOffIcon,
+  Input,
+  Logo,
+
 
   h1: (props: Props) => (
     <h1 className='mb-6 mt-10 text-4xl font-bold tracking-tight' {...props} />
