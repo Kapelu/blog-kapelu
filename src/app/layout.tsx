@@ -3,6 +3,7 @@ import Footer from '@/components/ui/Footer'
 import Header from '@/components/ui/Header'
 import { WEBSITE_HOST_URL } from '@/lib/constants'
 import type { Metadata } from 'next'
+import Image from 'next/image'
 import { Providers } from './providers'
 
 import './globals.css'
@@ -54,6 +55,18 @@ export default function RootLayout({
     <html lang='es' suppressHydrationWarning>
       <body>
         <Providers>
+          {/* HERO BACKGROUND GLOBAL 
+          <div className='fixed inset-0 -z-10'>
+            <Image
+              src='/bg.png'
+              alt='Background'
+              fill
+              priority
+              className='object-cover'
+            />
+            <div className='absolute inset-0 bg-black/50' />
+          </div>*/}
+
           <main className='mb-8'>
             <Header />
             <Container>{children}</Container>

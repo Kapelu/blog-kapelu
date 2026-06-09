@@ -10,15 +10,15 @@ export function PostCard({ post }: Props) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className='block h-80 rounded-xl border  transition hover:shadow-lg hover:-translate-y-1'>
-      <article className='flex h-full flex-col'>
-        {/* IMAGE WRAPPER */}
-        <div className='relative h-40 w-full overflow-hidden rounded-t-xl'>
+      className='group block h-80 overflow-hidden rounded-xl border border-secondary bg-secondary transition hover:-translate-y-1 hover:shadow-lg'>
+      <article className='flex h-full flex-col rounded-xl'>
+        {/* IMAGE */}
+        <div className='relative h-40 w-full overflow-hidden'>
           <Image
             src={post.cover}
             alt={`${post.title} - thumbnail`}
             fill
-            className='object-cover'
+            className='object-cover transition duration-300 group-hover:scale-105'
             sizes='(max-width: 768px) 100vw,
                   (max-width: 1024px) 50vw,
                   33vw'
@@ -26,15 +26,20 @@ export function PostCard({ post }: Props) {
         </div>
 
         {/* CONTENT */}
-        <h2 className='mt-3 px-3 text-xl font-bold'>{post.title}</h2>
+        <h2 className='mt-3 px-3 text-xl font-bold text-secondary-foreground'>
+          {post.title}
+        </h2>
 
-        <p className='mt-2 px-3 text-sm opacity-80 line-clamp-2'>
+        <p className='mt-2 px-3 text-sm text-secondary-foreground/70 line-clamp-2'>
           {post.description}
         </p>
 
-        <div className='mt-auto px-3 pb-4 flex flex-wrap gap-2 pt-3'>
+        {/* TAGS */}
+        <div className='mt-auto flex flex-wrap gap-2 px-3 pb-4 pt-3'>
           {post.tags.map((tag) => (
-            <span key={tag} className='rounded-full border px-2 py-1 text-xs'>
+            <span
+              key={tag}
+              className='rounded-full border border-secondary-foreground/20 bg-secondary-foreground/10 px-2 py-1 text-xs text-secondary-foreground'>
               {tag}
             </span>
           ))}
