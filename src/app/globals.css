@@ -57,6 +57,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+
+
 /* 
 Porque accent y muted suelen ser más útiles que tertiary cuando el proyecto empieza a crecer. Por ejemplo:
 
