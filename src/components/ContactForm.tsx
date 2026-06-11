@@ -113,8 +113,10 @@ export default function ContactForm() {
       {success && (
         <Modal
           open={modalOpen}
+          title='¡Muchas gracias!'
           message='Te responderé lo antes posible.'
           onClose={() => setModalOpen(false)}
+          autoClose={5000}
         />
       )}
 
