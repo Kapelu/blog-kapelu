@@ -51,15 +51,21 @@ export default function About() {
           </p>
 
           <div className='mt-4 flex flex-wrap justify-center gap-2'>
-            {['Next.js', 'React', 'TypeScript', 'Node.js', 'MongoDB','Script Bash',].map(
-              (tech) => (
-                <span
-                  key={tech}
-                  className='rounded-full border px-3 py-1 text-sm'>
-                  {tech}
-                </span>
-              ),
-            )}
+            {[
+              'Next.js',
+              'React',
+              'TypeScript',
+              'Node.js',
+              'MongoDB',
+              'Script Bash',
+              'Github',
+            ].map((tech) => (
+              <span
+                key={tech}
+                className='rounded-full border px-3 py-1 text-sm'>
+                {tech}
+              </span>
+            ))}
           </div>
         </section>
 
