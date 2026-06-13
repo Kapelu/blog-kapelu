@@ -20,11 +20,16 @@ export type Tag = {
 const POSTS_PATH = path.join(process.cwd(), 'src/posts')
 
 export function normalizeTag(tag: string): string {
-  return tag.trim().toLowerCase()
+  return tag
+    .trim()
+    .toLowerCase()
+    .replace(/\b\w/g, (char) => char.toUpperCase())
 }
 
 export function tagToSlug(tag: string): string {
-  return normalizeTag(tag)
+  return tag
+    .trim()
+    .toLowerCase()
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '')
 }
