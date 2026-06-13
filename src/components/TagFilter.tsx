@@ -1,23 +1,26 @@
-import Link from 'next/link'
+import { Button } from '@/components/Button'
+import type { Tag } from '@/lib/posts'
 
 type Props = {
-  tags: string[]
+  tags: Tag[]
+  activeTag?: string
 }
 
-export function TagFilter({ tags }: Props) {
+export function TagFilter({ tags, activeTag }: Props) {
   return (
-    <div className='mb-10 flex flex-wrap gap-2'>
-      <Link href='/' className='rounded border px-3 py-1'>
+    <div className='mb-10 flex flex-wrap gap-3'>
+      <Button href='/' variant={activeTag ? 'ghost' : 'primary'} size='sm'>
         Todos
-      </Link>
+      </Button>
 
       {tags.map((tag) => (
-        <Link
-          key={tag}
-          href={`/?tag=${tag}`}
-          className='rounded border px-3 py-1'>
-          {tag}
-        </Link>
+        <Button
+          key={tag.slug}
+          href={`/?tag=${tag.slug}`}
+          variant={activeTag === tag.slug ? 'primary' : 'ghost'}
+          size='sm'>
+          {tag.name}
+        </Button>
       ))}
     </div>
   )

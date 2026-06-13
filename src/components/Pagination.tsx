@@ -5,9 +5,11 @@ type Props = {
   totalPages: number
 }
 
-function getPages(current: number, total: number) {
+type PageItem = number | '...'
+
+function getPages(current: number, total: number): PageItem[] {
   const delta = 1
-  const range: (number | string)[] = []
+  const range: PageItem[] = []
 
   const left = current - delta
   const right = current + delta
@@ -57,26 +59,30 @@ export function Pagination({ currentPage, totalPages }: Props) {
 
       {/* PAGES */}
       <div className='flex gap-2'>
-        {pages.map((page, i) =>
-          page === '...' ? (
-            <span
-              key={`dots-${i}`}
-              className='px-2 text-secondary-foreground/60'>
-              ...
-            </span>
-          ) : (
+        {pages.map((page, i) => {
+          if (page === '...') {
+            return (
+              <span
+                key={`dots-${i}`}
+                className='px-2 text-secondary-foreground/60'>
+                ...
+              </span>
+            )
+          }
+
+          return (
             <Link
-              key={page}
+              key={`page-${page}`}
               href={`/?page=${page}`}
-              className={`flex h-9 w-9 md:h-9 md:w-9 items-center justify-center rounded-md transition active:scale-95 ${
+              className={`flex h-9 w-9 items-center justify-center rounded-md transition active:scale-95 ${
                 currentPage === page
                   ? 'bg-primary text-primary-foreground'
                   : 'hover:bg-secondary/70'
               }`}>
               {page}
             </Link>
-          ),
-        )}
+          )
+        })}
       </div>
 
       {/* NEXT */}

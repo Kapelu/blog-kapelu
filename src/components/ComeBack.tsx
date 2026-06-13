@@ -1,5 +1,5 @@
 'use client'
-
+import { AppConfig } from '@/lib/AppConfig'
 import { useEffect } from 'react'
 
 export function ComeBack() {
@@ -9,7 +9,7 @@ export function ComeBack() {
     }
 
     const handleFocus = () => {
-      document.title = 'Blog | Daniel Calderon'
+      document.title = AppConfig.title
     }
 
     window.addEventListener('blur', handleBlur)

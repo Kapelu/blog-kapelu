@@ -12,9 +12,11 @@ export const mdxComponents = {
   Input,
   Logo,
 
-
   h1: (props: Props) => (
-    <h1 className='mb-6 mt-10 text-4xl font-bold tracking-tight' {...props} />
+    <h1
+      className='mb-6 mt-10 text-4xl text-center font-bold tracking-tight'
+      {...props}
+    />
   ),
 
   h2: (props: Props) => (
@@ -23,6 +25,10 @@ export const mdxComponents = {
 
   h3: (props: Props) => (
     <h3 className='mb-3 mt-8 text-2xl font-semibold' {...props} />
+  ),
+
+  h4: (props: Props) => (
+    <h4 className='mb-3 mt-8 text-1xl font-semibold' {...props} />
   ),
 
   p: (props: Props) => (

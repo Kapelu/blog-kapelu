@@ -1,49 +1,92 @@
+import type { Metadata } from 'next'
+import { AppConfig } from '@/lib/AppConfig'
 import { ComeBack } from '@/components/ComeBack'
 import { Container } from '@/components/Container'
-import Footer from '@/components/Footer'
-import Header from '@/components/Header'
-import { WEBSITE_HOST_URL } from '@/lib/constants'
-import type { Metadata } from 'next'
 import { Providers } from './providers'
-
+import Header from '@/components/Header'
+import Footer from '@/components/Footer'
 import './globals.css'
 
-const meta = {
-  title: 'Blog | Daniel Calderon',
-  description:
-    'Blog de articulos que fui creando en mi camino a full Stack developer',
-  image: `${WEBSITE_HOST_URL}/logo.png`,
-}
-
 export const metadata: Metadata = {
-  metadataBase: new URL(WEBSITE_HOST_URL),
+  metadataBase: new URL(AppConfig.url),
+
   title: {
-    default: meta.title,
+    default: AppConfig.title,
     template: '%s | Daniel Calderon',
   },
-  description: meta.description,
+
+  description: AppConfig.description,
+
+  keywords: AppConfig.keywords,
+
+  authors: [
+    {
+      name: AppConfig.author,
+    },
+  ],
+
+  creator: AppConfig.author,
+
+  publisher: AppConfig.author,
+
+  robots: {
+    index: true,
+    follow: true,
+    nocache: false,
+
+    googleBot: {
+      index: true,
+      follow: true,
+      noimageindex: false,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+
+  alternates: {
+    canonical: AppConfig.url,
+  },
+
   openGraph: {
-    title: meta.title,
-    description: meta.description,
-    url: WEBSITE_HOST_URL,
-    siteName: meta.title,
-    locale: 'es-AR',
+    title: AppConfig.title,
+    description: AppConfig.description,
+
+    url: AppConfig.url,
+
+    siteName: AppConfig.site_name,
+
+    locale: AppConfig.locale,
+
     type: 'website',
+
     images: [
       {
-        url: meta.image,
+        url: AppConfig.image,
+        width: 1200,
+        height: 630,
+        alt: AppConfig.title,
       },
     ],
   },
+
   twitter: {
-    title: meta.title,
-    description: meta.description,
-    images: meta.image,
     card: 'summary_large_image',
+
+    title: AppConfig.title,
+
+    description: AppConfig.description,
+
+    creator: '@kapelu',
+
+    images: [AppConfig.image],
   },
-  alternates: {
-    canonical: WEBSITE_HOST_URL,
-  },
+
+  category: 'technology',
+
+  applicationName: AppConfig.site_name,
+
+  referrer: 'origin-when-cross-origin',
 }
 
 export default function RootLayout({

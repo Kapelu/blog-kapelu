@@ -16,12 +16,12 @@ export default async function PostPage({ params }: Props) {
 
   return (
     <article className='mx-auto max-w-4xl py-10'>
-      <h1 className='mb-8 text-4xl font-bold'>{post.data.title}</h1>
+      {/*<h1 className='mb-8 text-4xl font-bold'>{post.data.title}</h1>*/}
 
       <MDXRemote source={post.content} components={mdxComponents} />
 
-      <div className='mt-10'>
-        <Button href='/'>Atrás</Button>
+      <div className='mt-10 flex flex-col items-center'>
+        <Button variant='primary' href='/'>Atrás</Button>
       </div>
     </article>
   )

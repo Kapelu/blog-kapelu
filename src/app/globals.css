@@ -8,11 +8,11 @@
   --foreground: #171717;
 
   /* Palette */
-  --first-color: #3b8686;
-  --first-alpha-color: #3b8686bf; /* 75% */
+  --first-color: #3558b3;
+  --first-alpha-color: #3558b3bf; /* 75% */
 
-  --second-color: #79bd9a;
-  --second-alpha-color: #79bd9abf; /* 75% */
+  --second-color: #213b7b;
+  --second-alpha-color: #213b7bbf; /* 75% */
 
   --third-color: #a8dba8;
   --third-alpha-color: #a8dba8bf; /* 75% */
@@ -49,7 +49,7 @@
 
 .dark {
   /* Base */
-  --background: #4e4e4e;
+  --background: #737373;
   --foreground: #ededed;
 
   /* Semantic colors */

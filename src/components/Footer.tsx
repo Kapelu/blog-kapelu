@@ -18,6 +18,11 @@ export default function Footer() {
 
           {/* Centro */}
           <div className='text-center text-sm text-gray-700 dark:text-gray-400'>
+            <span className='ml-2'>2024 - {year} All Rights Reserved</span>
+          </div>
+
+          {/* Links */}
+          <div className='flex flex-wrap items-center justify-center gap-4 text-sm text-gray-700 dark:text-gray-400 md:justify-end'>
             <Link
               href='https://github.com/Kapelu'
               target='_blank'
@@ -25,17 +30,6 @@ export default function Footer() {
               className='font-semibold text-[#533070]'>
               @kapelu
             </Link>
-
-            <span className='ml-2'>2024 - {year} All Rights Reserved</span>
-          </div>
-
-          {/* Links */}
-          <div className='flex flex-wrap items-center justify-center gap-4 text-sm text-gray-700 dark:text-gray-400 md:justify-end'>
-            <Link href='/'>Terms of Use</Link>
-
-            <Link href='/'>Privacy Policy</Link>
-
-            <Link href='/'>Cookie Policy</Link>
           </div>
         </div>
       </Container>

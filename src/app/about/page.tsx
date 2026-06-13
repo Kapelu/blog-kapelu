@@ -51,7 +51,7 @@ export default function About() {
           </p>
 
           <div className='mt-4 flex flex-wrap justify-center gap-2'>
-            {['Next.js', 'React', 'TypeScript', 'Node.js', 'MongoDB','Bash',].map(
+            {['Next.js', 'React', 'TypeScript', 'Node.js', 'MongoDB','Script Bash',].map(
               (tech) => (
                 <span
                   key={tech}

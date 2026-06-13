@@ -104,6 +104,7 @@ export default function ContactForm() {
       </div>
 
       <Button
+        variant='primary'
         type='submit'
         disabled={loading}
         className='mt-6 h-12 w-56 rounded-lg bg-indigo-600 text-white'>
