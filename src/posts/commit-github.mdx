@@ -13,7 +13,7 @@ Escribir buenos mensajes de commit es importante para que el histórico de tu pr
 
 Veamos algunas reglas para escribir un buen mensaje de commit:
 
-## Usa el verbo imperativo
+### Usa el verbo imperativo
 
 Aunque el mensaje puede sonar un poco borde, el verbo presente es una forma de expresar la acción que se realiza en el commit. Por ejemplo, `Add` significa que se añade un nuevo archivo, `Change` significa que se modifica un archivo existente y `Fix` significa que se arregla un bug.
 
@@ -60,7 +60,7 @@ Aunque el mensaje puede sonar un poco borde, el verbo presente es una forma de e
 
 Sé que muchas veces estamos tentados a escribirlo en pasado *"Added..."*, *"Fixed..."* o *"Removed..."* pero **cada commit hay que entenderlo como una instrucción para cambiar el estado del proyecto**. Dicho de otro modo, el verbo presente nos permite saber qué estado queremos que el proyecto se encuentre en el momento de añadir el commit.
 
-## No uses punto final ni puntos suspensivos en tus mensajes
+### No uses punto final ni puntos suspensivos en tus mensajes
 
 Usar puntuación, más allá de las comas, es innecesario a la hora de crear un buen mensaje de commit. Cada carácter cuenta a la hora de crear un buen mensaje de commit así que no lo desperdicies con puntos innecesarios.
 
@@ -78,7 +78,7 @@ git commit -m "Change the default system color" # ✅
 
 Si te fijas, los commits que genera GitHub no tienen puntos suspensivos ni punto final en ningún caso.
 
-## Usa como máximo 50 carácteres para tu mensaje de commit
+### Usa como máximo 50 carácteres para tu mensaje de commit
 
 Sé corto y conciso. Si tienes mucho que explicar... seguramente es que tu commit hace demasiadas cosas. ¿Puedes separarlo en diferentes commits? Pues hazlo.
 
@@ -89,12 +89,12 @@ git commit -m "Add new search feature and change typography to improve performan
 ```
 ```sh
 git commit -m "Add new search feature" # ✅
-```sh
 ```
+```sh
 git commit -m "Change typography to improve performance" # ✅
 ```
 
-## Añade todo el contexto que sea necesario en el cuerpo del mensaje de commit
+### Añade todo el contexto que sea necesario en el cuerpo del mensaje de commit
 
 A veces necesitas proveer de más contexto a tu commit. Para ello, en lugar de saturar el sumario del commit, añade información que sea necesaria en el cuerpo del mensaje.
 
@@ -149,7 +149,7 @@ Estos serían los prefijos:
 
 Otra ventaja muy importante de utilizar commits semánticos es que podrás leer el historial de commits para publicar nuevas versiones de un paquete, desplegar nuevas versiones de una aplicación o generar un CHANGELOG con todos los cambios.
 
-## Considera usar utilidades para hacer commit
+### Considera usar utilidades para hacer commit
 
 Puedes usar `husky` para ejecutar scripts o comandos antes de realizar diferentes acciones sobre el repositorio, gracias a los hooks de git. Por ejemplo, puedes ejecutar los tests antes de subir los cambios al repositorio remoto.
 
@@ -157,15 +157,18 @@ Puedes usar `husky` para ejecutar scripts o comandos antes de realizar diferente
 # instalamos las dependencias
 npm install husky --save-dev
 npx husky install
-
+```
+```sh
 # iniciamos husky en nuestro repositorio
 npm set-script prepare "husky install"
 npm run prepare
-
+```
+```sh
 # creamos un hook para que pase los tests antes de hacer commit
 npx husky add .husky/pre-push "npm test"
 git add .husky/pre-push
-
+```
+```sh
 git commit -m "Keep calm and commit"
 git push -u origin master # los tests se ejecutarán antes de realizar el push
 ```
@@ -176,9 +179,12 @@ Para instalar `commitlint`:
 ```sh
 # Install commitlint cli and conventional config
 npm install --save-dev @commitlint/{config-conventional,cli}
+```
+```sh
 # For Windows:
 npm install --save-dev @commitlint/config-conventional @commitlint/cli
-
+```
+```sh
 # Añadir hook para revisar el mensaje de commit
 npx husky add .husky/commit-msg 'npx --no-install commitlint --edit "$1"'
 ```

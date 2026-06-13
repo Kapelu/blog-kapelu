@@ -20,7 +20,7 @@ export const mdxComponents = {
   ),
 
   h2: (props: Props) => (
-    <h2 className='mb-4 mt-10 text-3xl font-semibold' {...props} />
+    <h2 className='mb-4 mt-8 text-3xl font-semibold' {...props} />
   ),
 
   h3: (props: Props) => (
@@ -65,18 +65,15 @@ export const mdxComponents = {
     </Link>
   ),
 
-  code: (props: Props) => (
-    <code
-      className='rounded bg-neutral-200 px-1.5 py-0.5 text-sm dark:bg-neutral-800'
+  pre: (props: Props) => (
+    <pre
+      className='my-4 overflow-x-auto rounded-xl text-amber-50 border border-neutral-800 bg-[#245865] p-3 shadow-lg'
       {...props}
     />
   ),
 
-  pre: (props: Props) => (
-    <pre
-      className='my-6 overflow-x-auto rounded-xl bg-neutral-900 p-4 text-neutral-100'
-      {...props}
-    />
+  code: (props: Props) => (
+    <code className='font-mono text-sm leading-7 text-slate-100' {...props} />
   ),
 
   img: ({ src, alt }: { src?: string; alt?: string }) => (
