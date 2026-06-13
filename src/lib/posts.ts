@@ -2,10 +2,6 @@ import fs from 'fs'
 import path from 'path'
 import matter from 'gray-matter'
 
-/* =========================
-   TYPES
-========================= */
-
 export type Post = {
   slug: string
   title: string
@@ -21,15 +17,7 @@ export type Tag = {
   slug: string
 }
 
-/* =========================
-   PATH
-========================= */
-
 const POSTS_PATH = path.join(process.cwd(), 'src/posts')
-
-/* =========================
-   TAG HELPERS
-========================= */
 
 export function normalizeTag(tag: string): string {
   return tag.trim().toLowerCase()
@@ -40,10 +28,6 @@ export function tagToSlug(tag: string): string {
     .replace(/\s+/g, '-')
     .replace(/[^a-z0-9-]/g, '')
 }
-
-/* =========================
-   POSTS
-========================= */
 
 export function getAllPosts(): Post[] {
   const files = fs
@@ -69,20 +53,12 @@ export function getAllPosts(): Post[] {
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime())
 }
 
-/* =========================
-   SINGLE POST
-========================= */
-
 export function getPostBySlug(slug: string) {
   const fullPath = path.join(POSTS_PATH, `${slug}.mdx`)
   const source = fs.readFileSync(fullPath, 'utf8')
 
   return matter(source)
 }
-
-/* =========================
-   TAGS (NORMALIZED + UNIQUE)
-========================= */
 
 export function getAllTags(): Tag[] {
   const posts = getAllPosts()
