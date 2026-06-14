@@ -23,7 +23,7 @@ export default async function HomePage({ searchParams }: Props) {
   const posts = getAllPosts()
 
   const filteredPosts = tag
-    ? posts.filter((post) => post.tags.includes(tag))
+    ? posts.filter((post) => post.tags.some((t) => t.slug === tag))
     : posts
 
   const totalPages = Math.ceil(filteredPosts.length / POSTS_PER_PAGE)
@@ -35,7 +35,7 @@ export default async function HomePage({ searchParams }: Props) {
 
   return (
     <section className='py-10'>
-      <TagFilter tags={getAllTags()} />
+      <TagFilter tags={getAllTags()} activeTag={tag} />
 
       <div className='grid gap-6 md:grid-cols-2 lg:grid-cols-3'>
         {paginatedPosts.map((post) => (

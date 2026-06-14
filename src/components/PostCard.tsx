@@ -38,9 +38,9 @@ export function PostCard({ post }: Props) {
         <div className='mt-auto flex flex-wrap gap-2 px-3 pb-4 pt-3'>
           {post.tags.map((tag) => (
             <span
-              key={tag}
+              key={tag.slug}
               className='rounded-full border border-secondary-foreground/20 bg-secondary-foreground/10 px-2 py-1 text-xs text-secondary-foreground'>
-              {tag}
+              {tag.name}
             </span>
           ))}
         </div>
