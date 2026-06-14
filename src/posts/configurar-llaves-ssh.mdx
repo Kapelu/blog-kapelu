@@ -1,13 +1,13 @@
 ---
-title: 'Configurar claves SSH en github'
-description: Como crear claves ssh configurarlas en nuestro sistema y agregarlas a github
-date: '2024-05-30'
+title: "Configurar claves SSH en github"
+description: "Como crear claves ssh configurarlas en nuestro sistema y agregarlas a github"
+date: "2024-05-30"
 author: "Kapelu"
 tags:
   - Github
   - Linux
   - SSH
-cover: "/images/images-posts/Tips-para-commit-en-github.webp"
+cover: "/images/images-posts/configurar-claves-ssh-en-github.webp"
 ---
 # Configurar claves SSH en github
 
@@ -84,44 +84,44 @@ ssh-keygen -t rsa -b 4096 -C “tu_email@gmail.com”
 
 Nos pide la ruta en la que se va a guardar las credenciales, en este caso damos enter, para que las guarde en home:
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh01.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh01.png)
 
 Después nos pide una contraseña con espacios (es recomendable ponerla)
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh02.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh02.png)
 
 Volvemos a ingresar la contraseña:
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh03.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh03.png)
 
 Nos genera la llave privada: id_rsa en una carpeta oculta .ssh dentro del directorio home y la llave pública id_rsa.pub
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh04.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh04.png)
 
 Una vez obtenido el resultado sabremos que hemos creado nuestras llaves (pública y privada) SSH satisfactoriamente:
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh05.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh05.png)
 
 Para comprobarlo escribimos el comando:
 ```js
 ls -al ~/.ssh
 ```
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh06.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh06.png)
 
 Debemos evaluar si está corriendo el servidor de ssh:
 ```js
 eval $(ssh-agent -s)
 ```
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh07.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh07.png)
 
 Agregar la llave privada a Git (Nos pide el password que le dimos con espacios).
 ```js
 ssh-add ~/.ssh/id_rsa
 ```
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh08.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh08.png)
 
 Nos aseguramos de copiar el contenido de nuestra llave SSH pública (id_rsa.pub)
 lo podemos hacer con el uso de vi o nano:
@@ -130,23 +130,23 @@ vi ~/.ssh/id_rsa.pub
 ```
 Copiamos el contenido. (Salimos con esc+shift+zz)
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh08-2.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh08-2.png)
 
 ## Agregando las llaves a github
 
 Debemos de ir a nuestro GitHub → settings → SSH and GPG Keys → New SSH Key
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh09.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh09.png)
 
 En title ponemos algo que identifique la Lap o el computador que estemos usando, en key pegamos lo que copiamos de nuestra llave pública:
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh10.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh10.png)
 
 Damos click a Add SSH Key, podemos ver que nos agregó una nueva llave con el nombre que le dimos, pero aún no se ha usado.
 
-![configurar clave SSH](/public/images/images-posts/configurar-claves-ssh/configurar-claves-ssh11.png)
+![configurar clave SSH](/images/images-posts/configurar-claves-ssh/configurar-claves-ssh11.png)
 
-Y listo, podemos comprobarlo haciendo un push al repositorio y no nos pedirá el usuario ni la contraseña (La primera vez nos pregunta que si estamos seguros de continuar la coneccion con una llave RSA, le damos yes 😜.
+Y listo, podemos comprobarlo haciendo un push al repositorio y no nos pedirá el usuario ni la contraseña (La primera vez nos pregunta que si estamos seguros de continuar la coneccion con una llave RSA, le damos yes 😜.)
 
 ## Gestionar varias claves SSH para diferentes cuentas de GitHub
 
@@ -168,6 +168,7 @@ Vamos a ello.
     ```
 
 3. Modifica el archivo config de SSH. Abre el archivo de configuración y pega el siguiente código:
+
     ```sh
     # Tu cuenta de Github Personal
     Host github.com
@@ -186,7 +187,7 @@ Ahora, cada vez que necesites autenticarte por SSH utilizando tu cuenta de traba
 ```sh
 git@github.com:workaccount/project.git
 ```
-…a:
+a:
 
 ```sh
 git@github-work:workaccount/project.git
@@ -201,6 +202,3 @@ Este tutorial ha tratado la necesidad del protocolo SSH, las diferencias entre l
 Con estos conocimientos, ahora estás preparado para desarrollar un flujo de trabajo impecable con Git y GitHub.
 
 ¡Sigue codificando! 🚀
-
-
-</article>

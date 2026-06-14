@@ -19,11 +19,19 @@ export type Tag = {
 
 const POSTS_PATH = path.join(process.cwd(), 'src/posts')
 
+const acronyms = ['api', 'ssh', 'css', 'html', 'sql', 'php', 'xml']
+
 export function normalizeTag(tag: string): string {
   return tag
     .trim()
     .toLowerCase()
-    .replace(/\b\w/g, (char) => char.toUpperCase())
+    .split(/\s+/)
+    .map((word) =>
+      acronyms.includes(word)
+        ? word.toUpperCase()
+        : word.charAt(0).toUpperCase() + word.slice(1),
+    )
+    .join(' ')
 }
 
 export function tagToSlug(tag: string): string {

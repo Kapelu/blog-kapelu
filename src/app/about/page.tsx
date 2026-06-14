@@ -33,8 +33,8 @@ export default function About() {
         <section className='flex flex-col items-center text-center'>
           <div className='overflow-hidden rounded-full border-border shadow-xl/35'>
             <Image
-              width={300}
-              height={300}
+              width={200}
+              height={200}
               src='/images/kapelu.png'
               alt='Daniel Calderón'
               className='h-auto w-auto object-cover'
@@ -46,9 +46,19 @@ export default function About() {
             Daniel Calderón
           </h1>
 
-          <p className='mt-3 text-lg font-medium text-muted-foreground md:text-xl'>
+          <p className='mt-3 text-lg font-medium text-muted-foreground pb-6 md:text-3xl'>
             Desarrollador Full Stack
           </p>
+
+          <div className='rounded-2xl border bg-cyan-600 p-3 shadow-sm'>
+            <p className='mt-3 text-lg font-medium text-secundary md:text-x'>
+              "No soy un gran programador. Solo soy un buen programador con
+              excelentes hábitos"
+            </p>
+            <p className='flex justify-end text-lg font-medium text-secundary md:text-xs'>
+              Kent Beck
+            </p>
+          </div>
 
           <div className='mt-4 flex flex-wrap justify-center gap-2'>
             {[
