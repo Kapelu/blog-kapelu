@@ -81,10 +81,10 @@ export default function About() {
 
         {/* DESCRIPCIÓN */}
         <section className='mx-auto max-w-4xl'>
-          <div className='rounded-2xl border bg-card p-8 shadow-sm'>
-            <h2 className='mb-6 text-2xl font-bold'>Mi historia</h2>
+          <div className='rounded-2xl border bg-cyan-600 p-3 shadow-sm'>
+            <h2 className='mb-6 text-2xl text-center font-bold'>Mi historia</h2>
 
-            <div className='space-y-5 text-base leading-8 text-muted-foreground md:text-lg'>
+            <div className='space-y-5 text-base leading-8 text-secundary md:text-lg'>
               <p>
                 Soy un desarrollador web autodidacta. Durante los últimos años
                 he dedicado gran parte de mi tiempo a aprender y mejorar mis
