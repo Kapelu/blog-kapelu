@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  /* Base */
+  --background: #aaaaaa;
+  --foreground: #000000;
+
+  /* Palette */
+  --first-color: #3558b3;
+  --first-alpha-color: #3558b3bf; /* 75% */
+
+  --second-color: #213b7b;
+  --second-alpha-color: #213b7bbf; /* 75% */
+
+  --third-color: #a8dba8;
+  --third-alpha-color: #a8dba8bf; /* 75% */
+
+  --white-color: #ffffff;
+  --white-alpha-color: #ffffff80; /* 50% */
+
+  --black-color: #000000;
+  --black-alpha-color: #00000080; /* 50% */
+
+  --gray-light-color: #f3f3f3;
+  --gray-color: #cccccc;
+  --gray-dark-color: #666666;
+
+  --link-color: #509ee3;
+  --title-color: #333333;
+  --text-color: #222222;
+
+  /* Semantic colors */
+  --primary: var(--first-color);
+  --primary-foreground: var(--white-color);
+
+  --secondary: var(--second-color);
+  --secondary-foreground: var(--white-color);
+
+  --accent: var(--third-color);
+  --accent-foreground: var(--title-color);
+
+  --muted: var(--gray-light-color);
+  --muted-foreground: var(--gray-dark-color);
+
+  --border: var(--gray-color);
+}
+
+.dark {
+  /* Base */
+  --background: #676767;
+  --foreground: #ededed;
+
+  /* Semantic colors */
+  --primary: var(--first-color);
+  --primary-foreground: #ffffff;
+
+  --secondary: #2d2d2d;
+  --secondary-foreground: #f5f5f5;
+
+  --accent: var(--third-color);
+  --accent-foreground: #111111;
+
+  --muted: #3a3a3a;
+  --muted-foreground: #cfcfcf;
+
+  --border: #5c5c5c;
+
+  /* Ajustes de texto */
+  --title-color: #f5f5f5;
+  --text-color: #e5e5e5;
+  --link-color: #7bbcff;
+}
+
+@theme inline {
+  /* Base */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+
+  /* Semantic */
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+
+  --color-border: var(--border);
+
+  /* Legacy palette */
+  --color-first: var(--first-color);
+  --color-second: var(--second-color);
+  --color-third: var(--third-color);
+
+  --color-gray-light: var(--gray-light-color);
+  --color-gray: var(--gray-color);
+  --color-gray-dark: var(--gray-dark-color);
+
+  --color-link: var(--link-color);
+  --color-title: var(--title-color);
+  --color-text: var(--text-color);
+
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+html::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/*
+Con esta configuración podrás usar clases Tailwind como:
+
+bg-primary
+text-primary-foreground
+
+bg-secondary
+text-secondary-foreground
+
+bg-accent
+text-accent-foreground
+
+bg-muted
+text-muted-foreground
+
+border-border
+
+y además seguir teniendo acceso a tu paleta original mediante variables CSS (var(--first-color), var(--second-color), etc.) cuando necesites estilos personalizados.
+
+*/
