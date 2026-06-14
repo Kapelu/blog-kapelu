@@ -1,6 +1,0 @@
-export { Alert } from './Alert'
-export { Button } from './Button'
-export { SearchIcon, EyeIcon, EyeOffIcon } from './Icons'
-export { Input } from './Input'
-export { Logo } from './Logo'
-export * from './Icons'
