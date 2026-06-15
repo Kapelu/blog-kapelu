@@ -32,23 +32,9 @@ export default function Header() {
             className='justify-self-center rounded-lg border border-sky-900 p-1 lg:hidden'
             aria-label='Abrir menú'>
             {isMenuOpen ? (
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='32'
-                height='32'
-                viewBox='0 0 24 24'
-                className='fill-sky-950'>
-                <path d='M16.192 6.344L11.949 10.586 7.707 6.344 6.293 7.758 10.535 12 6.293 16.242 7.707 17.656 11.949 13.414 16.192 17.656 17.606 16.242 13.364 12 17.606 7.758z' />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" className="fill-sky-950" viewBox="0 0 24 24"><path d="m16.192 6.344-4.243 4.242-4.242-4.242-1.414 1.414L10.535 12l-4.242 4.242 1.414 1.414 4.242-4.242 4.243 4.242 1.414-1.414L13.364 12l4.242-4.242z"/></svg>
             ) : (
-              <svg
-                xmlns='http://www.w3.org/2000/svg'
-                width='32'
-                height='32'
-                viewBox='0 0 24 24'
-                className='fill-sky-950'>
-                <path d='M4 6H20V8H4zM4 11H20V13H4zM4 16H20V18H4z' />
-              </svg>
+              <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" className="fill-sky-950" viewBox="0 0 24 24"><path d="M4 6h16v2H4zm0 5h16v2H4zm0 5h16v2H4z"/></svg>
             )}
           </button>
 

@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:where(.dark, .dark *));
 
@@ -122,6 +123,35 @@ html {
 
 html::-webkit-scrollbar {
   display: none;
+}
+
+pre[data-theme] {
+  background-color: var(--shiki-dark-bg) !important;
+}
+
+html:not(.dark) pre[data-theme] {
+  background-color: var(--shiki-light-bg) !important;
+} 
+
+pre[data-theme] {
+  background-color: var(--shiki-dark-bg);
+  color: var(--shiki-dark);
+}
+
+.dark pre[data-theme] {
+  background-color: var(--shiki-dark-bg);
+}
+
+:not(.dark) pre[data-theme] {
+  background-color: var(--shiki-light-bg);
+}
+
+pre[data-theme] code span {
+  color: var(--shiki-dark);
+}
+
+:not(.dark) pre[data-theme] code span {
+  color: var(--shiki-light);
 }
 
 @keyframes draw {
