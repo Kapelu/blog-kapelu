@@ -83,7 +83,7 @@ export const mdxComponents = {
 
   pre: (props: Props) => (
     <pre
-      className='my-4 overflow-x-auto rounded-xl text-amber-50 border border-neutral-800 bg-[#245865] p-3 shadow-lg'
+      className='my-4 overflow-x-auto rounded-xl text-blue-400 border border-neutral-800 bg-cyan-950 p-3 shadow-lg'
       {...props}
     />
   ),

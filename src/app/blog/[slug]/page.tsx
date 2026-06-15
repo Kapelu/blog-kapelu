@@ -1,4 +1,3 @@
-import { Button } from '@/components/Button'
 import { getPostBySlug } from '@/lib/posts'
 import { mdxComponents } from '@/mdx/components'
 import { MDXRemote } from 'next-mdx-remote/rsc'
@@ -20,9 +19,7 @@ export default async function PostPage({ params }: Props) {
 
       <MDXRemote source={post.content} components={mdxComponents} />
 
-      <div className='mt-10 flex flex-col items-center'>
-        <Button variant='primary' href='/'>Atrás</Button>
-      </div>
+      
     </article>
   )
 }
