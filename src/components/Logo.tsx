@@ -17,7 +17,7 @@ export function Logo({ href = '/', className = '' }: LogoProps) {
         priority
       />
 
-      <span className='hidden text-2xl font-bold lg:block'>Kapelu</span>
+      <span className='hidden text-2xl font-bold lg:block'></span>
     </Link>
   )
 }

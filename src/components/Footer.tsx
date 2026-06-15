@@ -18,17 +18,18 @@ export default function Footer() {
 
           {/* Centro */}
           <div className='text-center text-sm text-gray-700 dark:text-gray-400'>
-            <span className='ml-2'>2024 - {year} All Rights Reserved</span>
+            <span className='ml-2'>2023 - {year} All Rights Reserved</span>
           </div>
 
           {/* Links */}
           <div className='flex flex-wrap items-center justify-center gap-4 text-sm text-gray-700 dark:text-gray-400 md:justify-end'>
+            <span>Relizado con 💛​ por</span>
             <Link
               href='https://github.com/Kapelu'
               target='_blank'
               rel='noopener noreferrer'
               className='font-semibold text-[#533070]'>
-              @kapelu
+              @KWS
             </Link>
           </div>
         </div>

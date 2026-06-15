@@ -4,7 +4,7 @@ import { PostCard } from '@/components/PostCard'
 import { Pagination } from '@/components/Pagination'
 import { TagFilter } from '@/components/TagFilter'
 
-const POSTS_PER_PAGE = 9
+const POSTS_PER_PAGE = 12
 
 type Props = {
   searchParams: Promise<{
