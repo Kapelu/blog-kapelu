@@ -18,7 +18,7 @@ export function PostCard({ post }: Props) {
             src={post.cover}
             alt={`${post.title} - thumbnail`}
             fill
-            className='object-cover transition duration-300 group-hover:scale-105'
+            className='object-cover transition duration-900 group-hover:scale-125'
             sizes='(max-width: 768px) 100vw,
                   (max-width: 1024px) 50vw,
                   33vw'

@@ -30,8 +30,8 @@ export default async function PostPage({ params }: Props) {
                 rehypePrettyCode,
                 {
                   theme: {
-                    dark: 'solarized-dark',
-                    light: 'solarized-light',
+                    light: 'material-theme-darker',
+                    dark: 'material-theme-palenight',
                   },
                 },
               ],

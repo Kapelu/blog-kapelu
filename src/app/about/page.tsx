@@ -50,8 +50,8 @@ export default function About() {
             Desarrollador Full Stack
           </p>
 
-          <div className='rounded-2xl border bg-cyan-600 p-3 shadow-sm'>
-            <p className='mt-3 text-lg font-medium text-secundary md:text-x'>
+          <div className='rounded-2xl border bg-cyan-900 p-3 shadow-sm'>
+            <p className='mt-3 text-lg text-green-300 font-medium text-secundary md:text-x'>
               "No soy un gran programador. Solo soy un buen programador con
               excelentes hábitos"
             </p>
@@ -81,30 +81,30 @@ export default function About() {
 
         {/* DESCRIPCIÓN */}
         <section className='mx-auto max-w-4xl'>
-          <div className='rounded-2xl border bg-cyan-600 p-3 shadow-sm'>
+          <div className='rounded-2xl border bg-cyan-900 p-3 shadow-sm'>
             <h2 className='mb-6 text-2xl text-center font-bold'>Mi historia</h2>
 
             <div className='space-y-5 text-base leading-8 text-secundary md:text-lg'>
-              <p>
+              <p className='mt-3 text-lg text-green-300 font-medium text-secundary md:text-x'>
                 Soy un desarrollador web autodidacta. Durante los últimos años
                 he dedicado gran parte de mi tiempo a aprender y mejorar mis
                 habilidades en el desarrollo de aplicaciones modernas.
               </p>
 
-              <p>
+              <p className='mt-3 text-lg text-green-300 font-medium text-secundary md:text-x'>
                 Me considero una persona comprometida, curiosa y enfocada en el
                 aprendizaje continuo. Aunque disfruto especialmente del
                 desarrollo Frontend, también trabajo con Backend y bases de
                 datos.
               </p>
 
-              <p>
+              <p className='mt-3 text-lg text-green-300 font-medium text-secundary md:text-x'>
                 Disfruto resolver problemas, crear experiencias de usuario
                 intuitivas y enfrentar nuevos desafíos que me permitan crecer
                 profesionalmente.
               </p>
 
-              <p>
+              <p className='mt-3 text-lg text-green-300 font-medium text-secundary md:text-x'>
                 Mi objetivo es formar parte de proyectos donde pueda aportar
                 valor, seguir aprendiendo y colaborar con equipos que compartan
                 la pasión por construir productos de calidad.

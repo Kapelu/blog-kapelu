@@ -3,73 +3,103 @@
 
 @custom-variant dark (&:where(.dark, .dark *));
 
+/* SOLARIZED LIGHT */
+
 :root {
   /* Base */
-  --background: #aaaaaa;
-  --foreground: #000000;
+  --background: #fdf6e3; /* base3 */
+  --foreground: #657b83; /* base00 */
 
-  /* Palette */
-  --first-color: #3558b3;
-  --first-alpha-color: #3558b3bf;
+  --muted: #eee8d5; /* base2 */
+  --muted-foreground: #586e75; /* base01 */
+  --border: #eee8d5;
 
-  --second-color: #213b7b;
-  --second-alpha-color: #213b7bbf;
+  /* Colores semánticos */
+  --primary: #268bd2; /* blue */
+  --primary-foreground: #fdf6e3;
 
-  --third-color: #a8dba8;
-  --third-alpha-color: #a8dba8bf;
+  --secondary: #2aa198; /* cyan */
+  --secondary-foreground: #fdf6e3;
 
-  --white-color: #ffffff;
-  --white-alpha-color: #ffffff80;
+  --accent: #859900; /* green */
+  --accent-foreground: #fdf6e3;
 
-  --black-color: #000000;
-  --black-alpha-color: #00000080;
+  /* Texto */
+  --title-color: #586e75;
+  --text-color: #657b83;
+  --link-color: #268bd2;
 
-  --gray-light-color: #f3f3f3;
-  --gray-color: #cccccc;
-  --gray-dark-color: #666666;
+  /* Paleta Solarized completa */
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
 
-  --link-color: #509ee3;
-  --title-color: #333333;
-  --text-color: #222222;
+  /* Compatibilidad con variables antiguas */
+  --first-color: #268bd2;
+  --second-color: #2aa198;
+  --third-color: #859900;
 
-  /* Semantic */
-  --primary: var(--first-color);
-  --primary-foreground: var(--white-color);
+  --gray-light-color: #eee8d5;
+  --gray-color: #93a1a1;
+  --gray-dark-color: #586e75;
 
-  --secondary: var(--second-color);
-  --secondary-foreground: var(--white-color);
-
-  --accent: var(--third-color);
-  --accent-foreground: var(--title-color);
-
-  --muted: var(--gray-light-color);
-  --muted-foreground: var(--gray-dark-color);
-
-  --border: var(--gray-color);
+  --button-bg: #002b36;
+  --button-text: #839496;
+  --button-border: #073642;
 }
+
+/* SOLARIZED DARK*/
 
 .dark {
-  --background: #676767;
-  --foreground: #ededed;
+  /* Base */
+  --background: #002b36; /* base03 */
+  --foreground: #839496; /* base0 */
 
-  --primary: var(--first-color);
-  --primary-foreground: #ffffff;
+  --muted: #073642; /* base02 */
+  --muted-foreground: #93a1a1; /* base1 */
+  --border: #073642;
 
-  --secondary: #2d2d2d;
-  --secondary-foreground: #f5f5f5;
+  /* Colores semánticos */
+  --primary: #268bd2;
+  --primary-foreground: #fdf6e3;
 
-  --accent: var(--third-color);
-  --accent-foreground: #111111;
+  --secondary: #2aa198;
+  --secondary-foreground: #fdf6e3;
 
-  --muted: #3a3a3a;
-  --muted-foreground: #cfcfcf;
+  --accent: #859900;
+  --accent-foreground: #fdf6e3;
 
-  --border: #5c5c5c;
+  /* Texto */
+  --title-color: #93a1a1;
+  --text-color: #839496;
+  --link-color: #268bd2;
 
-  --title-color: #f5f5f5;
-  --text-color: #e5e5e5;
-  --link-color: #7bbcff;
+  /* Paleta Solarized */
+  --yellow: #b58900;
+  --orange: #cb4b16;
+  --red: #dc322f;
+  --magenta: #d33682;
+  --violet: #6c71c4;
+  --blue: #268bd2;
+  --cyan: #2aa198;
+  --green: #859900;
+
+  /* Compatibilidad */
+  --first-color: #268bd2;
+  --second-color: #2aa198;
+  --third-color: #859900;
+
+  --gray-light-color: #073642;
+  --gray-color: #839496;
+  --gray-dark-color: #93a1a1;
 }
+
+/* TAILWIND V4 THEME TOKENS*/
 
 @theme inline {
   --color-background: var(--background);
@@ -101,49 +131,87 @@
   --color-title: var(--title-color);
   --color-text: var(--text-color);
 
+  /* Solarized */
+  --color-yellow: var(--yellow);
+  --color-orange: var(--orange);
+  --color-red: var(--red);
+  --color-magenta: var(--magenta);
+  --color-violet: var(--violet);
+  --color-blue: var(--blue);
+  --color-cyan: var(--cyan);
+  --color-green: var(--green);
+
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
+
+  --color-button-bg: var(--button-bg);
+  --color-button-text: var(--button-text);
+  --color-button-border: var(--button-border);
 }
 
-/*html {
-  scrollbar-width: none;
+/* BASE*/
+
+html {
+  color-scheme: light;
 }
 
-html::-webkit-scrollbar {
-  display: none;
-}*/
+html.dark {
+  color-scheme: dark;
+}
 
 body {
-  background: var(--background);
+  background-color: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
 }
 
-/* ==========================
-   REHYPE PRETTY CODE / SHIKI
-   ========================== */
+/* TYPOGRAPHY (MDX / BLOG)*/
+
+.prose {
+  --tw-prose-body: var(--text-color);
+  --tw-prose-headings: var(--title-color);
+  --tw-prose-links: var(--link-color);
+  --tw-prose-bold: var(--title-color);
+  --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-bullets: var(--muted-foreground);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--title-color);
+  --tw-prose-code: var(--orange);
+  --tw-prose-pre-bg: var(--muted);
+  --tw-prose-pre-code: var(--foreground);
+}
+
+.dark .prose {
+  --tw-prose-body: var(--text-color);
+  --tw-prose-headings: var(--title-color);
+  --tw-prose-links: var(--link-color);
+  --tw-prose-bold: var(--title-color);
+  --tw-prose-counters: var(--muted-foreground);
+  --tw-prose-bullets: var(--muted-foreground);
+  --tw-prose-hr: var(--border);
+  --tw-prose-quotes: var(--title-color);
+  --tw-prose-code: var(--orange);
+  --tw-prose-pre-bg: var(--muted);
+  --tw-prose-pre-code: var(--foreground);
+}
+
+/* REHYPE PRETTY CODE / SHIKI */
 
 pre[data-theme] {
   overflow-x: auto;
   border-radius: 1rem;
 }
 
-/* Tema oscuro */
-
 html.dark pre[data-theme] {
   background-color: var(--shiki-dark-bg) !important;
   color: var(--shiki-dark) !important;
 }
-
-/* Tema claro */
 
 html.light pre[data-theme],
 html:not(.dark) pre[data-theme] {
   background-color: var(--shiki-light-bg) !important;
   color: var(--shiki-light) !important;
 }
-
-/* Tokens de Shiki */
 
 html.dark pre[data-theme] code span {
   color: var(--shiki-dark) !important;
@@ -173,7 +241,7 @@ pre [data-highlighted-chars] {
   border-radius: 4px;
 }
 
-/* Scroll horizontal del código */
+/* Scroll */
 
 pre::-webkit-scrollbar {
   height: 8px;
@@ -184,7 +252,7 @@ pre::-webkit-scrollbar-thumb {
   border-radius: 999px;
 }
 
-/* Animaciones */
+/* ANIMACIONES */
 
 @keyframes draw {
   to {
@@ -192,6 +260,43 @@ pre::-webkit-scrollbar-thumb {
   }
 }
 /*
+Con esto podrás usar en Tailwind:
+
+bg-background
+text-foreground
+bg-primary
+text-primary
+text-link
+text-title
+text-text
+border-border
+
+text-blue
+text-cyan
+text-green
+text-yellow
+text-orange
+text-red
+text-magenta
+text-violet
+
+por ejemplo:
+            <h1 className="text-title">
+              Mi Blog
+            </h1>
+
+            <p className="text-text">
+              Este es el contenido del artículo.
+            </p>
+
+            <a className="text-link hover:underline">
+              Leer más
+            </a>
+
+            <div className="border border-border">
+              Caja con borde
+            </div>
+
 Con esta configuración podrás usar clases Tailwind como:
 
 bg-primary
@@ -207,7 +312,5 @@ bg-muted
 text-muted-foreground
 
 border-border
-
-y además seguir teniendo acceso a tu paleta original mediante variables CSS (var(--first-color), var(--second-color), etc.) cuando necesites estilos personalizados.
 
 */
