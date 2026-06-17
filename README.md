@@ -1,4 +1,6 @@
-# Blog Kapelu
+<p align="center">
+  <h1>Blog Kapelu</h1>
+</p>
 
 <p align="center">
   <img src="./public/logo.png" width="130" alt="Blog Kapelu Logo">
