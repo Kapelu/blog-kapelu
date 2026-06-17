@@ -68,7 +68,7 @@ export default function About() {
           <div className='mt-8 flex justify-center gap-4'>
             {/* GitHub */}
             <a
-              href='https://github.com/tuusuario'
+              href='https://github.com/Kapelu'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='GitHub'
