@@ -83,7 +83,7 @@ export default function About() {
 
             {/* LinkedIn */}
             <a
-              href='https://linkedin.com/in/tuusuario'
+              href='https://www.linkedin.com/in/ddanielcalderon'
               target='_blank'
               rel='noopener noreferrer'
               aria-label='LinkedIn'

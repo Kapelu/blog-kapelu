@@ -81,7 +81,7 @@ El objetivo principal del proyecto es crear un lugar donde aprender, enseñar y 
 Las colaboraciones son bienvenidas. Los artículos se encuentran dentro de:
 
 ```sh
-content/posts/
+src/posts/
 ```
 
 Cada publicación utiliza **MDX**, lo que permite combinar:
