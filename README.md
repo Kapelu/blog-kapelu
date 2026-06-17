@@ -1,7 +1,6 @@
 <h1 align="center">
   Blog Kapelu
 </br>
-</br>
 </h1>
 
 <p align="center">
