@@ -17,9 +17,15 @@
 
 ---
 
-## 📖 Acerca del proyecto
+<h2 align="center">
+  Acerca del proyecto
+</h2>
 
-**Blog Kapelu** es un espacio personal dedicado a compartir conocimientos, experiencias y artículos relacionados con:
+> "No soy un gran programador. Solo soy un buen programador con excelentes hábitos."
+>
+> — Kent Beck
+
+Este proyecto nace desde la convicción de que el aprendizaje constante, la curiosidad y la disciplina pueden abrir el camino para convertirse en un mejor desarrollador cada día. **Blog Kapelu** es un espacio personal dedicado a compartir conocimientos, experiencias y artículos relacionados con:
 
 * Desarrollo Web
 * JavaScript y TypeScript
@@ -34,7 +40,10 @@ El objetivo principal del proyecto es crear un lugar donde aprender, enseñar y 
 
 ---
 
-## ✨ Características
+<h2 align="center">
+  ✨ Características
+</h2>
+
 
 * ⚡ Desarrollado con **Next.js App Router**
 * 🔒 Tipado estático con **TypeScript**
@@ -50,7 +59,8 @@ El objetivo principal del proyecto es crear un lugar donde aprender, enseñar y 
 
 ---
 
-## 🛠️ Tecnologías utilizadas
+<h2 align="center">🛠️ Tecnologías utilizadas</h2>
+
 
 | Tecnología         | Uso                         |
 | ------------------ | --------------------------- |
@@ -66,7 +76,52 @@ El objetivo principal del proyecto es crear un lugar donde aprender, enseñar y 
 
 ---
 
-## 🚀 Instalación
+<h2 align="center">📝 Colaboraciones </h2> 
+
+Las colaboraciones son bienvenidas. Los artículos se encuentran dentro de:
+
+```sh
+content/posts/
+```
+
+Cada publicación utiliza **MDX**, lo que permite combinar:
+
+* Markdown
+* Componentes React
+* Bloques de código
+* Imágenes
+* Componentes personalizados
+
+> Si deseas contribuir con un artículo:
+
+1. Haz un Fork del proyecto.
+2. Crea una nueva rama.
+3. Agrega tu artículo en formato MDX.
+4. Envía un Pull Request.
+
+También puedes abrir un Issue para proponer nuevos temas o mejoras.
+
+El objetivo de este blog es fomentar el aprendizaje compartido y el intercambio de conocimientos dentro de la comunidad.
+
+---
+
+<h2 align="center">📜 Política de autoría</h2>
+
+Todos los artículos publicados en este blog conservan la autoría de sus respectivos autores.
+
+Cada colaboración será acreditada de forma permanente mediante:
+
+* Nombre del autor
+* Enlaces de referencia (si el autor lo desea)
+* Historial de contribuciones en GitHub
+
+La publicación de un artículo en este repositorio **no implica la cesión de derechos de autor**.
+
+El contenido seguirá perteneciendo a su autor original y siempre se respetará su atribución correspondiente.
+
+---
+
+<h2 align="center">🚀 Instalación</h2>
 
 Clonar el repositorio:
 
@@ -100,68 +155,7 @@ http://localhost:3000
 
 ---
 
-## 📝 Escribir un artículo
-
-Los artículos se encuentran dentro de:
-
-```text
-content/posts/
-```
-
-Cada publicación utiliza **MDX**, lo que permite combinar:
-
-* Markdown
-* Componentes React
-* Bloques de código
-* Imágenes
-* Componentes personalizados
-
----
-
-## 🤝 Colaboraciones
-
-Las colaboraciones son bienvenidas.
-
-Si deseas contribuir con un artículo:
-
-1. Haz un Fork del proyecto.
-2. Crea una nueva rama.
-3. Agrega tu artículo en formato MDX.
-4. Envía un Pull Request.
-
-También puedes abrir un Issue para proponer nuevos temas o mejoras.
-
-El objetivo de este blog es fomentar el aprendizaje compartido y el intercambio de conocimientos dentro de la comunidad.
-
----
-
-## 📜 Política de autoría
-
-Todos los artículos publicados en este blog conservan la autoría de sus respectivos autores.
-
-Cada colaboración será acreditada de forma permanente mediante:
-
-* Nombre del autor
-* Enlaces de referencia (si el autor lo desea)
-* Historial de contribuciones en GitHub
-
-La publicación de un artículo en este repositorio **no implica la cesión de derechos de autor**.
-
-El contenido seguirá perteneciendo a su autor original y siempre se respetará su atribución correspondiente.
-
----
-
-## 🌱 Filosofía del proyecto
-
-> "No soy un gran programador. Solo soy un buen programador con excelentes hábitos."
->
-> — Kent Beck
-
-Este proyecto nace desde la convicción de que el aprendizaje constante, la curiosidad y la disciplina pueden abrir el camino para convertirse en un mejor desarrollador cada día.
-
----
-
-## ⭐ Apoya el proyecto
+<h2 align="center">⭐ Apoya el proyecto</h2>
 
 Si este proyecto te resulta útil:
 
