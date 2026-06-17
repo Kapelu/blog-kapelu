@@ -1,9 +1,9 @@
 <p align="center">
-  <img src="./public/logo.png" width="130" alt="Blog Kapelu Logo">
+  <h1>Blog Kapelu</h1>
 </p>
 
 <p align="center">
-  <h1>Blog Kapelu</h1>
+  <img src="./public/logo.png" width="130" alt="Blog Kapelu Logo">
 </p>
 
 <p align="center">
