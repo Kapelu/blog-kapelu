@@ -1,0 +1,601 @@
+---
+title: "Estilos CSS en Markdown"
+description: "Agregado de estilos personalizados en markdown con CSS"
+date: "2025-05-25"
+author: "Kapelu"
+tags:
+  - React
+  - CSS
+  - Markdown
+cover: "/images/images-posts/estilos-css-en-markdown.webp"
+---
+
+# Base de marcado de Tailwind
+
+**Tailwind Markdown Base** es un complemento simple que agrega estilo base para elementos generados por Markdown o un wysiwyg desde un cms.
+
+## Primeros pasos
+
+### Instalación
+```sh
+    # Install with NPM
+    npm install --save @geoffcodesthings/tailwind-md-base
+
+    # Or use Yarn
+    yarn add @geoffcodesthings/tailwind-md-base
+```
+
+### Uso
+```jsx
+    // tailwind.config.js
+    const tailwindMdBase = require('@geoffcodesthings/tailwind-md-base');
+
+    module.exports = {
+      theme: {
+        ...
+      },
+      plugins: [tailwindMdBase()],
+    };
+```
+------------------------------------------------------------------------
+
+## Configuración
+
+### Clase de wrapper
+
+De forma predeterminada, Tailwind Markdown Base envuelve sus estilos generados en una clase`.markdown`. Esto, por supuesto, se puede configurar en`tailwind.config.js`:
+
+```jsx
+    // tailwind.config.js
+    const tailwindMdBase = require('@geoffcodesthings/tailwind-md-base');
+
+    module.exports = {
+      theme: {
+        markdownBase: {
+          wrapperClass: 'content',
+        },
+      },
+      plugins: [tailwindMdBase()],
+    };
+```
+
+> El ejemplo anterior envolvería los estilos generados por el complemento`.content` en lugar del valor predeterminado`.markdown`.
+
+### Configuración predeterminada
+
+Con la excepción de`wrapperClass` , la configuración predeterminada es simplemente la sintaxis CSS-in-JS. Esto le permite personalizar los estilos tanto como necesite de manera estandarizada.
+
+```jsx
+    const defaultTheme = require('tailwindcss/resolveConfig')(
+      require('tailwindcss/defaultConfig'),
+    ).theme;
+
+    module.exports = {
+      wrapperClass: 'markdown',
+
+      h1: {
+        fontSize: defaultTheme.fontSize['4xl'],
+        fontWeight: defaultTheme.fontWeight.bold,
+        marginTop: 0,
+        marginBottom: defaultTheme.spacing[2],
+      },
+
+      h2: {
+        fontSize: defaultTheme.fontSize['3xl'],
+        fontWeight: defaultTheme.fontWeight.bold,
+        marginTop: 0,
+        marginBottom: defaultTheme.spacing[2],
+      },
+
+      h3: {
+        fontSize: defaultTheme.fontSize['2xl'],
+        fontWeight: defaultTheme.fontWeight.bold,
+        marginTop: 0,
+        marginBottom: defaultTheme.spacing[2],
+      },
+
+      h4: {
+        fontSize: defaultTheme.fontSize.xl,
+        fontWeight: defaultTheme.fontWeight.bold,
+        marginTop: 0,
+        marginBottom: defaultTheme.spacing[2],
+      },
+
+      h5: {
+        fontSize: defaultTheme.fontSize.lg,
+        fontWeight: defaultTheme.fontWeight.bold,
+        marginTop: 0,
+        marginBottom: defaultTheme.spacing[2],
+      },
+
+      h6: {
+        fontSize: defaultTheme.fontSize.base,
+        fontWeight: defaultTheme.fontWeight.bold,
+        marginTop: 0,
+        marginBottom: defaultTheme.spacing[2],
+      },
+
+      p: {
+        marginTop: 0,
+        marginBottom: defaultTheme.spacing[4],
+      },
+
+      a: {
+        color: defaultTheme.colors.blue[500],
+        textDecoration: 'none',
+        '&:hover': {
+          color: defaultTheme.colors.blue[600],
+          textDecoration: 'none',
+        },
+      },
+
+      blockquote: {
+        borderColor: defaultTheme.colors.gray[300],
+        borderLeftWidth: defaultTheme.borderWidth[4],
+        fontWeight: defaultTheme.fontWeight.normal,
+        fontStyle: 'italic',
+        marginTop: defaultTheme.spacing[8],
+        marginBottom: defaultTheme.spacing[8],
+        paddingLeft: defaultTheme.spacing[6],
+        color: defaultTheme.colors.gray[800],
+        fontSize: defaultTheme.fontSize.lg,
+      },
+
+      code: {
+        backgroundColor: defaultTheme.colors.gray[300],
+        paddingLeft: defaultTheme.spacing[2],
+        paddingRight: defaultTheme.spacing[2],
+        paddingTop: defaultTheme.spacing.px,
+        paddingBottom: defaultTheme.spacing.px,
+        borderRadius: defaultTheme.borderRadius.default,
+        fontSize: defaultTheme.fontSize.sm,
+      },
+
+      hr: {
+        borderBottomWidth: defaultTheme.borderWidth.default,
+        borderColor: defaultTheme.colors.gray[300],
+        marginTop: defaultTheme.spacing[12],
+        marginBottom: defaultTheme.spacing[12],
+        borderRadius: defaultTheme.borderRadius.full,
+      },
+
+      ul: {
+        listStyleType: defaultTheme.listStyleType.disc,
+        listStylePosition: 'inside',
+        marginTop: defaultTheme.spacing[4],
+        marginBottom: defaultTheme.spacing[4],
+      },
+
+      ol: {
+        listStyleType: defaultTheme.listStyleType.decimal,
+        listStylePosition: 'inside',
+        marginTop: defaultTheme.spacing[4],
+        marginBottom: defaultTheme.spacing[4],
+      },
+
+      table: {
+        width: '100%',
+        color: defaultTheme.colors.gray[900],
+        marginBottom: '1rem',
+        padding: 0,
+        borderCollapse: 'collapse',
+        tr: {
+          borderTopWidth: defaultTheme.borderWidth.default,
+          borderColor: defaultTheme.colors.gray[700],
+          backgroundColor: defaultTheme.colors.white,
+          margin: 0,
+          padding: 0,
+          '&:nth-child(2n)': {
+            backgroundColor: defaultTheme.colors.gray[100],
+          },
+          th: {
+            fontWeight: defaultTheme.fontWeight.bold,
+            borderWidth: defaultTheme.borderWidth.default,
+            borderColor: defaultTheme.colors.gray[700],
+            textAlign: 'left',
+            margin: 0,
+            padding: '6px 13px',
+            '&:first-child': {
+              marginTop: 0,
+            },
+            '&:last-child': {
+              marginBottom: 0,
+            },
+          },
+          td: {
+            borderWidth: defaultTheme.borderWidth.default,
+            borderColor: defaultTheme.colors.gray[700],
+            textAlign: 'left',
+            margin: 0,
+            padding: '6px 13px',
+            '&:first-child': {
+              marginTop: 0,
+            },
+            '&:last-child': {
+              marginBottom: 0,
+            },
+          },
+        },
+      },
+    };
+```
+
+### Estilos adicionales
+
+Actualmente solo tenemos estilos predeterminados para los elementos más comunes generados por Markdown. Sin embargo, debido a la sintaxis CSS-in-JS, puede agregar estilo para cualquier elemento en su configuración.
+
+Por ejemplo, si desea diseñar`img` elementos dentro del espacio de`.markdown` nombres, puede hacerlo de la siguiente manera:
+
+```jsx
+    // tailwind.config.js
+    const defaultTheme = require('tailwindcss/defaultTheme');
+    const tailwindMdBase = require('@geoffcodesthings/tailwind-md-base');
+
+    module.exports = {
+      theme: {
+        markdownBase: {
+          img: {
+            maxWidth: '100%',
+            borderWidth: defaultTheme.borderWidth.default,
+            borderColor: defaultTheme.colors.gray[600],
+          },
+        },
+      },
+      plugins: [tailwindMdBase()],
+    };
+```
+
+El ejemplo anterior agregaría lo siguiente al CSS generado:
+
+```css
+    .markdown > img {
+      max-width: 100%;
+      border-width: 1px;
+      border-color: #718096;
+    }
+```
+
+## Ejemplos
+
+### Encabezados
+
+Encabezados como `h1` ,`h2` ,`h3` ,`h4` ,`h5` , e`h6` incluyen algunos estilos básicos inspirados en marcos como [Bootstrap](https://getbootstrap.com/) y [Bulma](https://bulma.io/).
+
+
+# h1. Hola mundo
+
+## h2. Hola mundo
+
+### h3. Hola mundo
+
+#### h4. Hola mundo
+
+##### h5. Hola mundo
+
+###### h6. Hola mundo
+
+
+``` html
+<h1>h1. Hola mundo</h1>
+<h2>h2. Hola mundo</h2>
+<h3>h3. Hola mundo</h3>
+<h4>h4. Hola mundo</h4>
+<h5>h5. Hola mundo</h5>
+<h6>h6. Hola mundo</h6>
+```
+
+El CSS generado para los encabezados por este complemento es:
+
+```CSS
+    .markdown h1 {
+      font-size: 2.25rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .markdown h2 {
+      font-size: 1.875rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .markdown h3 {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .markdown h4 {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .markdown h5 {
+      font-size: 1.125rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+
+    .markdown h6 {
+      font-size: 1rem;
+      font-weight: 700;
+      margin-top: 0;
+      margin-bottom: 0.5rem;
+    }
+```
+
+### Párrafos
+
+Los párrafos reciben`1rem` de`margin-bottom` para proporcionar cierto espacio entre ellos.
+
+
+Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+
+Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.
+
+
+``` html
+<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+<p>Vivamus sagittis lacus vel augue laoreet rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus.</p>
+```
+
+El CSS generado para los párrafos por este complemento es:
+
+```css
+    .markdown p {
+      margin-top: 0;
+      margin-bottom: 1rem;
+    }
+```
+
+### Enlaces
+
+Los enlaces reciben algunos estilos básicos, como`color` y`text-decoration` además de`:hover` estilo.
+
+
+[Este es un enlace](https://github.com/Kapelu)
+
+
+``` html
+<a href="#">Este es un enlace</a>
+```
+
+El CSS generado para los enlaces por este complemento es:
+```css
+    .markdown a {
+      color: #4299e1;
+      text-decoration: none;
+    }
+
+    .markdown a:hover {
+      color: #3182ce,
+      text-decoration: none;
+    }
+```
+
+### Citas en bloque
+
+Blockquotes recibe un estilo base inspirado en los estilos Markdown de GitHub.
+
+> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Entero posuere erat a ante.
+
+``` html
+<blockquote>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+</blockquote>
+```
+
+Los CSS generados para las citas en bloque por este complemento son:
+```css
+    .markdown blockquote {
+      border-color: #e2e8f0;
+      border-left-width: 4px;
+      font-weight: 400;
+      font-style: italic;
+      margin-top: 2rem;
+      margin-bottom: 2rem;
+      padding-left: 1.5rem;
+      color: #2d3748;
+      font-size: 1.125rem;
+    }
+```
+
+### Código
+
+`code`La etiqueta está diseñada simplemente con la intención de usarse con`inline code` . También se puede utilizar con`code blocks` resaltado de sintaxis si no se utiliza.
+
+Así es como se`inline code` ve.
+
+``` html
+<p>Así es como se <code>inline code</code> ve.</p>
+```
+
+El CSS generado para`code` las etiquetas por este complemento es:
+
+```css
+    .markdown code {
+      background-color: #e2e8f0;
+      padding-left: 0.5rem;
+      padding-right: 0.5rem;
+      padding-top: 1px;
+      padding-bottom: 1px;
+      border-radius: 0.25rem;
+      font-size: 0.875rem;
+    }
+```
+
+### Regla horizontal
+
+Las reglas horizontales también reciben cierto estilo básico. Se mantienen intencionalmente sutiles.
+
+------------------------------------------------------------------------
+
+``` html
+<hr />
+```
+
+El CSS generado para reglas horizontales por este complemento es:
+```css
+    .markdown hr {
+      border-bottom-width: 1px;
+      border-color: #e2e8f0;
+      margin-top: 3rem;
+      margin-bottom: 3rem;
+      border-radius: 9999px;
+    }
+```
+
+### Listas
+
+Listas,`ul` y`ol` se les quita su estilo en Tailwind. Este complemento agrega algunos de esos estilos nuevamente.
+
+- Manzanas
+- Naranjas
+- Plátanos
+
+1.  Manzanas
+2.  Naranjas
+3.  Plátanos
+
+``` html
+<!-- Lista desordenada -->
+<ul>
+  <li>Apples</li>
+  <li>Oranges</li>
+  <li>Bananas</li>
+</ul>
+<!-- lista ordenada -->
+<ol>
+  <li>Apples</li>
+  <li>Oranges</li>
+  <li>Bananas</li>
+</ol>
+```
+
+El CSS generado para las listas por este complemento es:
+
+```css
+    .markdown ul {
+      list-style-type: disc;
+      list-style-position: inside;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+
+    .markdown ol {
+      list-style-type: decimal;
+      list-style-position: inside:
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+    }
+```
+### Tablas
+
+Los estilos de mesalas tablas son muy simples con pequeñas adiciones para que parezcan, bueno... tablas.
+
+| \#  | Primero | Último    | Manejar  |
+|-----|---------|-----------|----------|
+| 1   | Marca   | Otto      | @mdo     |
+| 2   | Jacob   | Thornton  | @fat     |
+| 3   | Larry   | El pájaro | @twitter |
+
+
+``` html
+<table>
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First</th>
+      <th scope="col">Last</th>
+      <th scope="col">Handle</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th scope="row">1</th>
+      <td>Mark</td>
+      <td>Otto</td>
+      <td>@mdo</td>
+    </tr>
+    <tr>
+      <th scope="row">2</th>
+      <td>Jacob</td>
+      <td>Thornton</td>
+      <td>@fat</td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Larry</td>
+      <td>the Bird</td>
+      <td>@twitter</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+El CSS generado para las tablas por este complemento es:
+
+```css
+    .markdown table {
+      width: 100%;
+      color: #1a202c;
+      margin-bottom: 1rem;
+      padding: 0;
+      border-collapse: collapse;
+    }
+
+    .markdown table tr {
+      border-top-width: 1px;
+      border-color: #4a5568;
+      background-color: #fff;
+      margin: 0;
+      padding: 0;
+    }
+
+    .markdown table tr:nth-child(2n) {
+      background-color: #f7fafc;
+    }
+
+    .markdown table tr th {
+      font-weight: 700;
+      border-width: 1px;
+      border-color: #4a5568;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    .markdown table tr th:first-child {
+      margin-top: 0;
+    }
+
+    .markdown table tr th:last-child {
+      margin-bottom: 0;
+    }
+
+    .markdown table tr td {
+      border-width: 1px;
+      border-color: #4a5568;
+      text-align: left;
+      margin: 0;
+      padding: 6px 13px;
+    }
+
+    .markdown table tr td:first-child {
+      margin-top: 0;
+    }
+
+    .markdown table tr td:last-child {
+      margin-bottom: 0;
+    }
+```
+
+<div className='mt-10 flex flex-col items-center'>
+  <Button variant='primary' href='/'>Inicio</Button>
+</div>
