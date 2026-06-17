@@ -51,6 +51,8 @@
   --button-bg: #002b36;
   --button-text: #839496;
   --button-border: #073642;
+
+  --input-border: #002b36;
 }
 
 /* SOLARIZED DARK*/
@@ -97,6 +99,8 @@
   --gray-light-color: #073642;
   --gray-color: #839496;
   --gray-dark-color: #93a1a1;
+
+  --input-border: #073642;
 }
 
 /* TAILWIND V4 THEME TOKENS*/
@@ -147,6 +151,8 @@
   --color-button-bg: var(--button-bg);
   --color-button-text: var(--button-text);
   --color-button-border: var(--button-border);
+
+  --color-input-border: var(--input-border);
 }
 
 /* BASE*/

@@ -12,15 +12,16 @@ interface ButtonProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const base =
-  'inline-flex items-center justify-center rounded-md font-medium transition-colors focus:outline-none disabled:opacity-50 disabled:pointer-events-none !no-underline bg-button-bg text-button-text border border-button-border [&>p]:m-0 [&>p]:leading-none'
-  
-const variants = {
-  primary: 'bg-primary text-primary-foreground hover:brightness-110',
+  'inline-flex items-center justify-center rounded-md border font-medium transition-colors focus:outline-none disabled:pointer-events-none disabled:opacity-50 !no-underline [&>p]:m-0 [&>p]:leading-none'
 
-  secondary: 'bg-secondary text-secondary-foreground hover:brightness-110',
+const variants = {
+  primary:
+    'border-border bg-background text-title hover:bg-muted hover:text-link',
+
+  secondary: 'border-border bg-muted text-link hover:brightness-105',
 
   ghost:
-    'border border-border bg-background text-text hover:bg-muted hover:text-link',
+    'border-border bg-background text-foreground hover:bg-muted hover:text-link',
 }
 
 const sizes = {
@@ -43,7 +44,7 @@ export function Button({
     base,
     variants[variant],
     sizes[size],
-    loading && 'opacity-70 cursor-wait',
+    loading && 'cursor-wait opacity-70',
     className,
   )
 

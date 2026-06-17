@@ -19,7 +19,6 @@ export default function ContactForm() {
     setError(false)
 
     const form = e.currentTarget
-
     const formData = new FormData(form)
 
     try {
@@ -35,13 +34,13 @@ export default function ContactForm() {
         }),
       })
 
-      if (response.ok) {
-        form.reset()
-        setModalOpen(true)
+      if (!response.ok) {
+        throw new Error('Error al enviar el formulario')
       }
 
       form.reset()
       setSuccess(true)
+      setModalOpen(true)
     } catch {
       setError(true)
     } finally {
@@ -53,6 +52,7 @@ export default function ContactForm() {
     <form
       onSubmit={handleSubmit}
       className='mx-auto flex max-w-3xl flex-col items-center text-sm'>
+      {/* Nombre y Email */}
       <div className='flex w-full flex-col gap-8 md:flex-row'>
         <div className='w-full'>
           <label
@@ -66,7 +66,7 @@ export default function ContactForm() {
             name='name'
             type='text'
             required
-            className='h-12 w-full rounded-lg border border-border px-3'
+            className='h-12 w-full rounded-lg border border-input-border bg-background px-3 text-foreground outline-none focus:border-link'
           />
         </div>
 
@@ -82,11 +82,12 @@ export default function ContactForm() {
             name='email'
             type='email'
             required
-            className='h-12 w-full rounded-lg border border-border px-3'
+            className='h-12 w-full rounded-lg border border-input-border bg-background px-3 text-foreground outline-none focus:border-link'
           />
         </div>
       </div>
 
+      {/* Mensaje */}
       <div className='mt-6 w-full'>
         <label
           htmlFor='message'
@@ -99,18 +100,20 @@ export default function ContactForm() {
           name='message'
           required
           rows={8}
-          className='w-full rounded-lg border border-border p-3 outline-none'
+          className='w-full rounded-lg border border-input-border bg-background p-3 text-foreground outline-none focus:border-link'
         />
       </div>
 
+      {/* Botón */}
       <Button
         variant='primary'
         type='submit'
         disabled={loading}
-        className='mt-6 h-12 w-56 rounded-lg bg-indigo-600 text-white'>
+        className='mt-6 h-12 w-56 rounded-lg'>
         {loading ? 'Enviando...' : 'Enviar mensaje'}
       </Button>
 
+      {/* Modal de éxito */}
       {success && (
         <Modal
           open={modalOpen}
@@ -121,6 +124,7 @@ export default function ContactForm() {
         />
       )}
 
+      {/* Error */}
       {error && (
         <div className='mt-4 rounded-lg border border-red-500/20 bg-red-500/10 px-4 py-3 text-red-600'>
           Error al enviar el mensaje.

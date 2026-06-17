@@ -10,7 +10,13 @@ type Props = {
   autoClose: number
 }
 
-export default function Modal({ open, title, message, onClose, autoClose }: Props) {
+export default function Modal({
+  open,
+  title,
+  message,
+  onClose,
+  autoClose,
+}: Props) {
   const [visible, setVisible] = useState(false)
 
   useEffect(() => {
@@ -72,21 +78,21 @@ export default function Modal({ open, title, message, onClose, autoClose }: Prop
 
       {/* Modal */}
       <div
-        className={`relative z-10 w-full max-w-md rounded-3xl border border-white/10 bg-white p-8 shadow-[0_20px_60px_rgba(0,0,0,.25)] transition-all duration-300 ${
+        className={`relative z-10 w-full max-w-md rounded-3xl border border-border bg-background p-8 shadow-lg transition-all duration-300 ${
           visible ? 'scale-100 opacity-100' : 'scale-90 opacity-0'
         }`}>
         {/* Botón cerrar */}
         <button
           onClick={handleClose}
           aria-label='Cerrar'
-          className='absolute right-4 top-4 flex h-8 w-8 items-center justify-center rounded-full text-gray-400 transition hover:bg-gray-100 hover:text-gray-700'>
+          className='absolute top-4 right-4 flex h-8 w-8 items-center justify-center rounded-full text-foreground transition hover:bg-muted hover:text-title'>
           ✕
         </button>
 
         {/* Check animado */}
-        <div className='mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-green-100'>
+        <div className='mx-auto flex h-24 w-24 items-center justify-center rounded-full bg-muted'>
           <svg
-            className='h-12 w-12 text-green-600'
+            className='h-12 w-12 text-[#859900]'
             viewBox='0 0 24 24'
             fill='none'
             stroke='currentColor'
@@ -105,12 +111,12 @@ export default function Modal({ open, title, message, onClose, autoClose }: Prop
         </div>
 
         {/* Título */}
-        <h2 className='mt-6 text-center text-2xl font-bold text-gray-900'>
+        <h2 className='mt-6 text-center text-2xl font-bold text-title'>
           {title}
         </h2>
 
         {/* Mensaje */}
-        <p className='mt-3 text-center text-gray-600'>{message}</p>
+        <p className='mt-3 text-center text-foreground'>{message}</p>
       </div>
     </div>
   )

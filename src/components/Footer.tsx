@@ -8,7 +8,7 @@ const year = new Date().getFullYear()
 
 export default function Footer() {
   return (
-    <footer className='border-t pt-4 pb-12 lg:pb-0'>
+    <footer className='border-t border-border bg-background pt-4 pb-12 text-title lg:pb-0'>
       <Container>
         <div className='flex flex-col gap-2 md:grid md:grid-cols-3 md:items-center'>
           {/* Logo */}
@@ -17,18 +17,18 @@ export default function Footer() {
           </div>
 
           {/* Centro */}
-          <div className='text-center text-sm text-gray-700 dark:text-gray-400'>
+          <div className='text-center text-sm text-title'>
             <span className='ml-2'>2023 - {year} All Rights Reserved</span>
           </div>
 
           {/* Links */}
-          <div className='flex flex-wrap items-center justify-center gap-4 text-sm text-gray-700 dark:text-gray-400 md:justify-end'>
+          <div className='flex flex-wrap items-center justify-center gap-4 text-sm text-title md:justify-end'>
             <span>Relizado con 💛​ por</span>
             <Link
               href='https://github.com/Kapelu'
               target='_blank'
               rel='noopener noreferrer'
-              className='font-semibold text-[#533070]'>
+              className='font-semibold text-link'>
               @KWS
             </Link>
           </div>

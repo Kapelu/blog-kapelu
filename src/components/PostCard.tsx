@@ -10,7 +10,7 @@ export function PostCard({ post }: Props) {
   return (
     <Link
       href={`/blog/${post.slug}`}
-      className='group block h-80 overflow-hidden rounded-xl border border-secondary bg-secondary transition hover:-translate-y-1 hover:shadow-lg'>
+      className='group block h-80 overflow-hidden rounded-xl border border-border bg-background transition hover:-translate-y-1 hover:bg-muted hover:shadow-lg'>
       <article className='flex h-full flex-col rounded-xl'>
         {/* IMAGE */}
         <div className='relative h-40 w-full overflow-hidden'>
@@ -26,11 +26,9 @@ export function PostCard({ post }: Props) {
         </div>
 
         {/* CONTENT */}
-        <h2 className='mt-3 px-3 text-xl font-bold text-secondary-foreground'>
-          {post.title}
-        </h2>
+        <h2 className='mt-3 px-3 text-xl font-bold text-title'>{post.title}</h2>
 
-        <p className='mt-2 px-3 text-sm text-secondary-foreground/70 line-clamp-2'>
+        <p className='mt-2 line-clamp-2 px-3 text-sm text-foreground'>
           {post.description}
         </p>
 
@@ -39,7 +37,7 @@ export function PostCard({ post }: Props) {
           {post.tags.map((tag) => (
             <span
               key={tag.slug}
-              className='rounded-full border border-secondary-foreground/20 bg-secondary-foreground/10 px-2 py-1 text-xs text-secondary-foreground'>
+              className='rounded-full border border-border bg-muted px-2 py-1 text-xs text-link'>
               {tag.name}
             </span>
           ))}
