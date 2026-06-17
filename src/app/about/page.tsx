@@ -127,10 +127,12 @@ export default function About() {
           {/* FRASE */}
           <blockquote className='mt-10 max-w-2xl rounded-2xl border border-cyan bg-cyan/10 p-6 shadow-md'>
             <p className='text-lg font-medium italic text-title md:text-xl'>
-              "No soy un gran programador. Solo soy un buen programador con
+              "No soy un gran programador.
+            </p>
+            <p className='text-lg font-medium italic text-title md:text-xl'>
+              Solo soy un buen programador con
               excelentes hábitos"
             </p>
-
             <footer className='mt-4 text-right text-sm font-semibold text-cyan'>
               — Kent Beck
             </footer>
