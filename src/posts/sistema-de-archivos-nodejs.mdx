@@ -1,0 +1,577 @@
+---
+title: "Sistema de Archivos de Node.js"
+description: "Aprende con estos ejemplos cómo las APIs del módulo te ayudan a utilizar archivos y directorios."
+date: "2025-06-26"
+author: "Kapelu"
+tags:
+  - NodeJS
+cover: "/images/images-posts/sistema-de-archivos-nodejs.avif"
+---
+# Entender el Módulo del Sistema de Archivos de Node.js (FS)
+
+
+JavaScript ha sido durante mucho tiempo uno de los lenguajes de scripting más populares, pero durante un largo periodo de tiempo, no fue una gran opción para el desarrollo de aplicaciones de backend del lado del servidor. Entonces llegó Node.js, que se utiliza para crear aplicaciones ligeras del lado del servidor, basadas en eventos, construidas con el lenguaje de programación JavaScript.
+
+Node.js [es un tiempo de ejecución de JavaScript de código abierto](https://kinsta.com/es/blog/que-es-node-js/) que se puede descargar e instalar gratuitamente en cualquiera de los principales sistemas operativos (Windows, Mac, Linux). En los últimos años se ha hecho cada vez más [popular entre los creadores de aplicaciones](https://kinsta.com/es/blog/node-js-aplicaciones/), y ha proporcionado [muchas nuevas oportunidades de empleo](https://kinsta.com/es/blog/salario-desarrolladores-node-js/) para los desarrolladores de JavaScript que buscan una especialidad.
+
+En este artículo, aprenderemos a gestionar el sistema de archivos utilizando Node.js. Es fácil utilizar las API de Node.js para interactuar con el sistema de archivos y realizar muchas operaciones complejas, y saber cómo maniobrar con ellas aumentará tu productividad.
+
+¡Vamos a sumergirnos!
+
+## Requisitos previos para entender el sistema de archivos de Node.js
+
+El principal requisito previo es la instalación de Node.js en tu sistema operativo. Node.js no requiere ningún hardware complejo para funcionar, por lo que es fácil [descargar e instalar Node.js](https://kinsta.com/es/blog/como-instalar-node-js/) en tu ordenador.
+
+Sería útil que también tuvieras [conocimientos básicos de JavaScript](https://kinsta.com/es/blog/que-es-javascript/) para trabajar con módulos de Node.js como los sistemas de archivos (también conocidos como «FS» o «fs»). Una comprensión de alto nivel de las funciones de JavaScript, las funciones de devolución de llamada y las promesas te [ayudarán a dominar este tema](https://kinsta.com/es/blog/mejor-lenguaje-de-programacion-para-aprender/#javascript) aún más rápido.
+
+## Módulo del Sistema de Archivos de Node.js
+
+Trabajar con archivos y directorios es una de las necesidades básicas de una aplicación full-stack. Tus usuarios pueden querer subir imágenes, currículos u otros archivos a un servidor. Al mismo tiempo, tu aplicación puede necesitar leer archivos de configuración, mover archivos o incluso cambiar sus permisos mediante programación.
+
+El módulo del sistema de archivos de Node.js tiene todo esto cubierto. Proporciona varias API para interactuar con los sistemas de archivos sin problemas. La mayoría de las API son personalizables con opciones y banderas. También puedes utilizarlas para realizar operaciones de archivo tanto síncronas como asíncronas.
+
+Antes de sumergirnos en el módulo del sistema de archivos, echemos un vistazo a lo que es el módulo Node.js.
+
+### Módulos Node.js
+
+Los módulos de Node.js son un conjunto de funcionalidades disponibles como APIs para que las utilice un programa consumidor. Por ejemplo, tienes el módulo `fs` para interactuar con el sistema de archivos. Asimismo, un módulo `http` utiliza sus funciones para crear un servidor y muchas más operaciones. Node.js ofrece un montón de módulos para abstraer muchas funcionalidades de bajo nivel por ti.
+
+También puedes crear tus propios módulos. A partir de la versión 14 de Node.js, puedes crear y utilizar los módulos de Node.js de dos maneras: Módulos CommonJS (CJS) y módulos ESM (MJS). Todos los ejemplos que veremos en este artículo son del estilo CJS.
+
+## Trabajar con archivos en Node.js
+
+Trabajar con archivos implica varias operaciones con archivos y directorios (carpetas). Ahora aprenderemos sobre cada una de estas operaciones con código fuente de ejemplo. Por favor, abre tu [editor de código fuente](https://kinsta.com/es/blog/herramientas-de-revision-de-codigo/) favorito y pruébalos mientras lees.
+
+Primero, importa el módulo `fs` a tu archivo fuente para empezar a trabajar con los métodos del sistema de archivos. En el estilo CJS, utilizamos el método `require` para importar un método de un módulo. Así, para importar y utilizar los métodos del módulo fs, harías lo siguiente
+
+```js
+const { writeFile } = require('fs/promises');
+```
+
+Además, ten en cuenta que estamos importando el método `writeFile` del paquete `fs/promises`. Queremos utilizar los métodos promisorios, ya que son los más recientes, y son fáciles de usar con las palabras clave async/await y con menos código. Otras alternativas son los métodos síncronos y las funciones de devolución de llamada que veremos más adelante.
+
+### ¿Cómo Cambiar el Título del Sitio de WordPress? (5 Métodos Sencillos)Cómo crear y escribir en un archivo
+
+Puedes crear y escribir en un archivo de tres maneras:
+
+1.  Utilizando el método `writeFile`
+2.  Utilizando el método `appendFile`
+3.  Utilización del método `openFile`
+
+Estos métodos aceptan una ruta de archivo y los datos como contenido a escribir en el archivo. Si el archivo existe, sustituyen el contenido del archivo. Si no, se crea un nuevo archivo con el contenido.
+
+#### 1\. Uso del método writeFile
+
+El siguiente fragmento de código muestra el uso del método `writeFile`. Empieza por crear un archivo llamado **createFile.js** utilizando el fragmento de código que aparece a continuación:
+
+```js
+const { writeFile } = require('fs/promises');
+async function writeToFile(fileName, data) {
+  try {
+    await writeFile(fileName, data);
+    console.log(`Wrote data to ${fileName}`);
+  } catch (error) {
+    console.error(`Got an error trying to write the file: ${error.message}`);
+  }
+}
+```
+
+Ten en cuenta que estamos utilizando la palabra clave `await` para invocar el método, ya que devuelve una promesa de JavaScript. Una promesa exitosa creará/escribirá en el archivo. Tenemos un bloque try-catch para manejar los errores en caso de que la promesa sea rechazada.
+
+Ahora podemos invocar la función `writeToFile`:
+
+```js
+writeToFile('friends.txt', 'Bob');
+```
+
+A continuación, abre un símbolo del sistema o un terminal y ejecuta el programa anterior con el siguiente comando:
+
+```bash
+node createFile.js
+```
+
+Se creará un nuevo archivo llamado **amigos.txt** con una línea que diga simplemente
+
+```html
+Bob
+```
+
+#### 2\. Uso del método appendFile
+
+Como su nombre indica, el uso principal de este método es añadir y editar un archivo. Sin embargo, también puedes utilizar el mismo método para crear un archivo.
+
+Echa un vistazo a la siguiente función. Utilizamos el método `appendFile` con la bandera `w` para escribir un archivo. La bandera por defecto para añadir a un archivo es `a`:
+
+```js
+const { appendFile} = require('fs/promises');
+
+async function appendToFile(fileName, data) {
+  try {
+    await appendFile(fileName, data, { flag: 'w' });
+    console.log(`Appended data to ${fileName}`);
+  } catch (error) {
+    console.error(`Got an error trying to append the file: {error.message}`);
+  }
+}
+```
+
+Ahora, puedes invocar la función anterior así
+
+```js
+appendToFile('activities.txt', 'Skiing');
+```
+
+A continuación, puedes ejecutar el código en el entorno Node.js utilizando el comando node, como vimos anteriormente. Esto creará un archivo llamado **activities.txt** con el contenido `Skiing` en él.
+
+#### 3\. Utilizar el método open
+
+El último método que aprenderemos para crear y escribir en un archivo es el método `open`. Puedes abrir un archivo utilizando la bandera `w` (para «escribir»):
+
+```js
+const { open} = require('fs/promises');
+
+async function openFile(fileName, data) {
+  try {
+    const file = await open(fileName, 'w');
+    await file.write(data);
+    console.log(`Opened file ${fileName}`);
+  } catch (error) {
+    console.error(`Got an error trying to open the file: {error.message}`);
+  }
+}
+```
+
+Ahora invoca la función `openFile` con:
+
+```js
+openFile('tasks.txt', 'Do homework');
+```
+
+Cuando ejecutes el script con el comando nodo, tendrás un archivo llamado **tareas.txt** creado con el contenido inicial:
+
+```html
+Do homework
+```
+
+### ¿Cómo leer un archivo?
+
+Ahora que sabemos cómo crear y escribir en un archivo, vamos a aprender a leer el contenido de un archivo. Para ello utilizaremos el método `readFile` del módulo del sistema de archivos.
+
+Crea un archivo llamado **readThisFile.js** con el siguiente código:
+
+```js
+// readThisFile.js
+const { readFile } = require('fs/promises');
+async function readThisFile(filePath) {
+  try {
+    const data = await readFile(filePath);
+    console.log(data.toString());
+  } catch (error) {
+    console.error(`Got an error trying to read the file: {error.message}`);
+ }
+}
+```
+
+Ahora vamos a leer los tres archivos que hemos creado invocando la función `readThisFile`:
+
+```js
+readThisFile('activities.txt');
+readThisFile('friends.txt');
+readThisFile('tasks.txt');
+```
+
+Por último, ejecuta el script con el siguiente comando de nodo:
+
+```bash
+node readThisFile.js
+```
+
+Deberías ver la siguiente salida en la consola:
+
+```html
+Skiing
+Do homework
+Bob
+```
+
+Un punto a tener en cuenta aquí: El método `readFile` lee el archivo de forma asíncrona. Esto significa que el orden en el que lee el archivo y el orden en el que obtiene una respuesta para imprimir en la consola puede no ser el mismo. Tienes que utilizar la versión sincrónica del método `readFile` para conseguirlo en orden. Lo veremos aquí dentro de un rato.
+
+### ¿Cómo cambiar el nombre de un archivo?
+
+Para renombrar un archivo, utiliza el método rename del módulo fs. Vamos a crear un archivo llamado **rename-me.txt**. Renombraremos este archivo mediante programación.
+
+Crea un archivo llamado **renameFile.js** con el siguiente código:
+
+```js
+const { rename } = require('fs/promises');
+
+async function renameFile(from, to) {
+  try {
+    await rename(from, to);
+    console.log(`Renamed ${from} to ${to}`);
+  } catch (error) {
+    console.error(`Got an error trying to rename the file: ${error.message}`);
+  }
+}
+```
+
+Como habrás notado, el método renombrar toma dos argumentos. Uno es el archivo con el nombre de origen, y el otro es el nombre de destino.
+
+Ahora vamos a invocar la función anterior para renombrar el archivo:
+
+```js
+const oldName = "rename-me.txt";
+const newName = "renamed.txt";
+renameFile(oldName, newName);
+```
+
+Al igual que antes, ejecuta el archivo de script utilizando el comando nodo para renombrar el archivo:
+
+```bash
+node renameFile.js
+```
+
+### ¿Cómo mover un archivo?
+
+Mover un archivo de un directorio a otro es similar a renombrar su ruta. Por tanto, podemos utilizar el propio método `rename` para mover archivos.
+
+Vamos a crear dos carpetas, **desde** y **hasta**. Luego crearemos un archivo llamado **moverme.txt** dentro de la carpeta **desde**.
+
+A continuación, escribiremos el código para mover el archivo move-me. **txt**. Crea un archivo llamado **moveFile.js** con el siguiente fragmento:
+
+```js
+const { rename } = require('fs/promises');
+const { join } = require('path');
+async function moveFile(from, to) {
+  try {
+    await rename(from, to);
+    console.log(`Moved ${from} to ${to}`);
+  } catch (error) {
+    console.error(`Got an error trying to move the file: ${error.message}`);
+  }
+}
+```
+
+Como puedes ver, estamos utilizando el método `rename` igual que antes. Pero, ¿por qué necesitamos importar el método `join` del módulo `path` (sí, la ruta es otro módulo crucial de Node.js)?
+
+El método `join` se utiliza para unir varios segmentos de ruta especificados para formar una ruta. Lo utilizaremos para formar la ruta de los nombres de los archivos de origen y destino:
+
+```js
+const fromPath = join(__dirname, "from", "move-me.txt");
+const destPath = join(__dirname, "to", "move-me.txt");
+moveFile(fromPath, destPath);
+```
+
+¡Y eso es todo! Si ejecutas el script **moveFile.js**, verás que el archivo **move-me.txt** se ha movido a la carpeta **to**.
+
+### ¿Cómo copiar un archivo?
+
+Utilizamos el método `copyFile` del módulo `fs` para copiar un archivo del origen al destino.
+
+Echa un vistazo al fragmento de código que aparece a continuación:
+
+```js
+const { copyFile } = require('fs/promises');
+const { join } = require('path');
+async function copyAFile(from, to) {
+  try {
+    await copyFile(from, to);
+    console.log(`Copied ${from} to ${to}`);
+  } catch (err) {
+    console.error(`Got an error trying to copy the file: ${err.message}`);
+  }
+}
+```
+
+Ahora puedes invocar la función anterior con
+
+```js
+copyAFile('friends.txt', 'friends-copy.txt');
+```
+
+Copiará el contenido de **amigos.txt** al archivo **amigos-copia.txt**.
+
+Eso está muy bien, pero ¿cómo se copian varios archivos?
+
+Puedes utilizar la API `Promise.all` para ejecutar varias promesas en paralelo:
+
+```js
+async function copyAll(fromDir, toDir, filePaths) {
+  return Promise.all(filePaths.map(filePath => {
+   return copyAFile(join(fromDir, filePath), join(toDir, filePath));
+  }));
+}
+```
+
+Ahora puedes suministrar todas las rutas de los archivos para copiarlos de un directorio a otro:
+
+```js
+copyFiles('from', 'to', ['copyA.txt', 'copyB.txt']);
+```
+
+También puedes utilizar este método para realizar otras operaciones como mover, escribir y leer archivos en paralelo.
+
+### ¿Cómo eliminar un archivo?
+
+Utilizamos el método `unlink` para eliminar un archivo:
+
+```js
+const { unlink } = require('fs/promises');
+async function deleteFile(filePath) {
+  try {
+    await unlink(filePath);
+    console.log(`Deleted ${filePath}`);
+  } catch (error) {
+    console.error(`Got an error trying to delete the file: ${error.message}`);
+  }
+}
+```
+
+Recuerda que tendrás que proporcionar la ruta del archivo para eliminarlo:
+
+```js
+deleteFile('delete-me.txt');
+```
+
+Ten en cuenta que si la ruta es un enlace simbólico a otro archivo, el método de desvinculación cancelará el enlace simbólico, pero el archivo original no se verá afectado. Más adelante hablaremos de los enlaces simbólicos.
+
+### Cómo cambiar los permisos y la propiedad de los archivos
+
+Puede que en algún momento quieras cambiar los permisos de los archivos mediante programación. Esto puede ser muy útil para hacer que un archivo sea de sólo lectura o totalmente accesible.
+
+Utilizaremos el método `chmod` para cambiar el permiso de un archivo:
+
+```js
+const { chmod } = require('fs/promises');
+async function changePermission(filePath, permission) {
+  try {
+    await chmod(filePath, permission);
+    console.log(`Changed permission to ${permission} for ${filePath}`);
+  } catch (error) {
+    console.error(`Got an error trying to change permission: ${error.message}`);
+  }
+}
+```
+
+Podemos pasar la ruta del archivo y la máscara de bits del permiso para cambiar el permiso.
+
+Aquí está la llamada a la función para cambiar el permiso de un archivo a sólo lectura:
+
+```js
+changePermission('permission.txt', 0o400);
+```
+
+De forma similar al permiso, también puedes cambiar la propiedad de un archivo mediante programación. Para ello utilizamos el método `chown`:
+
+```js
+const { chown } = require('fs/promises');
+
+async function changeOwnership(filePath, userId, groupId) {
+  try {
+    await chown(filePath, userId, groupId);
+    console.log(`Changed ownership to ${userId}:${groupId} for ${filePath}`);
+  } catch (error) {
+    console.error(`Got an error trying to change ownership: ${error.message}`);
+  }
+}
+```
+
+Luego llamamos a la función con la ruta del archivo, el ID de usuario y el ID de grupo:
+
+```js
+changeOwnership('ownership.txt', 1000, 1010);
+```
+
+### ¿Cómo crear un enlace simbólico?
+
+El [enlace simbólico (también conocido como symlink)](https://kinsta.com/blog/managing-wordpress-development-with-symlinks/) es un concepto del sistema de archivos para crear un enlace a un archivo o carpeta. Creamos enlaces simbólicos para crear accesos directos a un archivo/carpeta de destino en el sistema de archivos. El módulo de Node.js `filesystem` proporciona el método `symlink` para crear un enlace simbólico.
+
+Para crear el enlace simbólico, tenemos que pasar la ruta del archivo de destino, la ruta real del archivo y el tipo:
+
+```js
+const { symlink } = require('fs/promises');
+const { join } = require('path');
+async function createSymlink(target, path, type) {
+  try {
+    await symlink(target, path, type);
+    console.log(`Created symlink to ${target} at ${path}`);
+  } catch (error) {
+    console.error(`Got an error trying to create the symlink: ${error.message}`);
+  }
+}
+```
+
+Podemos invocar la función con:
+
+```js
+createSymlink('join(__dirname, from, symMe.txt)', 'symToFile', 'file');
+```
+
+Aquí hemos creado un enlace simbólico llamado `symToFile`.
+
+### ¿Cómo ver los cambios en un archivo?
+
+¿Sabías que puedes observar los cambios que se producen en un archivo? Es una buena forma de controlar las alteraciones y los eventos, especialmente cuando no los esperas. Puedes capturarlas y auditarlas para su posterior revisión.
+
+El método `watch` es la mejor manera de observar los cambios en los archivos. Existe un método alternativo llamado `watchFile`, pero no es tan eficaz como el método `watch`.
+
+Hasta ahora, hemos utilizado el método del módulo del sistema de archivos con las palabras clave async/await. Veamos los usos de la función de devolución de llamada con este ejemplo.
+
+El método `watch` acepta como argumentos la ruta del archivo y una función de devolución de llamada. Cada vez que se produce una actividad en el archivo, se llama a la función `callback`.
+
+Podemos aprovechar el parámetro `event` para obtener más información sobre las actividades:
+
+```js
+const fs = require('fs');
+function watchAFile(file) {
+  fs.watch(file, (event, filename) => {
+    console.log(`${filename} file Changed`);
+  });
+}
+```
+
+Invoca la función pasando un nombre de archivo a `watch`:
+
+```js
+watchAFile('friends.txt');
+```
+
+Ahora capturamos automáticamente cualquier actividad en el archivo **friends.txt**.
+
+## Trabajar con directorios (carpetas) en Node.js
+
+Pasemos ahora a aprender cómo realizar operaciones sobre directorios o carpetas. Muchas de las operaciones como renombrar, mover y copiar son similares a las que hemos visto para los archivos. Sin embargo, hay métodos y operaciones específicas que sólo se pueden realizar sobre directorios.
+
+### ¿Cómo crear un directorio?
+
+Utilizamos el método `mkdir` para crear un directorio. Tienes que pasar el nombre del directorio como argumento:
+
+```js
+const { mkdir } = require('fs/promises');
+async function createDirectory(path) {
+  try {
+    await mkdir(path);
+    console.log(`Created directory ${path}`);
+  } catch (error) {
+    console.error(`Got an error trying to create the directory: ${error.message}`);
+  }
+}
+```
+
+Ahora podemos invocar la función `createDirectory` con una ruta de directorio:
+
+```js
+createDirectory('new-directory');
+```
+
+Esto creará un directorio llamado **nuevo-directorio**.
+
+### ¿Cómo crear un directorio temporal?
+
+Los directorios temporales no son directorios normales. Tienen un significado especial para el sistema operativo. Puedes crear un directorio temporal utilizando el método `mkdtemp()`.
+
+Vamos a crear una carpeta temporal dentro del directorio temporal de tu sistema operativo. Obtenemos la información para la ubicación del directorio temporal del método `tmpdir()` del módulo `os`:
+
+```js
+const { mkdtemp } = require('fs/promises');
+const { join } = require('path');
+const { tmpdir } = require('os');
+async function createTemporaryDirectory(fileName) {
+  try {
+    const tempDirectory = await mkdtemp(join(tmpdir(), fileName));
+    console.log(`Created temporary directory ${tempDirectory}`);
+  } catch (error) {
+    console.error(`Got an error trying to create the temporary directory: ${error.message}`);
+  }
+}
+```
+
+Ahora, vamos a llamar a la función con el nombre del directorio para crearlo:
+
+```js
+createTemporaryDirectory('node-temp-file-');
+```
+
+Ten en cuenta que Node.js añadirá seis caracteres aleatorios al final del nombre de la carpeta temporal creada para que sea única.
+
+### ¿Cómo eliminar un directorio?
+
+Tienes que utilizar el método `rmdir()` para eliminar/borrar un directorio:
+
+```js
+const { rmdir } = require('fs/promises');
+async function deleteDirectory(path) {
+  try {
+    await rmdir(path);
+    console.log(`Deleted directory ${path}`);
+  } catch (error) {
+    console.error(`Got an error trying to delete the directory: ${error.message}`);
+  }
+}
+```
+
+A continuación, llama a la función anterior pasando la ruta de la carpeta que quieres eliminar:
+
+```js
+deleteDirectory('new-directory-renamed');
+```
+
+## APIs síncronas vs. asíncronas
+
+Hasta ahora, hemos visto muchos ejemplos de métodos del sistema de archivos, y todos ellos son con usos asíncronos. Sin embargo, es posible que necesites manejar algunas operaciones de forma sincrónica.
+
+Un ejemplo de operación sincrónica es la lectura de varios archivos uno tras otro. El módulo `fs` tiene un método llamado `readFileSync()` para hacerlo:
+
+```js
+const { readFileSync } = require('fs');
+function readFileSynchronously(path) {
+  try {
+    const data = readFileSync(path);
+    console.log(data.toString());
+  } catch (error) {
+    console.error(error);
+  }
+}
+```
+
+Ten en cuenta que el método `readFileSync()` no es necesario desde el paquete «fs/promesas». Esto se debe a que el método no es asíncrono. Por tanto, puedes llamar a la función anterior con
+
+```js
+readFileSynchronously('activities.txt');
+readFileSynchronously('friends.txt');
+readFileSynchronously('tasks.txt');
+```
+
+En este caso, todos los archivos anteriores se leerán en el orden en que se llamaron las funciones.
+
+El módulo del sistema de archivos de Node.js ofrece un método síncrono para otras operaciones como la de lectura. Utilízalos con prudencia y sólo cuando sea necesario. Los métodos asíncronos son mucho más útiles para la ejecución en paralelo.
+
+## Manejo de errores
+
+Como sabe cualquier programador, tienes que [esperar que se produzcan errores y estar preparado para manejarlos](https://kinsta.com/es/blog/errores-en-javascript/) cuando realices una operación de archivo o directorio. ¿Qué pasa si no se encuentra el archivo, o si no tienes permiso para escribir en un archivo? Puede haber (y probablemente habrá) muchos casos en los que puedas encontrar un error.
+
+Siempre debes rodear tus llamadas a métodos con un bloque try-catch. De esta forma, si se produce un error, el control pasará al bloque catch, donde podrás revisar y manejar el error. Como habrás observado en todos los ejemplos anteriores, hemos utilizado el bloque try-catch para manejar los errores que nos encontramos.
+
+## Resumen
+
+Repasemos los puntos clave que hemos cubierto en este tutorial:
+
+- El módulo del sistema de archivos (fs) de Node.js tiene muchos métodos para ayudar en muchas tareas de bajo nivel.
+- Puedes realizar varias operaciones con archivos como crear, escribir, renombrar, copiar, mover, eliminar y muchas más.
+- Puedes realizar varias operaciones de directorio como crear, directorio temporal, mover, y muchas más.
+- Todos los métodos se pueden invocar de forma asíncrona utilizando promesas de JavaScript o funciones de devolución de llamada.
+- También puedes invocar los métodos de forma sincrónica si es necesario.
+- Prefiere siempre los métodos asíncronos a los síncronos.
+- Maneja los errores con un bloque try-catch cada vez que interactúes con los métodos.
+
+Ahora que hemos trabajado un poco con el sistema de archivos de Node.js, deberías tener un buen manejo de sus entresijos. Si quieres reforzar aún más tus conocimientos, tal vez quieras investigar los flujos de [Node.js](https://nodejs.org/api/stream.html) como una progresión natural del aprendizaje de los módulos de Node.js. Los streams son formas eficientes de manejar el intercambio de información, incluyendo las llamadas a la red, la lectura/escritura de archivos y mucho más.
+
+Puedes encontrar todo el código fuente utilizado en este artículo en [este repositorio de GitHub](https://github.com/atapas/nodeX/tree/main/fs-module).
+
+
+<PostCardAutor
+  image="/images/author/TapasAdhikary.jpeg"
+  name="Tapas Adhikary"
+  description="Tapas Adhikary es bloguero de tecnología, YouTuber y mentor. Ha publicado más de 250 artículos compartiendo su década de conocimiento y experiencia. Es un colaborador y mantenedor apasionado de proyectos de código abierto."
+  href="https://www.tapasadhikary.com"
+/>

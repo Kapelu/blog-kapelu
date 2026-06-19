@@ -6,6 +6,7 @@ import {
   EyeOffIcon,
   Input,
   Logo,
+  PostCardAutor,
 } from '@/components'
 import Link from 'next/link'
 
@@ -19,6 +20,7 @@ export const mdxComponents = {
   EyeOffIcon,
   Input,
   Logo,
+  PostCardAutor,
 
   h1: (props: Props) => (
     <h1
