@@ -4,7 +4,7 @@ export const AppConfig = {
   title: 'Daniel Calderon | Full Stack Developer',
 
   description:
-    'Blog de Daniel Calderon. Artículos sobre Linux, Script Bash, React, Next.js, TypeScript, Tailwind CSS y desarrollo Full Stack.',
+    'Blog de Daniel Calderon. Artículos sobre Linux, Script Bash, React, Next.js, TypeScript, Tailwind CSS, MDX y desarrollo Full Stack en español.',
 
   url: 'https://kapelu.vercel.app',
 
@@ -20,7 +20,19 @@ export const AppConfig = {
 
   keywords: [
     'Daniel Calderon',
-    'Full Stack Developer',
+    'Daniel Calderon Full Stack Developer',
+    'Daniel Calderon React Developer',
+    'Daniel Calderon Linux',
+    'Blog de Daniel Calderon',
+    'Blog de programación en español',
+    'Linux y Script Bash',
+    'Automatización con Bash',
+    'React y Next.js en español',
+    'TypeScript y Tailwind CSS',
+    'Tutoriales de Next.js',
+    'MDX con Next.js',
+    'Desarrollo Full Stack con React',
+    'Programación web en español',
     'Desarrollador Full Stack',
     'Frontend Developer',
     'Backend Developer',
@@ -39,5 +51,9 @@ export const AppConfig = {
     'Blog de Programación',
     'Linux',
     'Script Bash',
+    'Aplicaciones Web',
+    'APIs',
+    'Bases de Datos',
+    'E-commerce',
   ],
 }

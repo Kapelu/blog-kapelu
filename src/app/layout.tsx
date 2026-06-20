@@ -17,24 +17,22 @@ export const metadata: Metadata = {
   },
 
   description: AppConfig.description,
-
   keywords: AppConfig.keywords,
 
   authors: [
     {
       name: AppConfig.author,
+      url: AppConfig.url,
     },
   ],
 
   creator: AppConfig.author,
-
   publisher: AppConfig.author,
 
   robots: {
     index: true,
     follow: true,
     nocache: false,
-
     googleBot: {
       index: true,
       follow: true,
@@ -52,18 +50,13 @@ export const metadata: Metadata = {
   openGraph: {
     title: AppConfig.title,
     description: AppConfig.description,
-
     url: AppConfig.url,
-
     siteName: AppConfig.site_name,
-
     locale: AppConfig.locale,
-
     type: 'website',
-
     images: [
       {
-        url: AppConfig.image,
+        url: new URL(AppConfig.image, AppConfig.url).toString(),
         width: 1200,
         height: 630,
         alt: AppConfig.title,
@@ -73,14 +66,10 @@ export const metadata: Metadata = {
 
   twitter: {
     card: 'summary_large_image',
-
     title: AppConfig.title,
-
     description: AppConfig.description,
-
-    creator: '@kapelu',
-
-    images: [AppConfig.image],
+    creator: '@DanielDCalderon',
+    images: [new URL(AppConfig.image, AppConfig.url).toString()],
   },
 
   category: 'technology',
@@ -88,6 +77,25 @@ export const metadata: Metadata = {
   applicationName: AppConfig.site_name,
 
   referrer: 'origin-when-cross-origin',
+
+  generator: 'Next.js',
+
+  icons: {
+    icon: [
+      { url: '/images/Favicon/favicon.ico' },
+      {
+        url: '/images/Favicon/favicon-192x192.png',
+        sizes: '192x192',
+        type: 'image/png',
+      },
+      {
+        url: '/images/Favicon/favicon-512x512.png',
+        sizes: '512x512',
+        type: 'image/png',
+      },
+    ],
+    apple: '/images/Favicon/apple-touch-icon.png',
+  },
 }
 
 const gentium = Gentium_Book_Plus({
