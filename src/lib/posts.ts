@@ -23,6 +23,11 @@ const POSTS_PATH = path.join(process.cwd(), 'src/posts')
 
 const ACRONYMS = ['api', 'ssh', 'css', 'html', 'sql', 'php', 'xml']
 
+export function postExists(slug: string): boolean {
+  const fullPath = path.join(POSTS_PATH, `${slug}.mdx`)
+  return fs.existsSync(fullPath)
+}
+
 export function normalizeTag(tag: string): string {
   return tag
     .trim()
@@ -52,6 +57,7 @@ export function getAllPosts(): Post[] {
   return files
     .map((file) => {
       const slug = file.replace('.mdx', '')
+
       const source = fs.readFileSync(path.join(POSTS_PATH, file), 'utf8')
 
       const { data } = matter(source)
