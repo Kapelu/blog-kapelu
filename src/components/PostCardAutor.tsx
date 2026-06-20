@@ -34,14 +34,14 @@ export function PostCardAutor({
         )}>
         <div className='flex items-center gap-6'>
           {/* Columna izquierda */}
-          <div className='flex min-w-[120px] flex-col items-center'>
+          <div className='flex min-w-30 flex-col items-center'>
             <Image
               width={90}
               height={90}
               src={image}
               alt={name}
               className={clsx(
-                'my-1 h-[90px] w-[90px]',
+                'my-1 h-22.5 w-22.5',
                 'rounded-full border border-border object-cover',
                 'shadow-lg transition-transform duration-300',
                 'group-hover:scale-105',

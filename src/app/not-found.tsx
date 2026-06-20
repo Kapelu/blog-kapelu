@@ -18,7 +18,7 @@ export default function NotFound() {
         src='/images/404.png'
         alt='Clouds'
         fill
-        sizes='100vw'
+        sizes='(max-width: 1024px) 100vw, 1024px'
         priority
         className='absolute inset-0 z-20 object-cover object-left animate-clouds'
       />
