@@ -1,7 +1,7 @@
 ---
 title: "Sistema de Archivos de Node.js"
 description: "Aprende con estos ejemplos cómo las APIs del módulo te ayudan a utilizar archivos y directorios."
-date: "2025-06-26"
+date: "2026-06-19"
 author: "Kapelu"
 tags:
   - NodeJS
@@ -12,7 +12,7 @@ cover: "/images/images-posts/sistema-de-archivos-nodejs.avif"
 
 JavaScript ha sido durante mucho tiempo uno de los lenguajes de scripting más populares, pero durante un largo periodo de tiempo, no fue una gran opción para el desarrollo de aplicaciones de backend del lado del servidor. Entonces llegó Node.js, que se utiliza para crear aplicaciones ligeras del lado del servidor, basadas en eventos, construidas con el lenguaje de programación JavaScript.
 
-Node.js [es un tiempo de ejecución de JavaScript de código abierto](https://kinsta.com/es/blog/que-es-node-js/) que se puede descargar e instalar gratuitamente en cualquiera de los principales sistemas operativos (Windows, Mac, Linux). En los últimos años se ha hecho cada vez más [popular entre los creadores de aplicaciones](https://kinsta.com/es/blog/node-js-aplicaciones/), y ha proporcionado [muchas nuevas oportunidades de empleo](https://kinsta.com/es/blog/salario-desarrolladores-node-js/) para los desarrolladores de JavaScript que buscan una especialidad.
+Node.js es un tiempo de ejecución de JavaScript de código abierto que se puede descargar e instalar gratuitamente en cualquiera de los principales sistemas operativos (Windows, Mac, Linux). En los últimos años se ha hecho cada vez más popular entre los creadores de aplicaciones, y ha proporcionado muchas nuevas oportunidades de empleo para los desarrolladores de JavaScript que buscan una especialidad.
 
 En este artículo, aprenderemos a gestionar el sistema de archivos utilizando Node.js. Es fácil utilizar las API de Node.js para interactuar con el sistema de archivos y realizar muchas operaciones complejas, y saber cómo maniobrar con ellas aumentará tu productividad.
 
@@ -20,9 +20,9 @@ En este artículo, aprenderemos a gestionar el sistema de archivos utilizando No
 
 ## Requisitos previos para entender el sistema de archivos de Node.js
 
-El principal requisito previo es la instalación de Node.js en tu sistema operativo. Node.js no requiere ningún hardware complejo para funcionar, por lo que es fácil [descargar e instalar Node.js](https://kinsta.com/es/blog/como-instalar-node-js/) en tu ordenador.
+El principal requisito previo es la instalación de Node.js en tu sistema operativo. Node.js no requiere ningún hardware complejo para funcionar, por lo que es fácil descargar e instalar Node.js en tu ordenador.
 
-Sería útil que también tuvieras [conocimientos básicos de JavaScript](https://kinsta.com/es/blog/que-es-javascript/) para trabajar con módulos de Node.js como los sistemas de archivos (también conocidos como «FS» o «fs»). Una comprensión de alto nivel de las funciones de JavaScript, las funciones de devolución de llamada y las promesas te [ayudarán a dominar este tema](https://kinsta.com/es/blog/mejor-lenguaje-de-programacion-para-aprender/#javascript) aún más rápido.
+Sería útil que también tuvieras conocimientos básicos de JavaScript para trabajar con módulos de Node.js como los sistemas de archivos (también conocidos como «FS» o «fs»). Una comprensión de alto nivel de las funciones de JavaScript, las funciones de devolución de llamada y las promesas te ayudarán a dominar este tema aún más rápido.
 
 ## Módulo del Sistema de Archivos de Node.js
 
@@ -40,7 +40,7 @@ También puedes crear tus propios módulos. A partir de la versión 14 de Node.j
 
 ## Trabajar con archivos en Node.js
 
-Trabajar con archivos implica varias operaciones con archivos y directorios (carpetas). Ahora aprenderemos sobre cada una de estas operaciones con código fuente de ejemplo. Por favor, abre tu [editor de código fuente](https://kinsta.com/es/blog/herramientas-de-revision-de-codigo/) favorito y pruébalos mientras lees.
+Trabajar con archivos implica varias operaciones con archivos y directorios (carpetas). Ahora aprenderemos sobre cada una de estas operaciones con código fuente de ejemplo. Por favor, abre tu editor de código fuente favorito y pruébalos mientras lees.
 
 Primero, importa el módulo `fs` a tu archivo fuente para empezar a trabajar con los métodos del sistema de archivos. En el estilo CJS, utilizamos el método `require` para importar un método de un módulo. Así, para importar y utilizar los métodos del módulo fs, harías lo siguiente
 
@@ -384,7 +384,7 @@ changeOwnership('ownership.txt', 1000, 1010);
 
 ### ¿Cómo crear un enlace simbólico?
 
-El [enlace simbólico (también conocido como symlink)](https://kinsta.com/blog/managing-wordpress-development-with-symlinks/) es un concepto del sistema de archivos para crear un enlace a un archivo o carpeta. Creamos enlaces simbólicos para crear accesos directos a un archivo/carpeta de destino en el sistema de archivos. El módulo de Node.js `filesystem` proporciona el método `symlink` para crear un enlace simbólico.
+El enlace simbólico (también conocido como symlink) es un concepto del sistema de archivos para crear un enlace a un archivo o carpeta. Creamos enlaces simbólicos para crear accesos directos a un archivo/carpeta de destino en el sistema de archivos. El módulo de Node.js `filesystem` proporciona el método `symlink` para crear un enlace simbólico.
 
 Para crear el enlace simbólico, tenemos que pasar la ruta del archivo de destino, la ruta real del archivo y el tipo:
 
@@ -548,7 +548,7 @@ El módulo del sistema de archivos de Node.js ofrece un método síncrono para o
 
 ## Manejo de errores
 
-Como sabe cualquier programador, tienes que [esperar que se produzcan errores y estar preparado para manejarlos](https://kinsta.com/es/blog/errores-en-javascript/) cuando realices una operación de archivo o directorio. ¿Qué pasa si no se encuentra el archivo, o si no tienes permiso para escribir en un archivo? Puede haber (y probablemente habrá) muchos casos en los que puedas encontrar un error.
+Como sabe cualquier programador, tienes que esperar que se produzcan errores y estar preparado para manejarlos cuando realices una operación de archivo o directorio. ¿Qué pasa si no se encuentra el archivo, o si no tienes permiso para escribir en un archivo? Puede haber (y probablemente habrá) muchos casos en los que puedas encontrar un error.
 
 Siempre debes rodear tus llamadas a métodos con un bloque try-catch. De esta forma, si se produce un error, el control pasará al bloque catch, donde podrás revisar y manejar el error. Como habrás observado en todos los ejemplos anteriores, hemos utilizado el bloque try-catch para manejar los errores que nos encontramos.
 
