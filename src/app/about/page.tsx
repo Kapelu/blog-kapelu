@@ -99,7 +99,7 @@ export default function About() {
 
             {/* Portafolio */}
             <a
-              href='/'
+              href='https://daniel-calderon.vercel.app/'
               aria-label='Portafolio'
               className='rounded-full border border-cyan bg-cyan/10 p-3 text-cyan transition-all duration-200 hover:-translate-y-1 hover:bg-cyan/20 hover:shadow-md'>
               <svg
@@ -149,7 +149,7 @@ export default function About() {
             </div>
           </div>
         </section>
-        
+
         {/* MI HISTORIA */}
         <section className='mx-auto max-w-4xl'>
           <h2 className='mb-8 text-center text-3xl font-bold text-title'>
