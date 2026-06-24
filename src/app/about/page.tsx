@@ -100,6 +100,7 @@ export default function About() {
             {/* Portafolio */}
             <a
               href='https://daniel-calderon.vercel.app/'
+              rel='noopener noreferrer'
               aria-label='Portafolio'
               className='rounded-full border border-cyan bg-cyan/10 p-3 text-cyan transition-all duration-200 hover:-translate-y-1 hover:bg-cyan/20 hover:shadow-md'>
               <svg
