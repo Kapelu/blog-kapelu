@@ -1,0 +1,396 @@
+---
+title: "Aprendiendo JavaScript"
+description: "Guía para aprender JavaScript desde cero. 03- Estructuras de control"
+date: "2025-01-12"
+author: "Kapelu"
+tags:
+  - Javascript
+cover: "/images/images-posts/curso-javascript.webp"
+---
+# Estructuras de control
+
+## Condicionales en JavaScript
+
+Los condicionales en JavaScript nos permiten controlar el flujo de ejecución de nuestro código según ciertas condiciones. Los condicionales más comunes en JavaScript son `if`, `else if` y `else`.
+
+### `if`
+
+La sentencia `if` se utiliza para ejecutar un bloque de código si se cumple una condición determinada.
+
+```javascript
+var edad = 18;
+
+if (edad >= 18) {
+  console.log("Eres mayor de edad");
+}
+```
+
+### `else`
+
+La sentencia `else` se utiliza para ejecutar un bloque de código si no se cumple la condición del `if`.
+
+```javascript
+var dia = "domingo";
+
+if (dia === "sábado" || dia === "domingo") {
+  console.log("¡Es fin de semana!");
+} else {
+  console.log("¡A trabajar!");
+}
+```
+
+En este ejemplo, la sentencia `if` evalúa si la variable `dia` es igual a "sábado" o "domingo". Si se cumple la condición, se muestra el mensaje "¡Es fin de semana!". Si no se cumple la condición del `if`, se ejecuta el bloque de código dentro del `else` y se muestra el mensaje "¡A trabajar!".
+
+### `else if`
+
+La sentencia `else if` se utiliza para evaluar múltiples condiciones. Si la primera condición no se cumple, se evalúa la siguiente condición. Si ninguna de las condiciones se cumple, se ejecuta el bloque de código dentro del `else`.
+
+```javascript
+var hora = 14;
+
+if (hora < 12) {
+  console.log("Buenos días");
+} else if (hora < 20) {
+  console.log("Buenas tardes");
+} else {
+  console.log("Buenas noches");
+}
+```
+
+En este ejemplo, la sentencia `if` evalúa si la variable `hora` es menor que 12. Si se cumple la condición, se muestra el mensaje "Buenos días". Si no se cumple la condición del `if`, la sentencia `else if` evalúa si la variable `hora` es menor que 20. Si se cumple esta condición, se muestra el mensaje "Buenas tardes". Si no se cumple ninguna de las dos condiciones anteriores, se ejecuta el bloque de código dentro del else y se muestra el mensaje "Buenas noches".
+
+## Operador ternario
+
+El operador ternario es una forma abreviada de escribir una sentencia `if` en una sola línea.
+
+```javascript
+var edad = 20;
+var esMayorDeEdad = edad >= 18 ? "Sí" : "No";
+
+console.log(esMayorDeEdad); // salida: "Sí"
+```
+
+En este ejemplo, se evalúa si la variable `edad` es mayor o igual a 18. Si se cumple la condición, la variable `esMayorDeEdad` se asigna con el valor "Sí". Si no se cumple la condición, se asigna con el valor "No". El resultado se muestra en la consola con la función `console.log()`.
+
+## switch
+
+La sentencia `switch` en JavaScript nos permite ejecutar diferentes bloques de código según el valor de una variable o expresión. La estructura básica de una sentencia `switch` es la siguiente:
+
+```javascript
+switch (expresión) {
+  case valor1:
+    // bloque de código para el valor1
+    break;
+  case valor2:
+    // bloque de código para el valor2
+    break;
+  ...
+  default:
+    // bloque de código por defecto
+}
+```
+
+En este ejemplo, la sentencia `switch` evalúa la expresión y ejecuta el bloque de código correspondiente al caso que coincida con el valor de la expresión. Si no se cumple ningún caso, se ejecuta el bloque de código por defecto.
+
+```javascript
+var dia = 5;
+var mensaje;
+
+switch (dia) {
+  case 1:
+    mensaje = "Lunes";
+    break;
+  case 2:
+    mensaje = "Martes";
+    break;
+  case 3:
+    mensaje = "Miércoles";
+    break;
+  case 4:
+    mensaje = "Jueves";
+    break;
+  case 5:
+    mensaje = "Viernes";
+    break;
+  case 6:
+    mensaje = "Sábado";
+    break;
+  case 7:
+    mensaje = "Domingo";
+    break;
+  default:
+    mensaje = "Día inválido";
+}
+
+console.log(mensaje); // salida: "Viernes"
+```
+
+En este ejemplo, se evalúa la variable `dia` y se ejecuta el bloque de código correspondiente al caso que coincide con el valor de `dia`. Como `dia` tiene un valor de 5, se ejecuta el bloque de código correspondiente al caso `case 5`, que asigna el mensaje "Viernes" a la variable `mensaje`. El resultado se muestra en la consola con la función `console.log()`.
+
+## Buenas prácticas
+
+- Evita anidar condicionales. Si tienes que anidar más de dos condicionales, es mejor utilizar una estructura de control diferente.
+- Evita utilizar la sentencia `switch` cuando se pueda utilizar una sentencia `if` o `else if`.
+- Siempre utiliza llaves para los bloques de código, incluso si solo hay una sentencia.
+- Ser explícito con la comparación de valores y tipos de datos. En lugar de utilizar el operador de igualdad débil (`==`) que puede provocar la conversión implícita de tipos de datos, se recomienda utilizar el operador de igualdad estricta (`===`) que compara tanto el valor como el tipo de dato.
+- Evitar las condiciones anidadas o en cascada. Si es posible, se recomienda utilizar operadores lógicos (`&&`, `||`) para simplificar y mejorar la legibilidad del código.
+- Evitar la negación doble (`!!`) para convertir un valor en un valor booleano. En su lugar, utilizar los operadores `Boolean()` o `!!` para convertir un valor en un valor booleano.
+- Ser cuidadoso al utilizar la negación (`!`). Asegurarse de que el resultado de la negación sea lo que se espera. En algunos casos, puede ser más claro y legible utilizar una comparación explícita en lugar de la negación.
+- Utilizar variables descriptivas y legibles para los valores de las condiciones y los resultados de las operaciones. Esto hace que el código sea más fácil de entender y depurar.
+- Asegurarse de que todas las posibles condiciones sean evaluadas. Incluir una condición else para manejar los casos en los que ninguna de las condiciones anteriores es verdadera.
+- Asegurarse de que las condiciones sean lo más específicas posible. Si hay varias condiciones que pueden ser verdaderas, se recomienda evaluar la condición más específica primero.
+
+Siguiendo estas buenas prácticas en las condicionales en JavaScript, podemos escribir código más legible, fácil de entender y menos propenso a errores sutiles.
+
+---
+# Bucles en JavaScript
+
+Los bucles en JavaScript nos permiten ejecutar un bloque de código repetidamente mientras se cumpla una condición determinada. Los bucles más comunes en JavaScript son `for`, `for-in`, `while` y `do-while`.
+
+## `for`
+
+La sentencia `for` se utiliza para repetir un bloque de código un número determinado de veces.
+
+```javascript
+for (var i = 0; i < 5; i++) {
+  console.log("El valor de i es: " + i);
+}
+```
+
+En este ejemplo, la variable `i` se utiliza para llevar un registro del número de veces que se ha ejecutado el bloque de código dentro del `for`. La sentencia `for` inicializa `i` con un valor de 0. Mientras que `i` sea menor que 5, se ejecutará el bloque de código, mostrando en la consola el valor actual de `i` con el mensaje "El valor de i es: " y aumentando el valor de `i` en cada iteración.
+
+## `for-in`
+
+La sentencia `for-in` se utiliza para recorrer las propiedades de un objeto.
+
+```javascript
+var persona = {
+  nombre: "Ana",
+  edad: 28,
+  pais: "España"
+};
+
+for (var propiedad in persona) {
+  console.log("La propiedad " + propiedad + " tiene el valor " + persona[propiedad]);
+}
+```
+
+En este ejemplo, la variable `propiedad` se utiliza para llevar un registro del nombre de la propiedad que se está recorriendo en cada iteración. La sentencia `for-in` recorre las propiedades del objeto `persona` y, en cada iteración, muestra en la consola el nombre de la propiedad junto con su valor correspondiente, utilizando la sintaxis `persona[propiedad]`.
+
+## `while`
+
+La sentencia `while` se utiliza para repetir un bloque de código mientras se cumpla una condición determinada.
+
+```javascript
+var contador = 0;
+
+while (contador < 5) {
+  console.log("El contador es: " + contador);
+  contador++;
+}
+```
+
+En este ejemplo, la variable `contador` se utiliza para llevar un registro del número de veces que se ha ejecutado el bloque de código dentro del `while`. Mientras que el valor de `contador` sea menor que 5, el bloque de código se seguirá ejecutando, mostrando en la consola el valor actual de `contador` con el mensaje "El contador es: " y aumentando el valor de `contador` en cada iteración.
+
+## `do-while`
+
+La sentencia `do-while` se utiliza para repetir un bloque de código al menos una vez y luego mientras se cumpla una condición determinada.
+
+```javascript
+var numero = 0;
+
+do {
+  console.log("El número es: " + numero);
+  numero++;
+} while (numero < 5);
+```
+
+En este ejemplo, la variable `numero` se utiliza para llevar un registro del número de veces que se ha ejecutado el bloque de código dentro del `do`. El bloque de código se ejecutará al menos una vez, mostrando en la consola el valor actual de `numero` con el mensaje "El número es: " y aumentando el valor de `numero` en cada iteración. La sentencia `while` evalúa si el valor de `numero` es menor que 5 y, mientras que esto sea cierto, se seguirá repitiendo el bloque de código dentro del `do`.
+
+## Buenas prácticas
+
+- Utilizar el bucle más apropiado para la tarea. Los bucles `for` son útiles para iterar sobre un rango de números, mientras que los bucles `while` son útiles para iterar mientras se cumpla una condición.
+- Ser consciente del número de iteraciones que se realizarán. En algunos casos, puede ser más eficiente utilizar un bucle `for` en lugar de un bucle `while`, ya que se conoce de antemano el número de iteraciones.
+- Evitar bucles infinitos. Asegurarse de que la condición de finalización del bucle sea alcanzable. Si no se cumple la condición de finalización, el bucle se ejecutará indefinidamente y puede causar problemas de rendimiento o errores en la aplicación.
+- Utilizar nombres descriptivos y legibles para las variables de los bucles. Esto hace que el código sea más fácil de entender y depurar.
+- No modificar la variable de control dentro del bucle. Si es necesario modificar la variable de control, asegurarse de que la condición de finalización del bucle siga siendo alcanzable.
+- Evitar las operaciones costosas dentro del bucle. Si es posible, realizar las operaciones costosas fuera del bucle o en una iteración separada.
+
+Siguiendo estas buenas prácticas en los bucles en JavaScript, podemos escribir código más legible, eficiente y menos propenso a errores sutiles.
+
+---
+# Ejercicios estructuras de control
+
+Esta sección contiene ejercicios para practicar los conceptos de estructuras de control en JavaScript.
+
+## Condicionales
+
+Los ejercicios de esta sección se basan en la declaración de condicionales.
+
+### Ejercicio 1
+
+Crea una variable llamada `edad` y asígnale el valor `18`. Crea una condicional que muestre un mensaje de alerta si la edad es mayor o igual a 18.
+
+```javascript
+var edad = 18;
+
+if (edad >= 18) {
+  alert("Eres mayor de edad");
+}
+```
+
+### Ejercicio 2
+
+Crea una variable llamada `edad` y asígnale el valor `18`. Crea una condicional que muestre un mensaje de alerta si la edad es mayor o igual a 18, y otro mensaje de alerta si la edad es menor a 18.
+
+```javascript
+var edad = 18;
+
+if (edad >= 18) {
+  alert("Eres mayor de edad");
+} else {
+  alert("Eres menor de edad");
+}
+```
+
+### Ejercicio 3
+
+Crea una variable llamada `edad` y asígnale el valor `18`. Crea una condicional que muestre un mensaje de alerta si la edad es mayor o igual a 18, otro mensaje de alerta si la edad es menor a 18, y otro mensaje de alerta si la edad es igual a 18.
+
+```javascript
+var edad = 18;
+
+if (edad >= 18) {
+  alert("Eres mayor de edad");
+} else if (edad < 18) {
+  alert("Eres menor de edad");
+} else {
+  alert("Tienes 18 años");
+}
+```
+
+
+### Ejercicio 4
+
+Crea una variable llamada `edad` y asígnale el valor `18`. Crea una condicional que muestre un mensaje de alerta si la edad es mayor o igual a 18, otro mensaje de alerta si la edad es menor a 18, y otro mensaje de alerta si la edad es igual a 18. Utiliza el operador ternario.
+
+```javascript
+var edad = 18;
+
+var mensaje = edad >= 18 ? "Eres mayor de edad" : "Eres menor de edad";
+
+alert(mensaje);
+```
+
+### Ejercicio 5
+
+Crea una variable llamada `edad` y asígnale el valor `18`. Crea una condicional que muestre un mensaje de alerta si la edad es mayor o igual a 18, otro mensaje de alerta si la edad es menor a 18, y otro mensaje de alerta si la edad es igual a 18. Utiliza el operador ternario y el operador lógico `&&`.
+
+```javascript
+var edad = 18;
+
+var mensaje = edad >= 18 ? "Eres mayor de edad" : edad < 18 && edad > 0 ? "Eres menor de edad" : "No has nacido";
+
+alert(mensaje);
+```
+
+### Ejercicio 6
+
+Crea una variable llamada `edad` y asígnale el valor `18`. Crea una condicional que muestre un mensaje de alerta si la edad es mayor o igual a 18, otro mensaje de alerta si la edad es menor a 18, y otro mensaje de alerta si la edad es igual a 18. Utiliza el operador ternario y el operador lógico `||`.
+
+```javascript
+var edad = 18;
+
+var mensaje = edad >= 18 ? "Eres mayor de edad" : edad < 18 || edad > 0 ? "Eres menor de edad" : "No has nacido";
+
+alert(mensaje);
+```
+
+### Ejercicio 7
+
+Escribe un programa que solicite al usuario que ingrese un número y determine si es par o impar. Si el número es par, el programa debe imprimir "El número ingresado es par". De lo contrario, el programa debe imprimir "El número ingresado es impar".
+
+```javascript
+const numero = parseInt(prompt("Ingrese un número"));
+
+if (numero % 2 === 0) {
+  console.log("El número ingresado es par");
+} else {
+  console.log("El número ingresado es impar");
+}
+```
+
+### Ejercicio 8
+
+Escribe un programa que solicite al usuario que ingrese un número del 1 al 7 y determine a qué día de la semana corresponde. Si el número es 1, el programa debe imprimir "Lunes", si es 2, debe imprimir "Martes", y así sucesivamente hasta llegar a 7, que corresponde a "Domingo". Si el usuario ingresa un número fuera del rango válido, el programa debe imprimir "Número inválido".
+
+```javascript
+const numero = parseInt(prompt("Ingrese un número del 1 al 7"));
+
+switch (numero) {
+  case 1:
+    console.log("Lunes");
+    break;
+  case 2:
+    console.log("Martes");
+    break;
+  case 3:
+    console.log("Miércoles");
+    break;
+  case 4:
+    console.log("Jueves");
+    break;
+  case 5:
+    console.log("Viernes");
+    break;
+  case 6:
+    console.log("Sábado");
+    break;
+  case 7:
+    console.log("Domingo");
+    break;
+  default:
+    console.log("Número inválido");
+    break;
+}
+```
+
+### Ejercicio 9
+
+Escribe un programa que imprima la tabla de multiplicar del número 5, del 1 al 10. El programa debe utilizar un bucle `for` para realizar la multiplicación y luego imprimir el resultado en cada iteración.
+
+```javascript
+const numero = 5;
+
+for (let i = 1; i <= 10; i++) {
+  const resultado = numero * i;
+  console.log(`${numero} x ${i} = ${resultado}`);
+}
+```
+
+### Ejercicio 10
+
+Escribe un programa que solicite al usuario que adivine un número secreto entre 1 y 10. El programa debe generar un número aleatorio y luego solicitar al usuario que ingrese un número hasta que adivine el número secreto. El programa debe imprimir "¡Adivinaste!" y salir del bucle `while` cuando el usuario adivine el número.
+
+```javascript
+const numeroSecreto = Math.floor(Math.random() * 10) + 1;
+let numeroAdivinado = parseInt(prompt("Adivina el número secreto entre 1 y 10"));
+
+while (numeroAdivinado !== numeroSecreto) {
+  numeroAdivinado = parseInt(prompt("Intenta de nuevo. Adivina el número secreto entre 1 y 10"));
+}
+
+console.log("¡Adivinaste!");
+```
+
+<div className="mt-10 flex items-center justify-center gap-16">
+  <Button className="w-32" variant="primary" href="./curso-javascript-02-fundamentos">
+    Anterior
+  </Button>
+  <Button variant="primary" href="/">
+    Inicio
+  </Button>
+  <Button className="w-32" variant="primary" href="./curso-javascript-04-funciones">
+    Siguiente
+  </Button>
+</div>
