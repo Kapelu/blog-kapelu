@@ -1,6 +1,7 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { flushSync } from 'react-dom'
+import { useEffect, useRef, useState } from 'react'
 import { useTheme } from 'next-themes'
 
 function SunIcon(props: React.SVGProps<SVGSVGElement>) {
@@ -25,7 +26,7 @@ function MoonStarIcon(props: React.SVGProps<SVGSVGElement>) {
     <svg viewBox='0 0 24 24' {...props}>
       <path
         d='M21 12.8A9 9 0 1 1 11.2 3
-          7 7 0 0 0 21 12.8z'
+           7 7 0 0 0 21 12.8z'
         fill='#9CA3AF'
       />
 
@@ -39,6 +40,9 @@ function MoonStarIcon(props: React.SVGProps<SVGSVGElement>) {
 
 export function ThemeToggle() {
   const { resolvedTheme, setTheme } = useTheme()
+
+  const buttonRef = useRef<HTMLButtonElement>(null)
+
   const [mounted, setMounted] = useState(false)
   const [rotating, setRotating] = useState(false)
 
@@ -47,30 +51,68 @@ export function ThemeToggle() {
   }, [])
 
   if (!mounted) {
-    return <button aria-label='Cambiar tema' className='h-9.5 w-9.5' />
+    return (
+      <button
+        className='flex h-9.5 w-9.5 items-center justify-center'
+        aria-label='Cambiar tema'
+      />
+    )
   }
 
   const isDark = resolvedTheme === 'dark'
 
+  const switchTheme = () => {
+    flushSync(() => {
+      setTheme(isDark ? 'light' : 'dark')
+    })
+  }
+
   const handleToggle = () => {
     setRotating(true)
 
-    setTheme(isDark ? 'light' : 'dark')
+    const button = buttonRef.current
 
-    setTimeout(() => {
-      setRotating(false)
-    }, 500)
+    if (button) {
+      const rect = button.getBoundingClientRect()
+
+      document.documentElement.style.setProperty(
+        '--theme-x',
+        `${rect.left + rect.width / 2}px`,
+      )
+
+      document.documentElement.style.setProperty(
+        '--theme-y',
+        `${rect.top + rect.height / 2}px`,
+      )
+    }
+
+    if (document.startViewTransition) {
+      const transition = document.startViewTransition(() => {
+        switchTheme()
+      })
+
+      transition.finished.finally(() => {
+        setRotating(false)
+      })
+    } else {
+      switchTheme()
+
+      setTimeout(() => {
+        setRotating(false)
+      }, 500)
+    }
   }
 
   return (
     <button
+      ref={buttonRef}
       onClick={handleToggle}
       aria-label='Cambiar tema'
-      className='h-9.5 w-9.5 flex items-center justify-center'>
+      className='flex h-9.5 w-9.5 items-center justify-center'>
       <div
         className={`
-          transition-transform duration-500
-          ${rotating ? 'rotate-180' : 'rotate-0'}
+          transition-transform duration-700 ease-out
+          ${rotating ? 'rotate-180 scale-110' : 'rotate-0 scale-100'}
         `}>
         {isDark ? (
           <SunIcon className='h-6 w-6' />
