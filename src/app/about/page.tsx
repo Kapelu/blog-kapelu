@@ -114,10 +114,7 @@ export default function About() {
                 strokeLinejoin='round'
                 className='h-6 w-6'>
                 <rect x='3' y='4' width='18' height='16' rx='2' />
-                <path d='M8 2v4' />
-                <path d='M16 2v4' />
                 <path d='M3 10h18' />
-                <path d='M9 15h6' />
               </svg>
             </a>
           </div>
